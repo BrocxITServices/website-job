@@ -139,7 +139,7 @@ body {
 .hero {
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
   color: white;
-  padding: var(--space-3xl) 0;
+  padding: var(--space-1xl) 0;
   margin-top: 3.25rem; /* Navbar compensation - gestandaardiseerd */
 }
 
