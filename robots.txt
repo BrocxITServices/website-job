@@ -1,0 +1,73 @@
+# AutoService Pro - Mobiele Automonteur Drachten & Friesland
+# Lokale SEO optimalisatie voor automonteur services
+
+User-agent: *
+Allow: /
+
+# Priority pages for local SEO
+Allow: /index.html
+Allow: /diensten.html
+Allow: /over-ons.html
+Allow: /contact.html
+Allow: /boeken.html
+
+# Static resources
+Allow: /css/
+Allow: /js/
+Allow: /images/
+Allow: /favicons/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.svg$
+Allow: /*.webp$
+
+# Local SEO friendly URLs (virtual/redirected)
+Allow: /apk-keuring-drachten
+Allow: /mobiele-automonteur-friesland
+Allow: /auto-reparatie-heerenveen
+Allow: /autoservice-gorredijk
+Allow: /garage-leeuwarden
+Allow: /auto-onderhoud-ureterp
+Allow: /autoservice-beetsterzwaag
+
+# Important local business files
+Allow: /manifest.json
+Allow: /sitemap.xml
+Allow: /robots.txt
+
+# Block sensitive and development files
+Disallow: /instructions.md
+Disallow: /README.md
+Disallow: /aanpassingen-*.md
+Disallow: *.log
+Disallow: /backup/
+Disallow: /temp/
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /admin/
+Disallow: /config/
+
+# Sitemap locations for search engines
+Sitemap: https://autoservicepro.nl/sitemap.xml
+
+# Special directives for local SEO
+# Crawl-delay optimized for local business
+Crawl-delay: 1
+
+# Google-specific settings for local business
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bing-specific settings  
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Yandex for international visibility
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2

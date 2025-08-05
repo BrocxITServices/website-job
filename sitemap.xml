@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:geo="http://www.google.com/geo/schemas/sitemap/1.0"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- Homepage with Geo Data -->
+    <url>
+        <loc>https://autoservicepro.nl/</loc>
+        <lastmod>2024-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <geo:geo>
+            <geo:format>kml</geo:format>
+        </geo:geo>
+    </url>
+
+    <!-- Main pages -->
+    <url>
+        <loc>https://autoservicepro.nl/index.html</loc>
+        <lastmod>2024-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <url>
+        <loc>https://autoservicepro.nl/diensten.html</loc>
+        <lastmod>2024-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://autoservicepro.nl/over-ons.html</loc>
+        <lastmod>2024-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://autoservicepro.nl/contact.html</loc>
+        <lastmod>2024-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://autoservicepro.nl/boeken.html</loc>
+        <lastmod>2024-08-05</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Local Service Areas -->
+    <url>
+        <loc>https://autoservicepro.nl/#lokaal</loc>
+        <lastmod>2024-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Service specific URLs for local SEO -->
+    <url>
+        <loc>https://autoservicepro.nl/apk-keuring-drachten</loc>
+        <lastmod>2024-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://autoservicepro.nl/mobiele-automonteur-friesland</loc>
+        <lastmod>2024-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://autoservicepro.nl/auto-reparatie-heerenveen</loc>
+        <lastmod>2024-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://autoservicepro.nl/autoservice-gorredijk</loc>
+        <lastmod>2024-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://autoservicepro.nl/garage-leeuwarden</loc>
+        <lastmod>2024-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://autoservicepro.nl/auto-onderhoud-ureterp</loc>
+        <lastmod>2024-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://autoservicepro.nl/autoservice-beetsterzwaag</loc>
+        <lastmod>2024-08-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+</urlset>

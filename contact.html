@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact AutoService Pro | Afspraak Mobiele Automonteur Drachten</title>
+    <meta name="description" content="Contact AutoService Pro Drachten: 0512-123-456. Afspraak mobiele automonteur, APK keuring, reparatie Friesland. Binnen 30 min ter plaatse.">
+    
+    <!-- Local SEO Meta Tags -->
+    <meta name="keywords" content="contact automonteur Drachten, afspraak mobiele monteur Friesland, APK keuring afspraak, auto reparatie contact Heerenveen, autoservice bellen Gorredijk, garage contact Leeuwarden, mobiele autoservice telefoonnummer, automonteur contact gegevens">
+    <meta name="author" content="AutoService Pro - Contact">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://autoservicepro.nl/contact.html">
+    
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="NL-FR">
+    <meta name="geo.placename" content="Drachten, Friesland">
+    <meta name="geo.position" content="53.1133;6.0980">
+    <meta name="ICBM" content="53.1133, 6.0980">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="business.business">
+    <meta property="og:title" content="Contact AutoService Pro - Mobiele Automonteur Drachten & Friesland">
+    <meta property="og:description" content="Neem contact op met AutoService Pro voor mobiele autoservice in Drachten, Heerenveen en heel Friesland. Binnen 30 minuten ter plaatse!">
+    <meta property="og:url" content="https://autoservicepro.nl/contact.html">
+    
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    
+    <style>
+        /* ========================================================================
+           CONTACT PAGINA SPECIFIEKE STYLES
+           ======================================================================== */
+        
+        .contact-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-md);
+            height: 100%;
+            border-left: 4px solid var(--accent-color);
+            transition: var(--transition-normal);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .contact-icon {
+            color: var(--accent-color);
+            font-size: 3rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .form-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .input, .textarea, .select select {
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 0.75rem var(--space-md);
+            font-size: 1rem;
+            transition: var(--transition-normal);
+        }
+        
+        .input:focus, .textarea:focus, .select select:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+        }
+        
+        .input.is-danger, .textarea.is-danger {
+            border-color: var(--error-color);
+        }
+        
+        .input.is-success, .textarea.is-success {
+            border-color: var(--success-color);
+        }
+        
+        .help.is-danger {
+            color: var(--error-color);
+            font-size: 0.875rem;
+            margin-top: var(--space-xs);
+        }
+        
+        .btn-primary:disabled {
+            background-color: #9ca3af !important;
+            border-color: #9ca3af !important;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .whatsapp-btn {
+            background-color: #25d366 !important;
+            border-color: #25d366 !important;
+            color: white !important;
+            font-weight: 600;
+            border-radius: var(--radius-md);
+            transition: var(--transition-normal);
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128c7e !important;
+            border-color: #128c7e !important;
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .opening-hours-table {
+            background: white;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .opening-hours-table td {
+            padding: 0.75rem var(--space-md);
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .opening-hours-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .opening-hours-table .day {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .emergency-card {
+            background: linear-gradient(135deg, var(--error-color) 0%, #dc2626 100%);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(239, 68, 68, 0.3);
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .emergency-card {
+                padding: 2.5rem var(--space-lg);
+                min-height: 280px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .emergency-card {
+                padding: var(--space-xl) var(--space-md);
+                min-height: 260px;
+            }
+        }
+        
+        .emergency-card h3 {
+            color: white;
+            margin-bottom: var(--space-md);
+        }
+        
+        .map-placeholder {
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--border-color) 100%);
+            border-radius: var(--radius-lg);
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #9ca3af;
+            color: var(--text-light);
+            font-size: 1.125rem;
+            text-align: center;
+            transition: var(--transition-normal);
+        }
+        
+        .map-placeholder:hover {
+            background: linear-gradient(135deg, var(--border-color) 0%, #d1d5db 100%);
+            border-color: var(--accent-color);
+        }
+        
+        .success-message {
+            background-color: var(--success-color);
+            color: white;
+            padding: var(--space-md) var(--space-lg);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-lg);
+            display: flex;
+            align-items: center;
+        }
+        
+        .success-message i {
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .error-message {
+            background-color: var(--error-color);
+            color: white;
+            padding: var(--space-md) var(--space-lg);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-lg);
+            display: flex;
+            align-items: center;
+        }
+        
+        .error-message i {
+            margin-right: 0.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-md);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .faq-question {
+            padding: var(--space-lg);
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition-normal);
+        }
+        
+        .faq-question:hover {
+            background-color: var(--light-gray);
+        }
+        
+        .faq-answer {
+            padding: 0 var(--space-lg) var(--space-lg) var(--space-lg);
+            display: none;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .faq-answer.is-active {
+            display: block;
+        }
+        
+        .faq-icon {
+            transition: var(--transition-normal);
+        }
+        
+        .faq-icon.is-rotated {
+            transform: rotate(180deg);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Extra utility classes voor contact pagina */
+        .opacity-20 { opacity: 0.2; }
+        
+        /* Responsive adjustments voor contact specifieke elementen */
+        @media (max-width: 768px) {
+            .form-card, .contact-card {
+                padding: var(--space-lg);
+            }
+            
+            .opening-hours-table {
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Navbar -->
+        <nav class="navbar is-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="index.html">
+                        <i class="fas fa-wrench"></i>
+                        <span class="ml-sm">AutoService Pro</span>
+                    </a>
+                    
+                    <a role="button" class="navbar-burger" :class="{'is-active': mobileMenuOpen}" @click="toggleMobileMenu">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                
+                <div class="navbar-menu" :class="{'is-active': mobileMenuOpen}">
+                    <div class="navbar-end">
+                        <a class="navbar-item" href="index.html" @click="closeMobileMenu">Home</a>
+                        <a class="navbar-item" href="over-ons.html" @click="closeMobileMenu">Over Ons</a>
+                        <a class="navbar-item" href="diensten.html" @click="closeMobileMenu">Diensten</a>
+                        <a class="navbar-item text-accent" href="contact.html" @click="closeMobileMenu">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-body">
+                <div class="container">
+                    <div class="columns is-vcentered">
+                        <div class="column is-8">
+                            <h1 class="hero-title">
+                                Contact AutoService Pro - Afspraak Maken
+                            </h1>
+                            <p class="hero-subtitle">
+                                Wilt u een afspraak maken voor APK keuring, auto reparatie of onderhoud in Drachten, Heerenveen, Gorredijk of heel Friesland? 
+                                Wij staan klaar om u te helpen. Binnen 30 minuten ter plaatse. Bel, WhatsApp of kom langs.
+                            </p>
+                            <div class="buttons">
+                                <a href="tel:+31512123456" class="button btn-primary is-large">
+                                    <i class="fas fa-phone"></i>
+                                    <span class="ml-sm">Direct Bellen</span>
+                                </a>
+                                <a href="https://wa.me/31512123456" target="_blank" class="button whatsapp-btn is-large">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <span class="ml-sm">WhatsApp</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="column is-4 has-text-centered">
+                            <i class="fas fa-headset opacity-20" style="font-size: 8rem;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Contactformulier</h2>
+                <div class="columns">
+                    <div class="column is-8 is-offset-2">
+                        <div class="form-card">
+                            <!-- Success Message -->
+                            <div v-if="formSubmitted && !formError" class="success-message fade-in">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <strong>Bedankt voor uw bericht!</strong><br>
+                                    Wij nemen binnen 24 uur contact met u op.
+                                </div>
+                            </div>
+                            
+                            <!-- Error Message -->
+                            <div v-if="formError" class="error-message fade-in">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <div>
+                                    <strong>Er is een fout opgetreden.</strong><br>
+                                    Probeer het opnieuw of bel ons direct: +31 (0)512 123 456
+                                </div>
+                            </div>
+                            
+                            <form @submit.prevent="submitForm" v-if="!formSubmitted || formError">
+                                <div class="columns">
+                                    <div class="column is-6">
+                                        <div class="field">
+                                            <label class="label">Naam *</label>
+                                            <div class="control has-icons-left">
+                                                <input 
+                                                    class="input" 
+                                                    :class="{'is-danger': errors.naam, 'is-success': !errors.naam && form.naam.length > 0}"
+                                                    type="text" 
+                                                    placeholder="Uw volledige naam"
+                                                    v-model="form.naam"
+                                                    @blur="validateField('naam')"
+                                                >
+                                                <span class="icon is-small is-left">
+                                                    <i class="fas fa-user"></i>
+                                                </span>
+                                            </div>
+                                            <p v-if="errors.naam" class="help is-danger">{{ errors.naam }}</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="column is-6">
+                                        <div class="field">
+                                            <label class="label">E-mailadres *</label>
+                                            <div class="control has-icons-left">
+                                                <input 
+                                                    class="input" 
+                                                    :class="{'is-danger': errors.email, 'is-success': !errors.email && form.email.length > 0}"
+                                                    type="email" 
+                                                    placeholder="uw@email.nl"
+                                                    v-model="form.email"
+                                                    @blur="validateField('email')"
+                                                >
+                                                <span class="icon is-small is-left">
+                                                    <i class="fas fa-envelope"></i>
+                                                </span>
+                                            </div>
+                                            <p v-if="errors.email" class="help is-danger">{{ errors.email }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="columns">
+                                    <div class="column is-6">
+                                        <div class="field">
+                                            <label class="label">Telefoonnummer</label>
+                                            <div class="control has-icons-left">
+                                                <input 
+                                                    class="input" 
+                                                    :class="{'is-danger': errors.telefoon, 'is-success': !errors.telefoon && form.telefoon.length > 0}"
+                                                    type="tel" 
+                                                    placeholder="06 12 34 56 78"
+                                                    v-model="form.telefoon"
+                                                    @blur="validateField('telefoon')"
+                                                >
+                                                <span class="icon is-small is-left">
+                                                    <i class="fas fa-phone"></i>
+                                                </span>
+                                            </div>
+                                            <p v-if="errors.telefoon" class="help is-danger">{{ errors.telefoon }}</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="column is-6">
+                                        <div class="field">
+                                            <label class="label">Onderwerp *</label>
+                                            <div class="control has-icons-left">
+                                                <div class="select is-fullwidth" :class="{'is-danger': errors.onderwerp, 'is-success': !errors.onderwerp && form.onderwerp.length > 0}">
+                                                    <select v-model="form.onderwerp" @change="validateField('onderwerp')">
+                                                        <option value="">Kies een onderwerp</option>
+                                                        <option value="Afspraak maken">Afspraak maken</option>
+                                                        <option value="APK keuring">APK keuring</option>
+                                                        <option value="Reparatie">Reparatie</option>
+                                                        <option value="Onderhoud">Onderhoud</option>
+                                                        <option value="Offerte aanvragen">Offerte aanvragen</option>
+                                                        <option value="Klacht">Klacht</option>
+                                                        <option value="Anders">Anders</option>
+                                                    </select>
+                                                </div>
+                                                <span class="icon is-small is-left">
+                                                    <i class="fas fa-tag"></i>
+                                                </span>
+                                            </div>
+                                            <p v-if="errors.onderwerp" class="help is-danger">{{ errors.onderwerp }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="field">
+                                    <label class="label">Bericht *</label>
+                                    <div class="control">
+                                        <textarea 
+                                            class="textarea" 
+                                            :class="{'is-danger': errors.bericht, 'is-success': !errors.bericht && form.bericht.length > 0}"
+                                            placeholder="Beschrijf uw vraag of het probleem met uw auto..."
+                                            rows="6"
+                                            v-model="form.bericht"
+                                            @blur="validateField('bericht')"
+                                        ></textarea>
+                                    </div>
+                                    <p v-if="errors.bericht" class="help is-danger">{{ errors.bericht }}</p>
+                                    <p class="help">{{ form.bericht.length }}/500 karakters</p>
+                                </div>
+                                
+                                <div class="field">
+                                    <div class="control">
+                                        <button 
+                                            type="submit" 
+                                            class="button btn-primary is-large is-fullwidth"
+                                            :disabled="isSubmitting || !isFormValid"
+                                            :class="{'is-loading': isSubmitting}"
+                                        >
+                                            <i class="fas fa-paper-plane" v-if="!isSubmitting"></i>
+                                            <span class="ml-sm">{{ isSubmitting ? 'Bezig met verzenden...' : 'Bericht Versturen' }}</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <p class="has-text-centered is-size-7 text-light mt-md">
+                                    Velden met een * zijn verplicht. Wij nemen binnen 24 uur contact met u op.
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Information Section -->
+        <section class="section bg-light">
+            <div class="container">
+                <h2 class="section-title">Bereikbaarheid</h2>
+                <div class="columns is-multiline">
+                    <!-- Address & General Info -->
+                    <div class="column is-4">
+                        <div class="contact-card">
+                            <div class="has-text-centered mb-lg">
+                                <i class="fas fa-map-marker-alt contact-icon"></i>
+                            </div>
+                            <h3 class="title is-4 text-primary text-center mb-lg">Bezoekadres</h3>
+                            <div class="content">
+                                <p class="has-text-centered text-lg mb-lg">
+                                    <strong>Noorderbuurt 45</strong><br>
+                                    9203 AB Drachten
+                                </p>
+                                <div class="text-left">
+                                    <div class="contact-info">
+                                        <i class="fas fa-phone"></i>
+                                        <span>+31 (0)512 123 456</span>
+                                    </div>
+                                    <div class="contact-info">
+                                        <i class="fas fa-envelope"></i>
+                                        <span>info@autoservicepro-drachten.nl</span>
+                                    </div>
+                                    <div class="contact-info">
+                                        <i class="fas fa-globe"></i>
+                                        <span>www.autoservicepro.nl</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Opening Hours -->
+                    <div class="column is-4">
+                        <div class="contact-card">
+                            <div class="has-text-centered mb-lg">
+                                <i class="fas fa-clock contact-icon"></i>
+                            </div>
+                            <h3 class="title is-4 text-primary text-center mb-lg">Openingstijden</h3>
+                            <table class="opening-hours-table is-fullwidth">
+                                <tbody>
+                                    <tr>
+                                        <td class="day">Maandag</td>
+                                        <td>08:00 - 17:30</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="day">Dinsdag</td>
+                                        <td>08:00 - 17:30</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="day">Woensdag</td>
+                                        <td>08:00 - 17:30</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="day">Donderdag</td>
+                                        <td>08:00 - 17:30</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="day">Vrijdag</td>
+                                        <td>08:00 - 17:30</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="day">Zaterdag</td>
+                                        <td>09:00 - 16:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="day">Zondag</td>
+                                        <td>Gesloten</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- WhatsApp & Social -->
+                    <div class="column is-4">
+                        <div class="contact-card">
+                            <div class="has-text-centered mb-lg">
+                                <i class="fab fa-whatsapp contact-icon"></i>
+                            </div>
+                            <h3 class="title is-4 text-primary text-center mb-lg">Direct Contact</h3>
+                            <div class="content has-text-centered">
+                                <p class="mb-lg">
+                                    Voor snelle vragen kunt u ons direct een WhatsApp bericht sturen.
+                                </p>
+                                <a href="https://wa.me/31512123456" target="_blank" class="button whatsapp-btn is-medium is-fullwidth mb-lg">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <span class="ml-sm">WhatsApp Sturen</span>
+                                </a>
+                                
+                                <p class="has-text-weight-semibold mb-md">Volg ons ook op:</p>
+                                <div class="has-text-centered">
+                                    <a href="#" class="social-link">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="social-link">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="#" class="social-link">
+                                        <i class="fab fa-google"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Map & Emergency Section -->
+        <section class="section">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-8">
+                        <h2 class="title is-3 text-primary mb-2xl">Locatie & Route</h2>
+                        <div class="map-placeholder">
+                            <div>
+                                <i class="fas fa-map-marked-alt mb-md" style="font-size: 3rem; display: block;"></i>
+                                <strong>Google Maps wordt hier geïntegreerd</strong><br>
+                                <span style="font-size: 1rem;">Noorderbuurt 45, 9203 AB Drachten</span><br>
+                                <small>Klik hier om routebeschrijving te krijgen</small>
+                            </div>
+                        </div>
+                        <div class="mt-lg">
+                            <p><strong>Ons werkgebied:</strong> Wij verlenen service in Drachten en heel Friesland (tot 25km).</p>
+                            <p><strong>Parkeren:</strong> Gratis parkeren direct voor de werkplaats beschikbaar.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="column is-4">
+                        <div class="emergency-card pulse">
+                            <i class="fas fa-ambulance mb-md" style="font-size: 3rem;"></i>
+                            <h3 class="title is-4">Spoedeisende Reparaties</h3>
+                            <p class="mb-lg text-lg">
+                                Pech of noodgeval? Wij zijn <strong>24/7 bereikbaar</strong> voor spoedgevallen.
+                            </p>
+                            <a href="tel:+31612345678" class="button is-white is-large is-fullwidth">
+                                <i class="fas fa-phone-alt"></i>
+                                <span class="ml-sm"><strong>Noodlijn: 06-12 345 678</strong></span>
+                            </a>
+                            <p class="mt-md text-sm opacity-90">
+                                Gemiddelde responstijd: 30 minuten<br>
+                                Service in heel Friesland
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section bg-light">
+            <div class="container">
+                <h2 class="section-title">Contact FAQ</h2>
+                <div class="columns">
+                    <div class="column is-8 is-offset-2">
+                        <div class="faq-item" v-for="(faq, index) in contactFaqs" :key="index">
+                            <div class="faq-question" @click="toggleFaq(index)">
+                                <span>{{ faq.question }}</span>
+                                <i class="fas fa-chevron-down faq-icon" :class="{'is-rotated': faq.isOpen}"></i>
+                            </div>
+                            <div class="faq-answer" :class="{'is-active': faq.isOpen}">
+                                {{ faq.answer }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="footer-title">
+                            <i class="fas fa-wrench"></i>
+                            <span class="ml-sm">AutoService Pro</span>
+                        </div>
+                        <p class="footer-description">
+                            Uw betrouwbare partner voor professionele autoservice. 
+                            Al meer dan 15 jaar zorgen wij voor kwaliteit en betrouwbaarheid.
+                        </p>
+                        <div class="contact-info">
+                            <i class="fas fa-phone"></i>
+                            <span>+31 (0)512 123 456</span>
+                        </div>
+                        <div class="contact-info">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@autoservicepro-drachten.nl</span>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="footer-title">Contactgegevens</div>
+                        <div class="contact-info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Noorderbuurt 45<br>9203 AB Drachten</span>
+                        </div>
+                        <div class="mt-md">
+                            <p class="has-text-weight-semibold mb-sm" style="color: rgba(255,255,255,0.9);">Openingstijden:</p>
+                            <p class="text-sm" style="color: rgba(255,255,255,0.8); line-height: 1.4;">
+                                Maandag - Vrijdag: 08:00 - 17:30<br>
+                                Zaterdag: 09:00 - 16:00<br>
+                                Zondag: Gesloten
+                            </p>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="footer-title">Snelle Links</div>
+                        <div class="content">
+                            <p><a href="index.html" class="footer-link">Home</a></p>
+                            <p><a href="over-ons.html" class="footer-link">Over Ons</a></p>
+                            <p><a href="diensten.html" class="footer-link">Diensten</a></p>
+                            <p><a href="contact.html" class="footer-link">Contact</a></p>
+                        </div>
+                        <div class="mt-2xl">
+                            <a href="#" class="social-link">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link">
+                                <i class="fab fa-google"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <hr class="mt-2xl mb-md" style="background-color: rgba(255,255,255,0.1);">
+                <div class="has-text-centered">
+                    <p class="text-sm" style="color: rgba(255,255,255,0.7);">
+                        © 2024 AutoService Pro. Alle rechten voorbehouden.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Vue.js 3 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <script>
+        const { createApp } = Vue;
+        
+        createApp({
+            data() {
+                return {
+                    mobileMenuOpen: false,
+                    isSubmitting: false,
+                    formSubmitted: false,
+                    formError: false,
+                    form: {
+                        naam: '',
+                        email: '',
+                        telefoon: '',
+                        onderwerp: '',
+                        bericht: ''
+                    },
+                    errors: {},
+                    contactFaqs: [
+                        {
+                            question: 'Hoe snel krijg ik antwoord op mijn vraag?',
+                            answer: 'Wij streven ernaar om binnen 24 uur te reageren op alle berichten. Voor spoedeisende vragen kunt u ons het beste direct bellen.',
+                            isOpen: false
+                        },
+                        {
+                            question: 'Kan ik ook buiten openingstijden contact opnemen?',
+                            answer: 'Ja, u kunt altijd een bericht sturen via het contactformulier of WhatsApp. Voor noodgevallen hebben wij een 24/7 pechhulplijn beschikbaar.',
+                            isOpen: false
+                        },
+                        {
+                            question: 'Is er parkeergelegenheid bij de werkplaats?',
+                            answer: 'Ja, er is gratis parkeergelegenheid direct voor onze werkplaats. U hoeft zich geen zorgen te maken over parkeerkosten.',
+                            isOpen: false
+                        },
+                        {
+                            question: 'Kunnen jullie ook bij mij thuis komen?',
+                            answer: 'Voor bepaalde diensten zoals APK keuring en klein onderhoud komen wij graag bij u thuis binnen een straal van 25 kilometer.',
+                            isOpen: false
+                        },
+                        {
+                            question: 'Hoe maak ik een afspraak?',
+                            answer: 'U kunt een afspraak maken door te bellen, een bericht te sturen via het contactformulier, of ons te appen via WhatsApp. Wij bevestigen altijd uw afspraak.',
+                            isOpen: false
+                        },
+                        {
+                            question: 'Wat moet ik meenemen naar de afspraak?',
+                            answer: 'Neem altijd uw kentekenbewijs mee, en bij APK keuring ook uw rijbewijs. Voor garantie claims heeft u eventueel facturen nodig.',
+                            isOpen: false
+                        }
+                    ]
+                }
+            },
+            computed: {
+                isFormValid() {
+                    return this.form.naam.length > 0 && 
+                           this.form.email.length > 0 && 
+                           this.form.onderwerp.length > 0 && 
+                           this.form.bericht.length > 0 &&
+                           Object.keys(this.errors).length === 0;
+                }
+            },
+            methods: {
+                toggleMobileMenu() {
+                    this.mobileMenuOpen = !this.mobileMenuOpen;
+                },
+                closeMobileMenu() {
+                    this.mobileMenuOpen = false;
+                },
+                validateField(field) {
+                    // Clear previous error
+                    if (this.errors[field]) {
+                        delete this.errors[field];
+                    }
+                    
+                    switch(field) {
+                        case 'naam':
+                            if (this.form.naam.length < 2) {
+                                this.$set(this.errors, 'naam', 'Naam moet minimaal 2 karakters bevatten');
+                            }
+                            break;
+                        case 'email':
+                            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                            if (!emailRegex.test(this.form.email)) {
+                                this.$set(this.errors, 'email', 'Voer een geldig e-mailadres in');
+                            }
+                            break;
+                        case 'telefoon':
+                            if (this.form.telefoon && this.form.telefoon.length > 0) {
+                                const phoneRegex = /^[+]?[\d\s\-()]{10,}$/;
+                                if (!phoneRegex.test(this.form.telefoon)) {
+                                    this.$set(this.errors, 'telefoon', 'Voer een geldig telefoonnummer in');
+                                }
+                            }
+                            break;
+                        case 'onderwerp':
+                            if (this.form.onderwerp.length === 0) {
+                                this.$set(this.errors, 'onderwerp', 'Selecteer een onderwerp');
+                            }
+                            break;
+                        case 'bericht':
+                            if (this.form.bericht.length < 10) {
+                                this.$set(this.errors, 'bericht', 'Bericht moet minimaal 10 karakters bevatten');
+                            } else if (this.form.bericht.length > 500) {
+                                this.$set(this.errors, 'bericht', 'Bericht mag maximaal 500 karakters bevatten');
+                            }
+                            break;
+                    }
+                },
+                validateForm() {
+                    // Reset errors
+                    this.errors = {};
+                    
+                    // Validate all fields
+                    this.validateField('naam');
+                    this.validateField('email');
+                    this.validateField('telefoon');
+                    this.validateField('onderwerp');
+                    this.validateField('bericht');
+                    
+                    return Object.keys(this.errors).length === 0;
+                },
+                async submitForm() {
+                    if (!this.validateForm()) {
+                        return;
+                    }
+                    
+                    this.isSubmitting = true;
+                    this.formError = false;
+                    
+                    try {
+                        // Simulate form submission
+                        await new Promise((resolve, reject) => {
+                            setTimeout(() => {
+                                // Simulate success/failure randomly for demo
+                                Math.random() > 0.1 ? resolve() : reject();
+                            }, 2000);
+                        });
+                        
+                        this.formSubmitted = true;
+                        
+                        // Reset form
+                        this.form = {
+                            naam: '',
+                            email: '',
+                            telefoon: '',
+                            onderwerp: '',
+                            bericht: ''
+                        };
+                        
+                    } catch (error) {
+                        this.formError = true;
+                        
+                        // Hide error after 5 seconds
+                        setTimeout(() => {
+                            this.formError = false;
+                        }, 5000);
+                    }
+                    
+                    this.isSubmitting = false;
+                },
+                toggleFaq(index) {
+                    this.contactFaqs[index].isOpen = !this.contactFaqs[index].isOpen;
+                }
+            },
+            mounted() {
+                // Vue 3 doesn't have $set, so we'll use a workaround
+                this.$set = (obj, key, value) => {
+                    obj[key] = value;
+                };
+                
+                // Smooth scrolling for anchor links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            const offsetTop = targetElement.offsetTop - 70; // Account for fixed navbar
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

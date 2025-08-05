@@ -1,0 +1,95 @@
+{
+  "name": "AutoService Pro - Mobiele Automonteur Drachten & Friesland",
+  "short_name": "AutoService Pro",
+  "description": "★ BESTE Mobiele Automonteur Drachten & Friesland ★ APK keuring bij u thuis ★ Service in Heerenveen, Gorredijk, Leeuwarden ★ BOVAG & RDW erkend ★ Binnen 30 min ter plaatse",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#1e3a8a",
+  "background_color": "#ffffff",
+  "categories": ["automotive", "business", "productivity", "local-business", "car-repair", "mobile-service"],
+  "lang": "nl-NL",
+  "dir": "ltr",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "APK Keuring Afspraak",
+      "short_name": "APK Boeken",
+      "description": "Maak snel een afspraak voor APK keuring in Drachten & Friesland",
+      "url": "/boeken.html",
+      "icons": [
+        {
+          "src": "/favicon-32x32.png",
+          "sizes": "32x32"
+        }
+      ]
+    },
+    {
+      "name": "Onze Diensten",
+      "short_name": "Diensten",
+      "description": "Bekijk al onze autoservice diensten",
+      "url": "/diensten.html",
+      "icons": [
+        {
+          "src": "/favicon-32x32.png",
+          "sizes": "32x32"
+        }
+      ]
+    },
+    {
+      "name": "Contact Drachten",
+      "short_name": "Contact",
+      "description": "Contact AutoService Pro Drachten voor mobiele autoservice",
+      "url": "/contact.html",
+      "icons": [
+        {
+          "src": "/favicon-32x32.png",
+          "sizes": "32x32"
+        }
+      ]
+    },
+    {
+      "name": "Direct Bellen",
+      "short_name": "Bellen",
+      "description": "Bel direct naar AutoService Pro: 0512-123-456",
+      "url": "tel:+31512123456",
+      "icons": [
+        {
+          "src": "/favicon-32x32.png",
+          "sizes": "32x32"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

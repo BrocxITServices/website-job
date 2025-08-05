@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diensten AutoService Pro | APK Onderhoud Reparatie Drachten</title>
+    <meta name="description" content="AutoService Pro diensten: APK keuring, onderhoud, reparaties, bandenservice Drachten & Friesland. Professioneel, betrouwbaar, eerlijke prijzen.">
+    
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    
+    <style>
+        /* Page-specific styles only - base styles are in base.css */
+        
+        .filter-controls {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .filter-btn {
+            background: transparent;
+            border: 2px solid #e5e7eb;
+            color: var(--text-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+            margin: 0.25rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .filter-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+        
+        .filter-btn.is-active {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+        }
+        
+        .service-detail-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .service-detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        
+        
+        .service-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .service-price {
+            background: var(--light-gray);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .price-tag {
+            color: var(--accent-color);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        
+        .service-features {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .service-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f3f4f6;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .service-features i {
+            color: var(--success-color);
+            margin-right: 0.75rem;
+            width: 16px;
+        }
+        
+        .duration-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background-color: var(--light-gray);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            display: none;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+        
+        .faq-answer.is-active {
+            display: block;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-icon.is-rotated {
+            transform: rotate(180deg);
+        }
+        
+        /* Loading Spinner */
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f4f6;
+            border-top: 4px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: var(--space-3xl) 0;
+            text-align: center;
+        }
+        
+        /* Mobile responsive adjustments for service page specific elements */
+        @media (max-width: 768px) {
+            .service-detail-card {
+                padding: var(--space-lg);
+            }
+            
+            .filter-controls {
+                padding: var(--space-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Navbar -->
+        <nav class="navbar is-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="index.html">
+                        <i class="fas fa-wrench"></i>
+                        <span class="ml-sm">AutoService Pro</span>
+                    </a>
+                    
+                    <a role="button" class="navbar-burger" :class="{'is-active': mobileMenuOpen}" @click="toggleMobileMenu">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                
+                <div class="navbar-menu" :class="{'is-active': mobileMenuOpen}">
+                    <div class="navbar-end">
+                        <a class="navbar-item" href="index.html" @click="closeMobileMenu">Home</a>
+                        <a class="navbar-item" href="over-ons.html" @click="closeMobileMenu">Over Ons</a>
+                        <a class="navbar-item text-accent" href="diensten.html" @click="closeMobileMenu">Diensten</a>
+                        <a class="navbar-item" href="contact.html" @click="closeMobileMenu">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-body">
+                <div class="container">
+                    <div class="columns is-vcentered">
+                        <div class="column is-8">
+                            <h1 class="hero-title">
+                                AutoService Pro Diensten
+                            </h1>
+                            <p class="hero-subtitle">
+                                Van APK keuring tot complete motordiagnose - wij bieden alle autoservices die u nodig heeft. 
+                                Professioneel, betrouwbaar en tegen eerlijke prijzen.
+                            </p>
+                            <a href="#diensten-overzicht" class="button btn-primary btn-lg">
+                                <i class="fas fa-list"></i>
+                                <span class="ml-sm">Bekijk Alle Diensten</span>
+                            </a>
+                        </div>
+                        <div class="column is-4 has-text-centered">
+                            <i class="fas fa-tools text-white opacity-20" style="font-size: 8rem;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter Section -->
+        <section id="diensten-overzicht" class="section">
+            <div class="container">
+                <h2 class="section-title">Alle Autoservices</h2>
+                
+                <!-- Loading State -->
+                <div id="services-loader" class="has-text-centered m-2xl">
+                    <div class="loading-spinner"></div>
+                    <p class="mt-md text-primary">Diensten laden...</p>
+                </div>
+                
+                <div class="filter-controls" style="display: none;">
+                    <div class="has-text-centered">
+                        <h3 class="title is-5 mb-lg">Filter op categorie:</h3>
+                        <div class="buttons is-centered">
+                            <button 
+                                class="filter-btn" 
+                                :class="{'is-active': activeFilter === 'alle'}"
+                                @click="setFilter('alle')"
+                            >
+                                <i class="fas fa-th-large"></i>
+                                <span class="ml-sm">Alle Diensten</span>
+                            </button>
+                            <button 
+                                class="filter-btn" 
+                                :class="{'is-active': activeFilter === 'onderhoud'}"
+                                @click="setFilter('onderhoud')"
+                            >
+                                <i class="fas fa-oil-can"></i>
+                                <span class="ml-sm">Onderhoud</span>
+                            </button>
+                            <button 
+                                class="filter-btn" 
+                                :class="{'is-active': activeFilter === 'reparatie'}"
+                                @click="setFilter('reparatie')"
+                            >
+                                <i class="fas fa-wrench"></i>
+                                <span class="ml-sm">Reparaties</span>
+                            </button>
+                            <button 
+                                class="filter-btn" 
+                                :class="{'is-active': activeFilter === 'inspectie'}"
+                                @click="setFilter('inspectie')"
+                            >
+                                <i class="fas fa-search"></i>
+                                <span class="ml-sm">Inspectie</span>
+                            </button>
+                            <button 
+                                class="filter-btn" 
+                                :class="{'is-active': activeFilter === 'noodhulp'}"
+                                @click="setFilter('noodhulp')"
+                            >
+                                <i class="fas fa-ambulance"></i>
+                                <span class="ml-sm">Noodhulp</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Grid -->
+                <div id="services-grid" class="columns is-multiline" style="display: none;">
+                    <div 
+                        v-for="service in filteredServices" 
+                        :key="service.id"
+                        class="column is-6-tablet is-4-desktop fade-in"
+                    >
+                        <div class="service-detail-card">
+                            <div class="has-text-centered mb-lg">
+                                <i :class="service.icon + ' service-icon'"></i>
+                                <div class="duration-badge">{{ service.duration }}</div>
+                            </div>
+                            
+                            <h3 class="service-title">{{ service.name }}</h3>
+                            <p class="mb-lg text-light">{{ service.description }}</p>
+                            
+                            <div class="service-price">
+                                <div class="is-flex is-justify-content-space-between is-align-items-center">
+                                    <span class="has-text-weight-semibold">Vanaf:</span>
+                                    <span class="price-tag">{{ service.price }}</span>
+                                </div>
+                            </div>
+                            
+                            <h4 class="has-text-weight-semibold mb-md text-primary">Inbegrepen:</h4>
+                            <ul class="service-features">
+                                <li v-for="feature in service.features" :key="feature">
+                                    <i class="fas fa-check"></i>
+                                    {{ feature }}
+                                </li>
+                            </ul>
+                            
+                            <div class="mt-lg">
+                                <a href="#contact" class="button btn-primary is-fullwidth">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span class="ml-sm">Afspraak Maken</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section bg-light">
+            <div class="container">
+                <h2 class="section-title">Vragen over Diensten</h2>
+                <div class="columns">
+                    <div class="column is-8 is-offset-2">
+                        <div class="faq-item" v-for="(faq, index) in faqs" :key="index">
+                            <div class="faq-question" @click="toggleFaq(index)">
+                                <span>{{ faq.question }}</span>
+                                <i class="fas fa-chevron-down faq-icon" :class="{'is-rotated': faq.isOpen}"></i>
+                            </div>
+                            <div class="faq-answer" :class="{'is-active': faq.isOpen}">
+                                {{ faq.answer }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="columns is-vcentered">
+                    <div class="column is-8 is-offset-2">
+                        <h2 class="title is-2 text-white mb-md">
+                            Klaar om uw auto te laten controleren?
+                        </h2>
+                        <p class="subtitle is-5 text-white opacity-90 mb-xl">
+                            Maak vandaag nog een afspraak en ervaar onze professionele service. 
+                            Wij staan klaar om uw auto de beste zorg te geven.
+                        </p>
+                        <div class="buttons is-centered">
+                            <a href="tel:+31512123456" class="button btn-lg bg-white text-primary font-semibold">
+                                <i class="fas fa-phone"></i>
+                                <span class="ml-sm">Bel Direct: +31 (0)512 123 456</span>
+                            </a>
+                            <a href="mailto:info@autoservicepro-drachten.nl" class="button btn-primary btn-lg">
+                                <i class="fas fa-envelope"></i>
+                                <span class="ml-sm">E-mail Versturen</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact" class="footer">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="footer-section">
+                            <div class="footer-title">
+                                <i class="fas fa-wrench"></i>
+                                AutoService Pro
+                            </div>
+                            <p class="footer-description">
+                                Uw betrouwbare partner voor professionele autoservice. 
+                                Al meer dan 15 jaar zorgen wij voor kwaliteit en betrouwbaarheid.
+                            </p>
+                            <div class="contact-info">
+                                <i class="fas fa-phone"></i>
+                                <span>+31 (0)512 123 456</span>
+                            </div>
+                            <div class="contact-info">
+                                <i class="fas fa-envelope"></i>
+                                <span>info@autoservicepro-drachten.nl</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="footer-section">
+                            <div class="footer-title">Contactgegevens</div>
+                            <div class="contact-info">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Noorderbuurt 45<br>9203 AB Drachten</span>
+                            </div>
+                            <div class="mt-md">
+                                <p class="font-semibold text-white opacity-90 mb-sm">Openingstijden:</p>
+                                <p class="text-white opacity-80 text-sm" style="line-height: 1.4;">
+                                    Maandag - Vrijdag: 08:00 - 17:30<br>
+                                    Zaterdag: 09:00 - 16:00<br>
+                                    Zondag: Gesloten
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4">
+                        <div class="footer-section">
+                            <div class="footer-title">Snelle Links</div>
+                            <div class="content">
+                                <a href="index.html" class="footer-link">Home</a>
+                                <a href="over-ons.html" class="footer-link">Over Ons</a>
+                                <a href="diensten.html" class="footer-link">Diensten</a>
+                                <a href="#contact" class="footer-link">Contact</a>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-google"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="opacity-10 bg-white mt-xl mb-md">
+                <div class="has-text-centered">
+                    <p class="text-white opacity-70 text-sm">
+                        © 2024 AutoService Pro. Alle rechten voorbehouden.
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Vue.js 3 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <script>
+        const { createApp } = Vue;
+        
+        createApp({
+            data() {
+                return {
+                    mobileMenuOpen: false,
+                    activeFilter: 'alle',
+                    services: [
+                        {
+                            id: 1,
+                            name: 'APK Keuring op Locatie',
+                            description: 'Officiële APK keuring bij u thuis of op kantoor. Geen gedoe met naar de garage brengen.',
+                            price: '€ 45,-',
+                            duration: '45 min',
+                            category: 'inspectie',
+                            icon: 'fas fa-clipboard-check',
+                            features: [
+                                'Volledige APK controle volgens RDW richtlijnen',
+                                'Direct APK certificaat bij goedkeuring',
+                                'Uitgebreide rapportage van bevindingen',
+                                'Advies voor eventuele reparaties',
+                                'Service op locatie (binnen 25km)'
+                            ]
+                        },
+                        {
+                            id: 2,
+                            name: 'Bandenservice',
+                            description: 'Complete bandenservice inclusief montage, balanceren en uitlijning voor optimale prestaties.',
+                            price: '€ 25,-',
+                            duration: '30 min',
+                            category: 'onderhoud',
+                            icon: 'fas fa-tire',
+                            features: [
+                                'Banden vervangen (montage per band)',
+                                'Wielen balanceren voor comfortabel rijden',
+                                'Bandenspanning controle',
+                                'Visuele inspectie op slijtage',
+                                'Advies over bandenkeuze'
+                            ]
+                        },
+                        {
+                            id: 3,
+                            name: 'Accu Service',
+                            description: 'Diagnose, test en vervanging van auto-accu\'s. Inclusief gratis accutest.',
+                            price: '€ 15,-',
+                            duration: '20 min',
+                            category: 'reparatie',
+                            icon: 'fas fa-car-battery',
+                            features: [
+                                'Gratis accutest en diagnose',
+                                'Professionele accu installatie',
+                                'Alle standaard accuformaten op voorraad',
+                                '2 jaar garantie op nieuwe accu',
+                                'Milieuvriendelijke afvoer oude accu'
+                            ]
+                        },
+                        {
+                            id: 4,
+                            name: 'Remmen Onderhoud',
+                            description: 'Volledige remservice inclusief remblokken, remschijven en remvloeistof controle.',
+                            price: '€ 85,-',
+                            duration: '90 min',
+                            category: 'onderhoud',
+                            icon: 'fas fa-stop-circle',
+                            features: [
+                                'Controle remblokken en remschijven',
+                                'Remvloeistof verversen',
+                                'Remleiding inspectie',
+                                'Remtest na afloop',
+                                'Kwaliteitsonderdelen gebruikt'
+                            ]
+                        },
+                        {
+                            id: 5,
+                            name: 'Motordiagnose',
+                            description: 'Uitgebreide computerdiagnose van uw motor met moderne diagnoseapparatuur.',
+                            price: '€ 65,-',
+                            duration: '60 min',
+                            category: 'inspectie',
+                            icon: 'fas fa-laptop-medical',
+                            features: [
+                                'Volledige OBD diagnose',
+                                'Foutcodes uitlezen en analyseren',
+                                'Motorparameters controleren',
+                                'Uitgebreid diagnoserapport',
+                                'Advies voor vervolgstappen'
+                            ]
+                        },
+                        {
+                            id: 6,
+                            name: 'Kleine Onderhoudsbeurt',
+                            description: 'Standaard onderhoudsbeurt volgens fabrieksspecificaties voor optimale prestaties.',
+                            price: '€ 95,-',
+                            duration: '60 min',
+                            category: 'onderhoud',
+                            icon: 'fas fa-oil-can',
+                            features: [
+                                'Motorolie verversen (tot 4 liter)',
+                                'Oliefilter vervangen',
+                                'Peilstanden controleren',
+                                'Visuele inspectie ondersteuning',
+                                'Onderhoudsboekje bijwerken'
+                            ]
+                        },
+                        {
+                            id: 7,
+                            name: 'Grote Onderhoudsbeurt',
+                            description: 'Uitgebreide onderhoudsbeurt met alle filters, vloeistoffen en controles.',
+                            price: '€ 185,-',
+                            duration: '120 min',
+                            category: 'onderhoud',
+                            icon: 'fas fa-cogs',
+                            features: [
+                                'Alle vloeistoffen controleren/verversen',
+                                'Luchtfilter en cabinefilter vervangen',
+                                'Uitgebreide veiligheidscontrole',
+                                'Riem- en slanginspectie',
+                                'Volledige rapportage en advies'
+                            ]
+                        },
+                        {
+                            id: 8,
+                            name: 'Airco Service',
+                            description: 'Complete airco service inclusief reiniging, vulling en lekdetectie.',
+                            price: '€ 75,-',
+                            duration: '45 min',
+                            category: 'onderhoud',
+                            icon: 'fas fa-snowflake',
+                            features: [
+                                'Airco systeem reiniging',
+                                'Koelmiddel aanvullen/verversen',
+                                'Lekdetectie uitgevoerd',
+                                'Filter vervangen indien nodig',
+                                'Prestatie test na afloop'
+                            ]
+                        },
+                        {
+                            id: 9,
+                            name: 'Ruiten Reparatie',
+                            description: 'Professionele reparatie van steenslag en scheuren in voor-, achter- en zijruiten.',
+                            price: '€ 35,-',
+                            duration: '30 min',
+                            category: 'reparatie',
+                            icon: 'fas fa-hammer',
+                            features: [
+                                'Steenslag reparatie (tot 2cm)',
+                                'Scheur reparatie waar mogelijk',
+                                'Kwaliteit hars gebruikt',
+                                'Garantie op uitgevoerd werk',
+                                'Advies bij vervanging nodig'
+                            ]
+                        },
+                        {
+                            id: 10,
+                            name: 'Elektronica Diagnose',
+                            description: 'Specialist diagnose van elektronische systemen, sensoren en moderne auto-elektronica.',
+                            price: '€ 85,-',
+                            duration: '75 min',
+                            category: 'inspectie',
+                            icon: 'fas fa-microchip',
+                            features: [
+                                'Elektrische systemen testen',
+                                'Sensor diagnose en kalibratie',
+                                'CAN-bus communicatie check',
+                                'Boordcomputer diagnose',
+                                'Moderne testapparatuur gebruikt'
+                            ]
+                        },
+                        {
+                            id: 11,
+                            name: '24/7 Pechhulp',
+                            description: 'Dag en nacht pechhulp service. Wij komen naar u toe waar u ook bent.',
+                            price: '€ 65,-',
+                            duration: 'Variabel',
+                            category: 'noodhulp',
+                            icon: 'fas fa-ambulance',
+                            features: [
+                                '24/7 bereikbaar voor noodgevallen',
+                                'Snelle responstijd (gem. 30 min)',
+                                'Ter plaatse reparatie indien mogelijk',
+                                'Sleep service naar werkplaats',
+                                'Ervaren pechservice monteurs'
+                            ]
+                        }
+                    ],
+                    faqs: [
+                        {
+                            question: 'Hoe lang van tevoren moet ik een afspraak maken?',
+                            answer: 'Voor regulier onderhoud raden wij aan om 1-2 weken van tevoren een afspraak te maken. Voor spoedeisende reparaties proberen wij u vaak nog dezelfde dag te helpen.',
+                            isOpen: false
+                        },
+                        {
+                            question: 'Kan ik mijn auto ook in het weekend laten repareren?',
+                            answer: 'Ja, wij zijn op zaterdag geopend van 09:00 tot 16:00. Voor noodgevallen hebben wij 24/7 pechhulp beschikbaar.',
+                            isOpen: false
+                        },
+                        {
+                            question: 'Krijg ik garantie op de uitgevoerde werkzaamheden?',
+                            answer: 'Absoluut! Wij geven 2 jaar garantie op alle onderdelen en 1 jaar garantie op arbeid. Bij APK keuringen geldt de wettelijke garantieperiode.',
+                            isOpen: false
+                        },
+                        {
+                            question: 'Kunnen jullie ook bij mij thuis service verlenen?',
+                            answer: 'Ja, voor bepaalde diensten zoals APK keuring, kleine reparaties en onderhoud komen wij graag bij u langs binnen een straal van 25 kilometer.',
+                            isOpen: false
+                        },
+                        {
+                            question: 'Welke betaalmethoden accepteren jullie?',
+                            answer: 'Wij accepteren contant geld, pinbetalingen, alle gangbare creditcards en ook factuurbetalingen voor zakelijke klanten.',
+                            isOpen: false
+                        },
+                        {
+                            question: 'Hoe weet ik zeker dat de prijzen kloppen?',
+                            answer: 'Alle prijzen zijn inclusief BTW en wij maken vooraf altijd een offerte. U betaalt nooit meer dan afgesproken, tenzij u akkoord gaat met extra werkzaamheden.',
+                            isOpen: false
+                        }
+                    ]
+                }
+            },
+            computed: {
+                filteredServices() {
+                    if (this.activeFilter === 'alle') {
+                        return this.services;
+                    }
+                    return this.services.filter(service => service.category === this.activeFilter);
+                }
+            },
+            methods: {
+                toggleMobileMenu() {
+                    this.mobileMenuOpen = !this.mobileMenuOpen;
+                },
+                closeMobileMenu() {
+                    this.mobileMenuOpen = false;
+                },
+                setFilter(filter) {
+                    this.activeFilter = filter;
+                },
+                toggleFaq(index) {
+                    this.faqs[index].isOpen = !this.faqs[index].isOpen;
+                }
+            },
+            mounted() {
+                // Simulate loading delay and show services
+                setTimeout(() => {
+                    document.getElementById('services-loader').style.display = 'none';
+                    document.querySelector('.filter-controls').style.display = 'block';
+                    document.getElementById('services-grid').style.display = 'flex';
+                }, 1500);
+                
+                // Smooth scrolling for anchor links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            const offsetTop = targetElement.offsetTop - 70; // Account for fixed navbar
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>

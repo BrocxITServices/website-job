@@ -1,0 +1,726 @@
+/*
+ * AutoService Pro - Custom Stylesheet
+ * Professional automotive service website styling
+ * Built on Bulma CSS Framework
+ */
+
+/* ========================================================================
+   CSS CUSTOM PROPERTIES (VARIABLES)
+   ======================================================================== */
+
+:root {
+  /* Automotive Color Palette */
+  --auto-primary: #1a365d;           /* Deep Navy Blue */
+  --auto-primary-light: #2d5582;     /* Lighter Navy */
+  --auto-primary-dark: #0f2942;      /* Darker Navy */
+  --auto-secondary: #e53e3e;         /* Racing Red */
+  --auto-secondary-light: #fc8181;   /* Light Red */
+  --auto-secondary-dark: #c53030;    /* Dark Red */
+  --auto-accent: #f6ad55;            /* Warm Orange */
+  --auto-accent-light: #fbd38d;      /* Light Orange */
+  --auto-accent-dark: #ed8936;       /* Dark Orange */
+  
+  /* Neutral Colors */
+  --auto-gray-50: #f7fafc;
+  --auto-gray-100: #edf2f7;
+  --auto-gray-200: #e2e8f0;
+  --auto-gray-300: #cbd5e0;
+  --auto-gray-400: #a0aec0;
+  --auto-gray-500: #718096;
+  --auto-gray-600: #4a5568;
+  --auto-gray-700: #2d3748;
+  --auto-gray-800: #1a202c;
+  --auto-gray-900: #171923;
+  
+  /* Semantic Colors */
+  --auto-success: #38a169;
+  --auto-warning: #d69e2e;
+  --auto-danger: #e53e3e;
+  --auto-info: #3182ce;
+  
+  /* Typography */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Poppins', var(--font-primary);
+  --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  
+  /* Spacing Scale */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 4rem;     /* 64px */
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15), 0 10px 10px rgba(0, 0, 0, 0.04);
+  
+  /* Borders */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.375rem;
+  --border-radius-lg: 0.5rem;
+  --border-radius-xl: 0.75rem;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+  
+  /* Z-index Scale */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+/* Dark Mode Variables (Prepared but disabled) */
+[data-theme="dark"] {
+  --auto-primary: #4299e1;
+  --auto-background: var(--auto-gray-900);
+  --auto-surface: var(--auto-gray-800);
+  --auto-text: var(--auto-gray-100);
+  /* Additional dark mode variables would go here */
+}
+
+/* ========================================================================
+   BULMA FRAMEWORK OVERRIDES
+   ======================================================================== */
+
+/* Primary Color Override */
+.has-background-primary,
+.button.is-primary,
+.hero.is-primary {
+  background-color: var(--auto-primary) !important;
+}
+
+.has-text-primary,
+.button.is-primary.is-outlined {
+  color: var(--auto-primary) !important;
+}
+
+.button.is-primary:hover {
+  background-color: var(--auto-primary-dark) !important;
+}
+
+/* Secondary/Danger Color Override */
+.has-background-danger,
+.button.is-danger,
+.hero.is-danger {
+  background-color: var(--auto-secondary) !important;
+}
+
+.has-text-danger {
+  color: var(--auto-secondary) !important;
+}
+
+/* Typography Overrides */
+.title,
+.subtitle {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+body {
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  color: var(--auto-gray-700);
+}
+
+/* Navbar Enhancements */
+.navbar {
+  box-shadow: var(--shadow-sm);
+  background-color: white;
+  border-bottom: 1px solid var(--auto-gray-200);
+  padding: 0.5rem 1rem;
+  max-width: 100vw;
+}
+
+.navbar-brand .navbar-item img {
+  max-height: 3rem;
+}
+
+.navbar-item:hover,
+.navbar-link:hover {
+  background-color: var(--auto-gray-50);
+  color: var(--auto-primary);
+  transition: var(--transition-fast);
+}
+
+/* Responsive Navbar Fixes */
+@media screen and (max-width: 1023px) {
+  .navbar-menu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    width: 100%;
+    box-shadow: var(--shadow-lg);
+    max-height: calc(100vh - 3.25rem);
+    overflow-y: auto;
+  }
+  
+  .navbar-menu.is-active {
+    display: block;
+  }
+  
+  .navbar-item {
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* Mobile specific (360px and smaller) */
+@media screen and (max-width: 360px) {
+  .navbar {
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .navbar-brand .navbar-item {
+    padding: 0.5rem 0.25rem;
+  }
+  
+  .navbar-burger {
+    height: 3.25rem;
+    width: 3.25rem;
+  }
+  
+  .navbar-menu {
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+}
+
+/* Card Enhancements */
+.card {
+  box-shadow: var(--shadow-md);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--auto-gray-200);
+  transition: var(--transition-normal);
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  background: linear-gradient(135deg, var(--auto-primary), var(--auto-primary-light));
+  color: white;
+  padding: var(--space-lg);
+}
+
+.card-header-title {
+  color: white;
+  font-weight: 600;
+}
+
+/* Button Enhancements */
+.button {
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+  transition: var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Custom CTA Button Styling */
+.btn-primary {
+  background-color: var(--auto-accent) !important;
+  border-color: var(--auto-accent) !important;
+  color: white !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #fb923c !important; /* Lighter orange on hover */
+  border-color: #fb923c !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(251, 146, 60, 0.3);
+}
+
+.button.is-rounded {
+  border-radius: 50px;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero.is-primary {
+  background: linear-gradient(135deg, var(--auto-primary), var(--auto-primary-light));
+}
+
+.hero-body {
+  padding: var(--space-3xl) var(--space-lg);
+}
+
+/* Section Spacing */
+.section {
+  padding: var(--space-3xl) var(--space-lg);
+}
+
+/* ========================================================================
+   CUSTOM UTILITY CLASSES
+   ======================================================================== */
+
+/* Spacing Utilities */
+.m-xs { margin: var(--space-xs) !important; }
+.m-sm { margin: var(--space-sm) !important; }
+.m-md { margin: var(--space-md) !important; }
+.m-lg { margin: var(--space-lg) !important; }
+.m-xl { margin: var(--space-xl) !important; }
+.m-2xl { margin: var(--space-2xl) !important; }
+.m-3xl { margin: var(--space-3xl) !important; }
+
+.p-xs { padding: var(--space-xs) !important; }
+.p-sm { padding: var(--space-sm) !important; }
+.p-md { padding: var(--space-md) !important; }
+.p-lg { padding: var(--space-lg) !important; }
+.p-xl { padding: var(--space-xl) !important; }
+.p-2xl { padding: var(--space-2xl) !important; }
+.p-3xl { padding: var(--space-3xl) !important; }
+
+/* Margin Top */
+.mt-xs { margin-top: var(--space-xs) !important; }
+.mt-sm { margin-top: var(--space-sm) !important; }
+.mt-md { margin-top: var(--space-md) !important; }
+.mt-lg { margin-top: var(--space-lg) !important; }
+.mt-xl { margin-top: var(--space-xl) !important; }
+.mt-2xl { margin-top: var(--space-2xl) !important; }
+.mt-3xl { margin-top: var(--space-3xl) !important; }
+
+/* Margin Bottom */
+.mb-xs { margin-bottom: var(--space-xs) !important; }
+.mb-sm { margin-bottom: var(--space-sm) !important; }
+.mb-md { margin-bottom: var(--space-md) !important; }
+.mb-lg { margin-bottom: var(--space-lg) !important; }
+.mb-xl { margin-bottom: var(--space-xl) !important; }
+.mb-2xl { margin-bottom: var(--space-2xl) !important; }
+.mb-3xl { margin-bottom: var(--space-3xl) !important; }
+
+/* Shadow Utilities */
+.shadow-sm { box-shadow: var(--shadow-sm) !important; }
+.shadow-md { box-shadow: var(--shadow-md) !important; }
+.shadow-lg { box-shadow: var(--shadow-lg) !important; }
+.shadow-xl { box-shadow: var(--shadow-xl) !important; }
+.shadow-none { box-shadow: none !important; }
+
+/* Border Radius Utilities */
+.rounded-sm { border-radius: var(--border-radius-sm) !important; }
+.rounded-md { border-radius: var(--border-radius-md) !important; }
+.rounded-lg { border-radius: var(--border-radius-lg) !important; }
+.rounded-xl { border-radius: var(--border-radius-xl) !important; }
+.rounded-full { border-radius: 50% !important; }
+
+/* Text Utilities */
+.text-automotive-primary { color: var(--auto-primary) !important; }
+.text-automotive-secondary { color: var(--auto-secondary) !important; }
+.text-automotive-accent { color: var(--auto-accent) !important; }
+
+.bg-automotive-primary { background-color: var(--auto-primary) !important; }
+.bg-automotive-secondary { background-color: var(--auto-secondary) !important; }
+.bg-automotive-accent { background-color: var(--auto-accent) !important; }
+
+/* Custom Components */
+.service-card {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-xl);
+  transition: var(--transition-normal);
+  border: 1px solid var(--auto-gray-200);
+  height: 100%;
+}
+
+.service-card:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+  border-color: var(--auto-primary);
+}
+
+.service-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--auto-primary), var(--auto-primary-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*! color: white; */
+  /*! font-size: 1.5rem; */
+  margin-bottom: var(--space-lg);
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+  background: white;
+  border-radius: var(--border-radius-xl);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  border-left: 4px solid var(--auto-accent);
+}
+
+.testimonial-card::before {
+  /*! content: '"'; */
+  /*font-size: 4rem;
+  color: var(--auto-gray-300);
+  position: absolute;
+  top: var(--space-sm);
+  left: var(--space-lg);
+  font-family: Georgia, serif;*/
+}
+
+/* Stats Section */
+.stat-item {
+  text-align: center;
+  padding: var(--space-xl);
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--auto-primary);
+  line-height: 1;
+  margin-bottom: var(--space-sm);
+}
+
+.stat-label {
+  color: var(--auto-gray-600);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.875rem;
+}
+
+/* Contact Form Enhancements */
+.form-group {
+  margin-bottom: var(--space-lg);
+}
+
+.input,
+.textarea,
+.select select {
+  border-radius: var(--border-radius-md);
+  border: 2px solid var(--auto-gray-300);
+  transition: var(--transition-fast);
+}
+
+.input:focus,
+.textarea:focus,
+.select select:focus {
+  border-color: var(--auto-primary);
+  box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1);
+}
+
+/* ========================================================================
+   RESPONSIVE DESIGN TWEAKS
+   ======================================================================== */
+
+/* Mobile First Approach */
+@media screen and (max-width: 768px) {
+  .hero-body {
+    padding: var(--space-2xl) var(--space-md);
+  }
+  
+  .section {
+    padding: var(--space-2xl) var(--space-md);
+  }
+  
+  .service-card {
+    margin-bottom: var(--space-lg);
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+  
+  .testimonial-card {
+    padding: var(--space-lg);
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  .hero-body {
+    padding: var(--space-3xl) var(--space-xl);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .hero-body {
+    padding: var(--space-3xl) var(--space-2xl);
+  }
+  
+  .section {
+    padding: var(--space-3xl) var(--space-2xl);
+  }
+}
+
+/* ========================================================================
+   PRINT STYLES FOR INVOICES/APPOINTMENTS
+   ======================================================================== */
+
+@media print {
+  /* Reset for print */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    color: black;
+    background: white;
+  }
+  
+  /* Hide navigation and non-essential elements */
+  .navbar,
+  .hero,
+  .footer,
+  .button,
+  .pagination,
+  .tabs,
+  .modal,
+  .notification {
+    display: none !important;
+  }
+  
+  /* Invoice/Appointment specific styles */
+  .print-header {
+    display: block !important;
+    border-bottom: 2px solid black;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .print-content {
+    display: block !important;
+  }
+  
+  .print-footer {
+    display: block !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid black;
+    padding-top: 10px;
+    font-size: 10pt;
+  }
+  
+  /* Table styles for invoices */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  th,
+  td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+  }
+  
+  /* Page breaks */
+  .page-break {
+    page-break-after: always;
+  }
+  
+  .avoid-break {
+    page-break-inside: avoid;
+  }
+  
+  /* Print-only utilities */
+  .print-only {
+    display: block !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* ========================================================================
+   PERFORMANCE OPTIMIZATIONS
+   ======================================================================== */
+
+/* Hardware acceleration for animations */
+.card,
+.button,
+.service-card {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Font loading optimization */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+}
+
+/* ========================================================================
+   ACCESSIBILITY ENHANCEMENTS
+   ======================================================================== */
+
+/* Focus indicators */
+:focus {
+  outline: 2px solid var(--auto-primary);
+  outline-offset: 2px;
+}
+
+/* Skip links */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--auto-primary);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: var(--z-tooltip);
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .card {
+    border: 2px solid currentColor;
+  }
+  
+  .button {
+    border: 2px solid currentColor;
+  }
+}
+
+/* ========================================================================
+   LOADING STATES & SPINNERS
+   ======================================================================== */
+
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--auto-primary);
+  animation: spin 1s ease-in-out infinite;
+}
+
+.loading-spinner.is-large {
+  width: 40px;
+  height: 40px;
+  border-width: 4px;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-modal);
+}
+
+/* Loading skeleton */
+.skeleton {
+  background: linear-gradient(90deg, var(--auto-gray-200) 25%, var(--auto-gray-100) 50%, var(--auto-gray-200) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: var(--border-radius-md);
+}
+
+.skeleton-text {
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+.skeleton-text:last-child {
+  width: 80%;
+  margin-bottom: 0;
+}
+
+/* ========================================================================
+   COMPONENT VARIANTS
+   ======================================================================== */
+
+/* Gradient backgrounds */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--auto-primary), var(--auto-primary-light));
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(135deg, var(--auto-secondary), var(--auto-secondary-light));
+}
+
+.bg-gradient-accent {
+  background: linear-gradient(135deg, var(--auto-accent), var(--auto-accent-light));
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Automotive themed patterns */
+.pattern-dots {
+  background-image: radial-gradient(circle, var(--auto-gray-300) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.pattern-grid {
+  background-image: 
+    linear-gradient(var(--auto-gray-200) 1px, transparent 1px),
+    linear-gradient(90deg, var(--auto-gray-200) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
