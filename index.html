@@ -109,8 +109,9 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts with Fallback -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
     
     <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -547,7 +548,7 @@
                 <div class="navbar-menu" :class="{'is-active': mobileMenuOpen}">
                     <div class="navbar-end">
                         <a class="navbar-item" href="#home" @click="closeMobileMenu">Home</a>
-                        <a class="navbar-item" href="#over-ons" @click="closeMobileMenu">Over Ons</a>
+                        <a class="navbar-item" href="over-ons.html" @click="closeMobileMenu">Over Ons</a>
                         <a class="navbar-item" href="diensten.html" @click="closeMobileMenu">Diensten</a>
                         <a class="navbar-item" href="contact.html" @click="closeMobileMenu">Contact</a>
                     </div>
@@ -854,7 +855,7 @@
                             BOVAG aangesloten • RDW erkend • 15+ jaar ervaring
                         </p>
                         <div class="mb-lg text-sm opacity-70">
-                            <p class="mb-xs"><strong>Service gebied:</strong></p>
+                            <p class="mb-xs"><strong style="color:white;">Service gebied:</strong></p>
                             <p>Drachten • Heerenveen • Gorredijk • Leeuwarden</p>
                             <p>Ureterp • Beetsterzwaag • En omliggende gemeenten</p>
                         </div>
