@@ -351,6 +351,16 @@ body {
   color: rgba(255,255,255,0.9);
 }
 
+.contact-info a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  transition: var(--transition-normal);
+}
+
+.contact-info a:hover {
+  color: var(--accent-color);
+}
+
 .contact-info i {
   color: var(--accent-color);
   width: 20px;

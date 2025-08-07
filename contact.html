@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Auto Reparatie Op Locatie | Monteur Nodig? Direct Bellen 0512-123-456</title>
-    <meta name="description" content="Monteur nodig voor uw garage? Bel direct 0512-123-456. Auto Reparatie Op Locatie Drachten: binnen 24 uur ervaren monteur bij ziekte, vakantie of piekdrukte. Heel Friesland.">
+    <meta name="description" content="Personeelstekort in uw garage? Bel direct 0512-123-456. Auto Reparatie Op Locatie: binnen 24 uur ervaren monteur voor garage ondersteuning bij ziekte, vakantie of piekdrukte. Heel Friesland.">
     
     <!-- Local SEO Meta Tags -->
     <meta name="keywords" content="contact monteur inhuur Drachten, garage ondersteuning contact, tijdelijke monteur Friesland, personeelstekort oplossing Heerenveen, monteur detachering contact Gorredijk, flexibele monteurs Leeuwarden, garage personeel contact">
@@ -21,7 +21,7 @@
     <!-- Open Graph -->
     <meta property="og:type" content="business.business">
     <meta property="og:title" content="Contact Auto Reparatie Op Locatie - Monteur Inhuur voor Garages Friesland">
-    <meta property="og:description" content="Neem contact op met Auto Reparatie Op Locatie voor flexibele monteur inhuur in Drachten, Heerenveen en heel Friesland. Direct beschikbaar!">
+    <meta property="og:description" content="Neem contact op met Auto Reparatie Op Locatie voor flexibele monteur inhuur voor uw garage in Drachten, Heerenveen en heel Friesland. Direct beschikbaar!">
     <meta property="og:url" content="https://autoservicepro.nl/contact.html">
     
     <!-- Bulma CSS -->
@@ -38,6 +38,9 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
+    
+    <!-- Mobile Optimizations CSS -->
+    <link rel="stylesheet" href="css/mobile.css">
     
     <style>
         /* ========================================================================
@@ -580,7 +583,7 @@
                                     </div>
                                     <div class="contact-info">
                                         <i class="fas fa-envelope"></i>
-                                        <span>info@autoreparatieoploatie.nl</span>
+                                        <span>info@arol-mobiel.nl</span>
                                     </div>
                                     <div class="contact-info">
                                         <i class="fas fa-globe"></i>
@@ -651,13 +654,7 @@
                                 
                                 <p class="has-text-weight-semibold mb-md">Volg ons ook op:</p>
                                 <div class="has-text-centered">
-                                    <a href="https://facebook.com/autoservicepro" target="_blank" rel="noopener noreferrer" class="contact-card-social facebook" aria-label="Facebook">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                    <a href="https://instagram.com/autoservicepro" target="_blank" rel="noopener noreferrer" class="contact-card-social instagram" aria-label="Instagram">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                    <a href="https://g.page/autoservicepro" target="_blank" rel="noopener noreferrer" class="contact-card-social google" aria-label="Google Business">
+                                    <a href="https://www.google.com/maps/place/Auto+Reparatie+Op+Locatie/@53.1133,6.0980,17z" target="_blank" rel="noopener noreferrer" class="contact-card-social google" aria-label="Google Maps">
                                         <i class="fab fa-google"></i>
                                     </a>
                                 </div>
@@ -740,8 +737,8 @@
                                 <span class="ml-sm">Auto Reparatie Op Locatie</span>
                             </div>
                             <p class="footer-description">
-                                Uw betrouwbare partner voor professionele autoservice. 
-                                Al meer dan 15 jaar zorgen wij voor kwaliteit en betrouwbaarheid.
+                                Specialist in monteur inhuur voor garages in Friesland. 
+                                Al meer dan 15 jaar ondersteunen wij garage-eigenaren met flexibele personeelsoplossingen.
                             </p>
                             <div class="contact-info">
                                 <i class="fas fa-phone"></i>
@@ -749,7 +746,7 @@
                             </div>
                             <div class="contact-info">
                                 <i class="fas fa-envelope"></i>
-                                <span>info@autoreparatieoploatie.nl</span>
+                                <span>info@arol-mobiel.nl</span>
                             </div>
                         </div>
                     </div>
@@ -782,13 +779,7 @@
                                 <a href="contact.html" class="footer-link">Contact</a>
                             </div>
                             <div class="social-links">
-                                <a href="#" class="social-link">
-                                    <i class="fab fa-facebook"></i>
-                                </a>
-                                <a href="#" class="social-link">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="#" class="social-link">
+                                <a href="https://www.google.com/maps/place/Auto+Reparatie+Op+Locatie/@53.1133,6.0980,17z" class="social-link" title="Google Maps">
                                     <i class="fab fa-google"></i>
                                 </a>
                             </div>
@@ -803,8 +794,16 @@
                 </div>
             </div>
         </footer>
+        
+        <!-- WhatsApp Floating Button (Mobile Only) -->
+        <a href="https://wa.me/31612345678?text=Hallo%20Auto%20Reparatie%20Op%20Locatie%2C%20ik%20heb%20een%20monteur%20nodig%20voor%20mijn%20garage" class="whatsapp-float mobile-only" title="WhatsApp Contact" aria-label="Contact via WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
     </div>
 
+    <!-- Mobile Utilities -->
+    <script src="js/mobile-utils.js"></script>
+    
     <!-- Vue.js 3 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     
@@ -843,8 +842,8 @@
                             isOpen: false
                         },
                         {
-                            question: 'Zijn de monteurs verzekerd voor schade?',
-                            answer: 'Ja, al onze monteurs zijn volledig verzekerd voor aansprakelijkheid en bedrijfsschade. U loopt geen risico bij inhuur van onze mensen.',
+                            question: 'Zijn de monteurs verzekerd voor schade in onze garage?',
+                            answer: 'Ja, al onze monteurs zijn volledig verzekerd voor aansprakelijkheid en bedrijfsschade. Uw garage loopt geen risico bij inhuur van onze monteurs.',
                             isOpen: false
                         },
                         {

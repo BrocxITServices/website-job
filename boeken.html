@@ -4,6 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monteur Aanvragen | Auto Reparatie Op Locatie - Garage Ondersteuning Friesland</title>
+    <meta name="description" content="Vraag direct een monteur aan voor uw garage in Friesland. Eenvoudig online aanvragen voor ziekte vervanging, vakantie ondersteuning of piekperiode versterking. Binnen 24 uur reactie.">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="monteur aanvragen garage Friesland, tijdelijke monteur boeken, garage personeel aanvragen, monteur inhuur formulier, flexibele monteurs aanvragen Drachten">
+    <meta name="author" content="Auto Reparatie Op Locatie - Monteur Aanvragen">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://autoservicepro.nl/boeken.html">
+    
+    <!-- Local SEO -->
+    <meta name="geo.region" content="NL-FR">
+    <meta name="geo.placename" content="Drachten, Friesland">
+    <meta name="geo.position" content="53.1133;6.0980">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Monteur Aanvragen voor Garage Ondersteuning in Friesland">
+    <meta property="og:description" content="Vraag eenvoudig een ervaren monteur aan voor uw garage. Snelle ondersteuning bij personeelstekorten in heel Friesland.">
+    <meta property="og:url" content="https://autoservicepro.nl/boeken.html">
+    <meta property="og:image" content="https://autoservicepro.nl/images/monteur-aanvragen.jpg">
+    
     
     <!-- Bulma CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
@@ -16,6 +36,12 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
+    
+    <!-- Mobile Optimizations CSS -->
+    <link rel="stylesheet" href="css/mobile.css">
+    
+    <!-- Mobile Utilities -->
+    <script src="js/mobile-utils.js"></script>
     
     <!-- Vue.js 3 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -509,7 +535,7 @@
                                                         class="input" 
                                                         type="text" 
                                                         v-model="customerInfo.carBrand"
-                                                        placeholder="Aantal werkplekken"
+                                                        placeholder="Aantal werkplekken in garage"
                                                     >
                                                 </div>
                                             </div>
@@ -519,7 +545,7 @@
                                                         class="input" 
                                                         type="text" 
                                                         v-model="customerInfo.carModel"
-                                                        placeholder="Specialisaties (bijv. BMW, Audi)"
+                                                        placeholder="Specialisaties garage (bijv. BMW, Audi, Elektrisch)"
                                                     >
                                                 </div>
                                             </div>
@@ -544,7 +570,7 @@
                                             <textarea 
                                                 class="textarea" 
                                                 v-model="customerInfo.notes"
-                                                placeholder="Beschrijf het type werk, specifieke vaardigheden of opmerkingen..."
+                                                placeholder="Beschrijf het type werk voor de monteur, specifieke vaardigheden benodigd, of andere opmerkingen voor uw garage..."
                                                 rows="3"
                                             ></textarea>
                                         </div>
@@ -1208,5 +1234,10 @@
     - Cancel booking
     
     -->
+    
+    <!-- WhatsApp Floating Button (Mobile Only) -->
+    <a href="https://wa.me/31612345678?text=Hallo%20Auto%20Reparatie%20Op%20Locatie%2C%20ik%20wil%20graag%20een%20monteur%20aanvragen" class="whatsapp-float mobile-only" title="WhatsApp Contact" aria-label="Contact via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 </body>
 </html>
