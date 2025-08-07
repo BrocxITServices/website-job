@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Afspraak Boeken | AutoService Pro Drachten</title>
+    <title>Monteur Aanvragen | Auto Reparatie Op Locatie - Garage Ondersteuning Friesland</title>
     
     <!-- Bulma CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
@@ -148,8 +148,10 @@
         <div class="container">
             <div class="navbar-brand">
                 <a class="navbar-item" href="index.html">
-                    <i class="fas fa-car text-blue-600 mr-2"></i>
-                    <span class="has-text-weight-bold">AutoService Pro</span>
+                    <i class="fas fa-wrench"></i>
+                    <div class="ml-sm">
+                        <div class="has-text-weight-bold">Auto Reparatie Op Locatie</div>
+                    </div>
                 </a>
             </div>
             <div class="navbar-menu">
@@ -168,11 +170,11 @@
         <div class="hero-body">
             <div class="container">
                 <h1 class="hero-title">
-                    <i class="fas fa-calendar-alt mr-md"></i>
-                    Online Afspraak Maken
+                    <i class="fas fa-handshake mr-md"></i>
+                    Monteur Aanvragen voor uw Garage
                 </h1>
                 <p class="hero-subtitle">
-                    Snel en eenvoudig uw afspraak plannen
+                    Vul uw behoefte in en wij nemen binnen 2 uur contact op met de beste oplossing voor uw garage
                 </p>
             </div>
         </div>
@@ -185,16 +187,16 @@
                 <!-- Step Indicator -->
                 <div class="step-indicator mb-2xl">
                     <div class="step" :class="{active: currentStep === 1, completed: currentStep > 1}">
-                        <i class="fas fa-cogs"></i>
-                        <div>Service</div>
+                        <i class="fas fa-user-tie"></i>
+                        <div>Uw Situatie</div>
                     </div>
                     <div class="step" :class="{active: currentStep === 2, completed: currentStep > 2}">
                         <i class="fas fa-calendar"></i>
                         <div>Datum & Tijd</div>
                     </div>
                     <div class="step" :class="{active: currentStep === 3, completed: currentStep > 3}">
-                        <i class="fas fa-user"></i>
-                        <div>Gegevens</div>
+                        <i class="fas fa-building"></i>
+                        <div>Garage Gegevens</div>
                     </div>
                     <div class="step" :class="{active: currentStep === 4, completed: currentStep > 4}">
                         <i class="fas fa-check"></i>
@@ -210,8 +212,8 @@
                             <div v-if="currentStep === 1" class="card">
                                 <div class="card-header">
                                     <p class="card-header-title">
-                                        <i class="fas fa-cogs mr-sm"></i>
-                                        Kies uw service
+                                        <i class="fas fa-user-tie mr-sm"></i>
+                                        Beschrijf uw personeelsbehoefte
                                     </p>
                                 </div>
                                 <div class="card-content">
@@ -240,7 +242,7 @@
                                                     <div class="level-right">
                                                         <div class="has-text-right">
                                                             <p class="title is-4 has-text-primary">€{{ service.price }}</p>
-                                                            <p class="has-text-grey">vanaf</p>
+                                                            <p class="has-text-grey">per uur</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -295,7 +297,7 @@
                                         </div>
                                         <div class="column is-half">
                                             <div class="field">
-                                                <label class="label">Locatie</label>
+                                                <label class="label">Waar</label>
                                                 <div class="control">
                                                     <div class="select is-fullwidth">
                                                         <select v-model="selectedLocation">
@@ -386,14 +388,14 @@
                                     <div class="columns">
                                         <div class="column is-half">
                                             <div class="field">
-                                                <label class="label">Voornaam *</label>
+                                                <label class="label">Garage Naam *</label>
                                                 <div class="control">
                                                     <input 
                                                         class="input" 
                                                         type="text" 
                                                         v-model="customerInfo.firstName"
                                                         :class="{'is-danger': errors.firstName}"
-                                                        placeholder="Uw voornaam"
+                                                        placeholder="Naam van uw garage"
                                                     >
                                                 </div>
                                                 <div v-if="errors.firstName" class="error-message">
@@ -403,14 +405,14 @@
                                         </div>
                                         <div class="column is-half">
                                             <div class="field">
-                                                <label class="label">Achternaam *</label>
+                                                <label class="label">Contactpersoon *</label>
                                                 <div class="control">
                                                     <input 
                                                         class="input" 
                                                         type="text" 
                                                         v-model="customerInfo.lastName"
                                                         :class="{'is-danger': errors.lastName}"
-                                                        placeholder="Uw achternaam"
+                                                        placeholder="Uw naam"
                                                     >
                                                 </div>
                                                 <div v-if="errors.lastName" class="error-message">
@@ -499,7 +501,7 @@
                                     </div>
 
                                     <div class="field">
-                                        <label class="label">Auto informatie</label>
+                                        <label class="label">Garage informatie</label>
                                         <div class="columns">
                                             <div class="column is-half">
                                                 <div class="control">
@@ -507,7 +509,7 @@
                                                         class="input" 
                                                         type="text" 
                                                         v-model="customerInfo.carBrand"
-                                                        placeholder="Merk (bijv. BMW, Audi)"
+                                                        placeholder="Aantal werkplekken"
                                                     >
                                                 </div>
                                             </div>
@@ -517,7 +519,7 @@
                                                         class="input" 
                                                         type="text" 
                                                         v-model="customerInfo.carModel"
-                                                        placeholder="Model en jaar"
+                                                        placeholder="Specialisaties (bijv. BMW, Audi)"
                                                     >
                                                 </div>
                                             </div>
@@ -525,24 +527,24 @@
                                     </div>
 
                                     <div class="field">
-                                        <label class="label">Kenteken</label>
+                                        <label class="label">KvK Nummer</label>
                                         <div class="control">
                                             <input 
-                                                class="input text-uppercase" 
+                                                class="input" 
                                                 type="text" 
                                                 v-model="customerInfo.licensePlate"
-                                                placeholder="XX-XXX-X"
+                                                placeholder="12345678"
                                             >
                                         </div>
                                     </div>
 
                                     <div class="field">
-                                        <label class="label">Opmerkingen</label>
+                                        <label class="label">Werkzaamheden & Opmerkingen</label>
                                         <div class="control">
                                             <textarea 
                                                 class="textarea" 
                                                 v-model="customerInfo.notes"
-                                                placeholder="Heeft u specifieke wensen of opmerkingen?"
+                                                placeholder="Beschrijf het type werk, specifieke vaardigheden of opmerkingen..."
                                                 rows="3"
                                             ></textarea>
                                         </div>
@@ -575,17 +577,17 @@
                                 <div class="card-header">
                                     <p class="card-header-title">
                                         <i class="fas fa-check mr-sm"></i>
-                                        Bevestig uw afspraak
+                                        Bevestig monteur reservering
                                     </p>
                                 </div>
                                 <div class="card-content">
                                     <div class="booking-summary">
-                                        <h4 class="title is-4 mb-xl">Overzicht van uw afspraak</h4>
+                                        <h4 class="title is-4 mb-xl">Overzicht van uw monteur reservering</h4>
                                         
                                         <div class="columns">
                                             <div class="column is-half">
                                                 <div class="field">
-                                                    <label class="label">Service</label>
+                                                    <label class="label">Monteur & Ondersteuning</label>
                                                     <p class="is-size-5">{{ selectedService?.name }}</p>
                                                     <p class="has-text-grey">{{ selectedService?.description }}</p>
                                                 </div>
@@ -611,22 +613,24 @@
                                             
                                             <div class="column is-half">
                                                 <div class="field">
-                                                    <label class="label">Klantgegevens</label>
-                                                    <p class="is-size-5">{{ customerInfo.firstName }} {{ customerInfo.lastName }}</p>
+                                                    <label class="label">Garage gegevens</label>
+                                                    <p class="is-size-5">{{ customerInfo.firstName }}</p>
+                                                    <p class="has-text-grey">Contact: {{ customerInfo.lastName }}</p>
                                                     <p class="has-text-grey">{{ customerInfo.email }}</p>
                                                     <p class="has-text-grey">{{ customerInfo.phone }}</p>
                                                 </div>
                                                 
                                                 <div class="field" v-if="customerInfo.carBrand || customerInfo.carModel">
-                                                    <label class="label">Voertuig</label>
-                                                    <p class="is-size-5">{{ customerInfo.carBrand }} {{ customerInfo.carModel }}</p>
-                                                    <p class="has-text-grey" v-if="customerInfo.licensePlate">{{ customerInfo.licensePlate }}</p>
+                                                    <label class="label">Garage Details</label>
+                                                    <p class="is-size-5">Werkplekken: {{ customerInfo.carBrand }}</p>
+                                                    <p class="has-text-grey">Specialisaties: {{ customerInfo.carModel }}</p>
+                                                    <p class="has-text-grey" v-if="customerInfo.licensePlate">KvK: {{ customerInfo.licensePlate }}</p>
                                                 </div>
                                                 
                                                 <div class="field">
                                                     <label class="label">Geschatte kosten</label>
                                                     <p class="title is-3 has-text-primary">€{{ selectedService?.price }}</p>
-                                                    <p class="has-text-grey is-size-7">Definitieve prijs na inspectie</p>
+                                                    <p class="has-text-grey is-size-7">Per uur, exclusief BTW</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -671,7 +675,7 @@
                                             :class="{'is-loading': submitting}"
                                         >
                                             <i class="fas fa-check mr-sm" v-if="!submitting"></i>
-                                            Afspraak Bevestigen
+                                            Monteur Reserveren
                                         </button>
                                     </div>
                                 </div>
@@ -683,9 +687,9 @@
                                     <div class="mb-xl">
                                         <i class="fas fa-check-circle has-text-success text-4xl"></i>
                                     </div>
-                                    <h2 class="title is-3 has-text-success">Afspraak Bevestigd!</h2>
+                                    <h2 class="title is-3 has-text-success">Monteur Gereserveerd!</h2>
                                     <p class="subtitle is-5 mb-xl">
-                                        Uw afspraak is succesvol geboekt voor {{ formatDate(selectedDate) }} om {{ selectedTime }}.
+                                        Uw monteur is succesvol gereserveerd voor {{ formatDate(selectedDate) }} om {{ selectedTime }}.
                                     </p>
                                     <div class="notification is-info is-light">
                                         <p><strong>Bevestigingsnummer:</strong> {{ confirmationNumber }}</p>
@@ -693,7 +697,7 @@
                                     </div>
                                     <div class="buttons is-centered mt-xl">
                                         <button class="button is-primary" @click="resetBooking">
-                                            Nieuwe Afspraak Boeken
+                                            Nieuwe Monteur Reserveren
                                         </button>
                                         <a href="index.html" class="button is-light">
                                             Terug naar Home
@@ -753,58 +757,58 @@
                     services: [
                         {
                             id: 1,
-                            name: 'APK Keuring',
-                            description: 'Verplichte jaarlijkse keuring van uw voertuig',
-                            duration: 60,
+                            name: 'Algemene Monteur - Jan',
+                            description: 'Ervaren monteur voor alle algemene werkzaamheden, APK keuringen en reparaties',
+                            duration: 480,
                             price: 45
                         },
                         {
                             id: 2,
-                            name: 'Grote Onderhoudsbeurt',
-                            description: 'Uitgebreide controle en onderhoud van uw auto',
-                            duration: 120,
-                            price: 199
+                            name: 'Elektronica Specialist - Peter',
+                            description: 'Specialist in moderne elektronica, diagnose en hybride/elektrische voertuigen',
+                            duration: 480,
+                            price: 52
                         },
                         {
                             id: 3,
-                            name: 'Kleine Onderhoudsbeurt',
-                            description: 'Basis onderhoud en controle punten',
-                            duration: 90,
-                            price: 129
+                            name: 'APK Keurmeester - Lisa',
+                            description: 'Gecertificeerde APK keurmeester en algemeen monteur',
+                            duration: 480,
+                            price: 47
                         },
                         {
                             id: 4,
-                            name: 'Airco Service',
-                            description: 'Controle en onderhoud van uw airconditioning',
-                            duration: 75,
-                            price: 89
+                            name: 'Flexibele Ondersteuning',
+                            description: 'Beste beschikbare monteur op basis van uw werkzaamheden',
+                            duration: 240,
+                            price: 45
                         },
                         {
                             id: 5,
-                            name: 'Bandenwissel',
-                            description: 'Wisselen van zomer naar winterbanden of omgekeerd',
-                            duration: 45,
-                            price: 35
+                            name: 'Weekend/Avond Ondersteuning',
+                            description: 'Monteur voor buiten kantooruren, weekends en spoedsituaties',
+                            duration: 480,
+                            price: 58
                         },
                         {
                             id: 6,
-                            name: 'Remmen Service',
-                            description: 'Controle en onderhoud van het remsysteem',
-                            duration: 90,
-                            price: 149
+                            name: 'Lange Termijn Inhuur',
+                            description: 'Monteur voor weken/maanden bij structurele groei of projecten',
+                            duration: 2400,
+                            price: 40
                         }
                     ],
                     
                     locations: [
                         {
                             id: 1,
-                            name: 'AutoService Pro Drachten',
-                            address: 'Noorderbuurt 45, 9203AB Drachten'
+                            name: 'Bij uw garage',
+                            address: 'Monteur komt naar uw locatie'
                         },
                         {
                             id: 2,
-                            name: 'AutoService Pro Heerenveen',
-                            address: 'Stationsplein 12, 8441AB Heerenveen'
+                            name: 'Auto Reparatie Op Locatie werkplaats',
+                            address: 'Noorderbuurt 45, 9203AB Drachten'
                         }
                     ],
                     
@@ -1145,11 +1149,11 @@
     EMAIL TEMPLATE (for future implementation)
     ==========================================
     
-    Subject: Afspraak bevestiging - AutoService Pro
+    Subject: Afspraak bevestiging - Auto Reparatie Op Locatie
     
     Beste {{customerName}},
     
-    Bedankt voor het boeken van een afspraak bij AutoService Pro!
+    Bedankt voor het boeken van een afspraak bij Auto Reparatie Op Locatie!
     
     AFSPRAAK DETAILS:
     ==================
@@ -1174,10 +1178,10 @@
     
     Heeft u vragen? Neem gerust contact met ons op:
     Telefoon: 0512-123456
-    Email: info@autoservicepro-drachten.nl
+    Email: info@autoreparatieoploatie.nl
     
     Met vriendelijke groet,
-    Het team van AutoService Pro
+    Het team van Auto Reparatie Op Locatie
     
     ==========================================
     API ENDPOINTS (for future implementation)

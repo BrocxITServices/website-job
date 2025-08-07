@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diensten AutoService Pro | APK Onderhoud Reparatie Drachten</title>
-    <meta name="description" content="AutoService Pro diensten: APK keuring, onderhoud, reparaties, bandenservice Drachten & Friesland. Professioneel, betrouwbaar, eerlijke prijzen.">
+    <title>Monteur Inhuur Garage | Tijdelijke Monteurs Friesland | Auto Reparatie Op Locatie</title>
+    <meta name="description" content="Monteur inhuur voor garages in Friesland: ziekte vervanging, vakantie ondersteuning, APK seizoen versterking. 3 ervaren monteurs binnen 24 uur beschikbaar. Geen overhead kosten.">
     
     <!-- Bulma CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
@@ -78,18 +78,7 @@
             margin-bottom: 1rem;
         }
         
-        .service-price {
-            background: var(--light-gray);
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-        }
-        
-        .price-tag {
-            color: var(--accent-color);
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
+        /* Price styling removed - contact for custom quote */
         
         .service-features {
             list-style: none;
@@ -205,7 +194,9 @@
                 <div class="navbar-brand">
                     <a class="navbar-item" href="index.html">
                         <i class="fas fa-wrench"></i>
-                        <span class="ml-sm">AutoService Pro</span>
+                        <div class="ml-sm">
+                            <div class="has-text-weight-bold">Auto Reparatie Op Locatie</div>
+                        </div>
                     </a>
                     
                     <a role="button" class="navbar-burger" :class="{'is-active': mobileMenuOpen}" @click="toggleMobileMenu">
@@ -219,8 +210,9 @@
                     <div class="navbar-end">
                         <a class="navbar-item" href="index.html">Home</a>
                         <a class="navbar-item" href="over-ons.html">Over Ons</a>
-                        <a class="navbar-item is-active" href="diensten.html">Diensten</a>
+                        <a class="navbar-item is-active" href="diensten.html">Monteur Inhuur</a>
                         <a class="navbar-item" href="contact.html">Contact</a>
+                        <a class="navbar-item" href="boeken.html">Monteur Aanvragen</a>
                     </div>
                 </div>
             </div>
@@ -233,15 +225,15 @@
                     <div class="columns is-vcentered">
                         <div class="column is-8">
                             <h1 class="hero-title">
-                                AutoService Pro Diensten
+                                Monteur Inhuur voor uw Garage - Direct Beschikbaar
                             </h1>
                             <p class="hero-subtitle">
-                                Van APK keuring tot complete motordiagnose - wij bieden alle autoservices die u nodig heeft. 
-                                Professioneel, betrouwbaar en tegen eerlijke prijzen.
+                                Personeelstekort in uw garage? Auto Reparatie Op Locatie levert binnen 24 uur ervaren monteurs voor elke situatie. 
+                                Van spoedvervanging bij ziekte tot structurele ondersteuning tijdens groei. Flexibel, betrouwbaar en zonder overhead.
                             </p>
-                            <a href="#diensten-overzicht" class="button btn-primary btn-lg">
-                                <i class="fas fa-list"></i>
-                                <span class="ml-sm">Bekijk Alle Diensten</span>
+                            <a href="tel:+31512123456" class="button btn-primary btn-lg">
+                                <i class="fas fa-phone"></i>
+                                <span class="ml-sm">Direct Contact: 0512-123-456</span>
                             </a>
                         </div>
                         <div class="column is-4 has-text-centered">
@@ -255,7 +247,7 @@
         <!-- Filter Section -->
         <section id="diensten-overzicht" class="section">
             <div class="container">
-                <h2 class="section-title">Alle Autoservices</h2>
+                <h2 class="section-title">Monteur Inhuur Oplossingen voor Garages</h2>
                 
                 <!-- Loading State -->
                 <div id="services-loader" class="has-text-centered m-2xl">
@@ -265,7 +257,7 @@
                 
                 <div class="filter-controls" style="display: none;">
                     <div class="has-text-centered">
-                        <h3 class="title is-5 mb-lg">Filter op categorie:</h3>
+                        <h3 class="title is-5 mb-lg">Kies uw situatie:</h3>
                         <div class="buttons is-centered">
                             <button 
                                 class="filter-btn" 
@@ -273,7 +265,7 @@
                                 @click="setFilter('alle')"
                             >
                                 <i class="fas fa-th-large"></i>
-                                <span class="ml-sm">Alle Diensten</span>
+                                <span class="ml-sm">Alle Situaties</span>
                             </button>
                             <button 
                                 class="filter-btn" 
@@ -281,7 +273,7 @@
                                 @click="setFilter('onderhoud')"
                             >
                                 <i class="fas fa-oil-can"></i>
-                                <span class="ml-sm">Onderhoud</span>
+                                <span class="ml-sm">Ziekte/Spoed</span>
                             </button>
                             <button 
                                 class="filter-btn" 
@@ -289,7 +281,7 @@
                                 @click="setFilter('reparatie')"
                             >
                                 <i class="fas fa-wrench"></i>
-                                <span class="ml-sm">Reparaties</span>
+                                <span class="ml-sm">Specialistische Hulp</span>
                             </button>
                             <button 
                                 class="filter-btn" 
@@ -297,7 +289,7 @@
                                 @click="setFilter('inspectie')"
                             >
                                 <i class="fas fa-search"></i>
-                                <span class="ml-sm">Inspectie</span>
+                                <span class="ml-sm">Vakantie Vervanging</span>
                             </button>
                             <button 
                                 class="filter-btn" 
@@ -305,7 +297,7 @@
                                 @click="setFilter('noodhulp')"
                             >
                                 <i class="fas fa-ambulance"></i>
-                                <span class="ml-sm">Noodhulp</span>
+                                <span class="ml-sm">Piekperiode</span>
                             </button>
                         </div>
                     </div>
@@ -327,14 +319,7 @@
                             <h3 class="service-title">{{ service.name }}</h3>
                             <p class="mb-lg text-light">{{ service.description }}</p>
                             
-                            <div class="service-price">
-                                <div class="is-flex is-justify-content-space-between is-align-items-center">
-                                    <span class="has-text-weight-semibold">Vanaf:</span>
-                                    <span class="price-tag">{{ service.price }}</span>
-                                </div>
-                            </div>
-                            
-                            <h4 class="has-text-weight-semibold mb-md text-primary">Inbegrepen:</h4>
+                            <h4 class="has-text-weight-semibold mb-md text-primary mt-lg">Wat wij bieden:</h4>
                             <ul class="service-features">
                                 <li v-for="feature in service.features" :key="feature">
                                     <i class="fas fa-check"></i>
@@ -357,7 +342,7 @@
         <!-- FAQ Section -->
         <section class="section bg-light">
             <div class="container">
-                <h2 class="section-title">Vragen over Diensten</h2>
+                <h2 class="section-title">Vragen over Monteur Inhuur</h2>
                 <div class="columns">
                     <div class="column is-8 is-offset-2">
                         <div class="faq-item" v-for="(faq, index) in faqs" :key="index">
@@ -380,18 +365,18 @@
                 <div class="columns is-vcentered">
                     <div class="column is-8 is-offset-2">
                         <h2 class="title is-2 text-white mb-md">
-                            Klaar om uw auto te laten controleren?
+                            Klaar om uw personeelstekort op te lossen?
                         </h2>
                         <p class="subtitle is-5 text-white opacity-90 mb-xl">
-                            Maak vandaag nog een afspraak en ervaar onze professionele service. 
-                            Wij staan klaar om uw auto de beste zorg te geven.
+                            Neem vandaag nog contact op en ervaar onze flexibele monteur inhuur. 
+                            Wij staan klaar om uw garage te ondersteunen wanneer u ons nodig heeft.
                         </p>
                         <div class="buttons is-centered">
                             <a href="tel:+31512123456" class="button btn-lg bg-white text-primary font-semibold">
                                 <i class="fas fa-phone"></i>
-                                <span class="ml-sm">Bel Direct: +31 (0)512 123 456</span>
+                                <span class="ml-sm">Monteur Nodig? Bel: +31 (0)512 123 456</span>
                             </a>
-                            <a href="mailto:info@autoservicepro-drachten.nl" class="button btn-primary btn-lg">
+                            <a href="mailto:info@autoreparatieoploatie.nl" class="button btn-primary btn-lg">
                                 <i class="fas fa-envelope"></i>
                                 <span class="ml-sm">E-mail Versturen</span>
                             </a>
@@ -409,7 +394,7 @@
                         <div class="footer-section">
                             <div class="footer-title">
                                 <i class="fas fa-wrench"></i>
-                                AutoService Pro
+                                <span class="ml-sm">Auto Reparatie Op Locatie</span>
                             </div>
                             <p class="footer-description">
                                 Uw betrouwbare partner voor professionele autoservice. 
@@ -421,7 +406,7 @@
                             </div>
                             <div class="contact-info">
                                 <i class="fas fa-envelope"></i>
-                                <span>info@autoservicepro-drachten.nl</span>
+                                <span>info@autoreparatieoploatie.nl</span>
                             </div>
                         </div>
                     </div>
@@ -468,7 +453,7 @@
                 <hr class="opacity-10 bg-white mt-xl mb-md">
                 <div class="has-text-centered">
                     <p class="text-white opacity-70 text-sm">
-                        © 2024 AutoService Pro. Alle rechten voorbehouden.
+                        © 2024 Auto Reparatie Op Locatie. Alle rechten voorbehouden.
                     </p>
                 </div>
             </div>
@@ -489,135 +474,129 @@
                     services: [
                         {
                             id: 1,
-                            name: 'APK Keuring op Locatie',
-                            description: 'Officiële APK keuring bij u thuis of op kantoor. Geen gedoe met naar de garage brengen.',
+                            name: 'Ziekte Vervanging',
+                            description: 'Monteur bij ziekte van uw personeel. Direct inzetbaar, geen inwerktijd nodig.',
                             price: '€ 45,-',
-                            duration: '45 min',
-                            category: 'inspectie',
-                            icon: 'fas fa-clipboard-check',
+                            duration: 'Per uur',
+                            category: 'onderhoud',
+                            icon: 'fas fa-user-clock',
                             features: [
-                                'Volledige APK controle volgens RDW richtlijnen',
-                                'Direct APK certificaat bij goedkeuring',
-                                'Uitgebreide rapportage van bevindingen',
-                                'Advies voor eventuele reparaties',
-                                'Service op locatie (binnen 25km)'
+                                'Direct beschikbare vervanging',
+                                'Ervaren monteur zonder inwerktijd',
+                                'Flexibele periode (dag tot weken)',
+                                'Eigen gereedschap en ervaring',
+                                'Naadloze integratie in uw team'
                             ]
                         },
                         {
                             id: 2,
-                            name: 'Bandenservice',
-                            description: 'Complete bandenservice inclusief montage, balanceren en uitlijning voor optimale prestaties.',
-                            price: '€ 25,-',
-                            duration: '30 min',
-                            category: 'onderhoud',
-                            icon: 'fas fa-tire',
+                            name: 'Vakantie Vervanging',
+                            description: 'Monteur tijdens vakantieperiodes van uw team. Geplande ondersteuning voor continuïteit.',
+                            duration: 'Per uur',
+                            category: 'inspectie',
+                            icon: 'fas fa-calendar-week',
                             features: [
-                                'Banden vervangen (montage per band)',
-                                'Wielen balanceren voor comfortabel rijden',
-                                'Bandenspanning controle',
-                                'Visuele inspectie op slijtage',
-                                'Advies over bandenkeuze'
+                                'Geplande vervanging tijdens vakanties',
+                                'Behoud van productiviteit',
+                                'Ervaren monteur kent alle merken',
+                                'Flexibele planning mogelijk',
+                                'Continuïteit van service aan klanten'
                             ]
                         },
                         {
                             id: 3,
-                            name: 'Accu Service',
-                            description: 'Diagnose, test en vervanging van auto-accu\'s. Inclusief gratis accutest.',
-                            price: '€ 15,-',
-                            duration: '20 min',
-                            category: 'reparatie',
-                            icon: 'fas fa-car-battery',
+                            name: 'Piekperiode Ondersteuning',
+                            description: 'Extra monteur bij drukte zoals APK seizoen of speciale acties. Flexibele versterking.',
+                            duration: 'Per uur',
+                            category: 'noodhulp',
+                            icon: 'fas fa-chart-line',
                             features: [
-                                'Gratis accutest en diagnose',
-                                'Professionele accu installatie',
-                                'Alle standaard accuformaten op voorraad',
-                                '2 jaar garantie op nieuwe accu',
-                                'Milieuvriendelijke afvoer oude accu'
+                                'Ondersteuning bij drukte periodes',
+                                'APK seizoen versterking',
+                                'Geen lange termijn verplichtingen',
+                                'Ervaren in alle werkzaamheden',
+                                'Helpt wachttijden verkorten'
                             ]
                         },
                         {
                             id: 4,
-                            name: 'Remmen Onderhoud',
-                            description: 'Volledige remservice inclusief remblokken, remschijven en remvloeistof controle.',
-                            price: '€ 85,-',
-                            duration: '90 min',
-                            category: 'onderhoud',
-                            icon: 'fas fa-stop-circle',
+                            name: 'Specialistische Ondersteuning',
+                            description: 'Expert monteur voor complexe diagnoses of specialistische merken. On-demand expertise.',
+                            duration: 'Per uur',
+                            category: 'reparatie',
+                            icon: 'fas fa-microscope',
                             features: [
-                                'Controle remblokken en remschijven',
-                                'Remvloeistof verversen',
-                                'Remleiding inspectie',
-                                'Remtest na afloop',
-                                'Kwaliteitsonderdelen gebruikt'
+                                'Specialistische diagnose expertise',
+                                'Complexe elektronica problemen',
+                                'Ervaring met alle merken',
+                                'Moderne diagnose apparatuur',
+                                'Kennisoverdracht aan uw team'
                             ]
                         },
                         {
                             id: 5,
-                            name: 'Motordiagnose',
-                            description: 'Uitgebreide computerdiagnose van uw motor met moderne diagnoseapparatuur.',
-                            price: '€ 65,-',
-                            duration: '60 min',
-                            category: 'inspectie',
-                            icon: 'fas fa-laptop-medical',
+                            name: 'Lange Termijn Inhuur',
+                            description: 'Monteur voor langere periode bij structurele groei of tijdelijke projecten.',
+                            duration: 'Per uur',
+                            category: 'onderhoud',
+                            icon: 'fas fa-handshake',
                             features: [
-                                'Volledige OBD diagnose',
-                                'Foutcodes uitlezen en analyseren',
-                                'Motorparameters controleren',
-                                'Uitgebreid diagnoserapport',
-                                'Advies voor vervolgstappen'
+                                'Langere periode ondersteuning',
+                                'Bij groei of nieuwe locatie',
+                                'Stabiele langetermijn samenwerking',
+                                'Wordt deel van uw team',
+                                'Flexibele contractduur'
                             ]
                         },
                         {
                             id: 6,
-                            name: 'Kleine Onderhoudsbeurt',
-                            description: 'Standaard onderhoudsbeurt volgens fabrieksspecificaties voor optimale prestaties.',
-                            price: '€ 95,-',
-                            duration: '60 min',
-                            category: 'onderhoud',
-                            icon: 'fas fa-oil-can',
+                            name: 'Spoed Ondersteuning',
+                            description: 'Acute monteur inhuur bij onverwachte uitval of spoedklussen binnen 24 uur.',
+                            duration: 'Per uur',
+                            category: 'noodhulp',
+                            icon: 'fas fa-ambulance',
                             features: [
-                                'Motorolie verversen (tot 4 liter)',
-                                'Oliefilter vervangen',
-                                'Peilstanden controleren',
-                                'Visuele inspectie ondersteuning',
-                                'Onderhoudsboekje bijwerken'
+                                'Binnen 24 uur beschikbaar',
+                                'Bij acute personeelsuitval',
+                                'Spoedklussen ondersteuning',
+                                'Flexibele inzet mogelijk',
+                                'Ervaren in crisis situaties'
                             ]
                         },
                         {
                             id: 7,
-                            name: 'Grote Onderhoudsbeurt',
-                            description: 'Uitgebreide onderhoudsbeurt met alle filters, vloeistoffen en controles.',
-                            price: '€ 185,-',
-                            duration: '120 min',
-                            category: 'onderhoud',
-                            icon: 'fas fa-cogs',
+                            name: 'APK Seizoen Versterking',
+                            description: 'Extra APK keurmeester tijdens drukke APK periodes. Ervaren in APK procedures.',
+                            duration: 'Per uur',
+                            category: 'inspectie',
+                            icon: 'fas fa-clipboard-check',
                             features: [
-                                'Alle vloeistoffen controleren/verversen',
-                                'Luchtfilter en cabinefilter vervangen',
-                                'Uitgebreide veiligheidscontrole',
-                                'Riem- en slanginspectie',
-                                'Volledige rapportage en advies'
+                                'Gecertificeerde APK keurmeester',
+                                'Ervaring met APK procedures',
+                                'Helpt wachttijden verkorten',
+                                'Kent alle voertuigtypen',
+                                'Flexibele inzet tijdens seizoen'
                             ]
                         },
                         {
                             id: 8,
-                            name: 'Airco Diagnose',
-                            description: 'Complete airco diagnose.',
-                            price: '€ 75,-',
-                            duration: '45 min',
-                            category: 'onderhoud',
-                            icon: 'fas fa-snowflake',
+                            name: 'Weekend & Avond Ondersteuning',
+                            description: 'Monteur voor weekends of avonden wanneer uw reguliere team niet beschikbaar is.',
+                            duration: 'Per uur',
+                            category: 'reparatie',
+                            icon: 'fas fa-moon',
                             features: [
-                                'Diagnose van het airco systeem',
-                                'Koelmiddel aanvullen/verversen',
-                                'Filter vervangen indien nodig'
+                                'Weekend en avond beschikbaarheid',
+                                'Service continuïteit',
+                                'Voor spoedreparaties',
+                                'Flexibele werktijden',
+                                'Ervaren in diverse werkzaamheden'
                             ]
                         },
                         // {
                         //     id: 9,
                         //     name: 'Ruiten Reparatie',
                         //     description: 'Professionele reparatie van steenslag en scheuren in voor-, achter- en zijruiten.',
-                        //     price: '€ 35,-',
                         //     duration: '30 min',
                         //     category: 'reparatie',
                         //     icon: 'fas fa-hammer',
@@ -631,25 +610,23 @@
                         // },
                         {
                             id: 10,
-                            name: 'Elektronica Diagnose',
-                            description: 'Specialist diagnose van elektronische systemen, sensoren en moderne auto-elektronica.',
-                            price: '€ 85,-',
-                            duration: '75 min',
-                            category: 'inspectie',
-                            icon: 'fas fa-microchip',
+                            name: 'Opleidingsondersteuning',
+                            description: 'Ervaren monteur die uw junior medewerkers kan begeleiden en opleiden.',
+                            duration: 'Per uur',
+                            category: 'reparatie',
+                            icon: 'fas fa-chalkboard-teacher',
                             features: [
-                                'Elektrische systemen testen',
-                                'Sensor diagnose en kalibratie',
-                                'CAN-bus communicatie check',
-                                'Boordcomputer diagnose',
-                                'Moderne testapparatuur gebruikt'
+                                'Begeleiding van junior monteurs',
+                                'Kennisoverdracht en training',
+                                'Verhoogt kwaliteit van uw team',
+                                'Praktijkgerichte begeleiding',
+                                'Investering in uw personeel'
                             ]
                         },
                         // {
                         //     id: 11,
                         //     name: '24/7 Pechhulp',
                         //     description: 'Dag en nacht pechhulp service. Wij komen naar u toe waar u ook bent.',
-                        //     price: '€ 65,-',
                         //     duration: 'Variabel',
                         //     category: 'noodhulp',
                         //     icon: 'fas fa-ambulance',
@@ -664,33 +641,33 @@
                     ],
                     faqs: [
                         {
-                            question: 'Hoe lang van tevoren moet ik een afspraak maken?',
-                            answer: 'Voor regulier onderhoud raden wij aan om 1-2 weken van tevoren een afspraak te maken. Voor spoedeisende reparaties proberen wij u vaak nog dezelfde dag te helpen.',
+                            question: 'Hoe snel kunnen jullie een monteur leveren?',
+                            answer: 'Voor geplande inhuur kunnen wij meestal binnen 1-2 dagen een monteur leveren. Voor spoedgevallen streven wij naar beschikbaarheid binnen 24 uur.',
                             isOpen: false
                         },
                         {
-                            question: 'Kan ik mijn auto ook in het weekend laten repareren?',
-                            answer: 'Ja, wij zijn op zaterdag geopend op afspraak.',
+                            question: 'Zijn de monteurs ervaren genoeg voor onze werkzaamheden?',
+                            answer: 'Ja, onze 3 monteurs hebben alle 15+ jaar ervaring en zijn volledig gekwalificeerd. Zij kennen alle gangbare merken en zijn breed inzetbaar.',
                             isOpen: false
                         },
                         {
-                            question: 'Krijg ik garantie op de uitgevoerde werkzaamheden?',
-                            answer: 'Absoluut! Wij geven 2 jaar garantie op alle onderdelen en 1 jaar garantie op arbeid. Bij APK keuringen geldt de wettelijke garantieperiode.',
+                            question: 'Hoe werkt de facturering?',
+                            answer: 'Wij werken met transparante afspraken op maat. U betaalt alleen voor de daadwerkelijk gewerkte uren. Geen vaste contracten of minimum afname verplichtingen. Neem contact op voor een offerte.',
                             isOpen: false
                         },
                         {
-                            question: 'Kunnen jullie ook bij mij thuis service verlenen?',
-                            answer: 'Ja, voor bepaalde diensten zoals APK keuring, kleine reparaties en onderhoud komen wij graag bij u langs binnen een straal van 25 kilometer.',
+                            question: 'Brengen de monteurs hun eigen gereedschap mee?',
+                            answer: 'Ja, onze monteurs hebben hun eigen professionele gereedschap en diagnose apparatuur. Dit zorgt ervoor dat zij direct productief kunnen zijn.',
                             isOpen: false
                         },
                         {
-                            question: 'Welke betaalmethoden accepteren jullie?',
-                            answer: 'Wij accepteren contant geld, pinbetalingen, alle gangbare creditcards en ook factuurbetalingen voor zakelijke klanten.',
+                            question: 'Kunnen we de monteur voor langere periode inhuren?',
+                            answer: 'Absoluut! Wij bieden zowel korte termijn inhuur (dagen) als lange termijn samenwerking (weken/maanden). Neem contact op voor de mogelijkheden.',
                             isOpen: false
                         },
                         {
-                            question: 'Hoe weet ik zeker dat de prijzen kloppen?',
-                            answer: 'Alle prijzen zijn inclusief BTW en wij maken vooraf altijd een offerte. U betaalt nooit meer dan afgesproken, tenzij u akkoord gaat met extra werkzaamheden.',
+                            question: 'Wat als de monteur niet geschikt blijkt?',
+                            answer: 'Mocht de samenwerking niet naar wens verlopen, dan kunt u de inhuur direct stoppen. Wij streven altijd naar de beste match tussen monteur en garage.',
                             isOpen: false
                         }
                     ]

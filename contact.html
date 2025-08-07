@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact AutoService Pro | Afspraak Mobiele Automonteur Drachten</title>
-    <meta name="description" content="Contact AutoService Pro Drachten: 0512-123-456. Afspraak mobiele automonteur, APK keuring, reparatie Friesland. Binnen 30 min ter plaatse.">
+    <title>Contact Auto Reparatie Op Locatie | Monteur Nodig? Direct Bellen 0512-123-456</title>
+    <meta name="description" content="Monteur nodig voor uw garage? Bel direct 0512-123-456. Auto Reparatie Op Locatie Drachten: binnen 24 uur ervaren monteur bij ziekte, vakantie of piekdrukte. Heel Friesland.">
     
     <!-- Local SEO Meta Tags -->
-    <meta name="keywords" content="contact automonteur Drachten, afspraak mobiele monteur Friesland, APK keuring afspraak, auto reparatie contact Heerenveen, autoservice bellen Gorredijk, garage contact Leeuwarden, mobiele autoservice telefoonnummer, automonteur contact gegevens">
-    <meta name="author" content="AutoService Pro - Contact">
+    <meta name="keywords" content="contact monteur inhuur Drachten, garage ondersteuning contact, tijdelijke monteur Friesland, personeelstekort oplossing Heerenveen, monteur detachering contact Gorredijk, flexibele monteurs Leeuwarden, garage personeel contact">
+    <meta name="author" content="Auto Reparatie Op Locatie - Contact">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://autoservicepro.nl/contact.html">
     
@@ -20,8 +20,8 @@
     
     <!-- Open Graph -->
     <meta property="og:type" content="business.business">
-    <meta property="og:title" content="Contact AutoService Pro - Mobiele Automonteur Drachten & Friesland">
-    <meta property="og:description" content="Neem contact op met AutoService Pro voor mobiele autoservice in Drachten, Heerenveen en heel Friesland. Binnen 30 minuten ter plaatse!">
+    <meta property="og:title" content="Contact Auto Reparatie Op Locatie - Monteur Inhuur voor Garages Friesland">
+    <meta property="og:description" content="Neem contact op met Auto Reparatie Op Locatie voor flexibele monteur inhuur in Drachten, Heerenveen en heel Friesland. Direct beschikbaar!">
     <meta property="og:url" content="https://autoservicepro.nl/contact.html">
     
     <!-- Bulma CSS -->
@@ -346,7 +346,9 @@
                 <div class="navbar-brand">
                     <a class="navbar-item" href="index.html">
                         <i class="fas fa-wrench"></i>
-                        <span class="ml-sm">AutoService Pro</span>
+                        <div class="ml-sm">
+                            <div class="has-text-weight-bold">Auto Reparatie Op Locatie</div>
+                        </div>
                     </a>
                     
                     <a role="button" class="navbar-burger" :class="{'is-active': mobileMenuOpen}" @click="toggleMobileMenu">
@@ -360,8 +362,9 @@
                     <div class="navbar-end">
                         <a class="navbar-item" href="index.html">Home</a>
                         <a class="navbar-item" href="over-ons.html">Over Ons</a>
-                        <a class="navbar-item" href="diensten.html">Diensten</a>
+                        <a class="navbar-item" href="diensten.html">Monteur Inhuur</a>
                         <a class="navbar-item is-active" href="contact.html">Contact</a>
+                        <a class="navbar-item" href="boeken.html">Monteur Aanvragen</a>
                     </div>
                 </div>
             </div>
@@ -374,20 +377,20 @@
                     <div class="columns is-vcentered">
                         <div class="column is-8">
                             <h1 class="hero-title">
-                                Contact AutoService Pro - Afspraak Maken
+                                Monteur Nodig? Wij Zijn Er Binnen 24 Uur
                             </h1>
                             <p class="hero-subtitle">
-                                Wilt u een afspraak maken voor APK keuring, auto reparatie of onderhoud in Drachten, Heerenveen, Gorredijk of heel Friesland? 
-                                Wij staan klaar om u te helpen. Binnen 30 minuten ter plaatse. Bel, WhatsApp of kom langs.
+                                Personeel uitgevallen? APK seizoen drukte? Vakantie periode? Auto Reparatie Op Locatie lost uw personeelstekort direct op. 
+                                3 ervaren monteurs beschikbaar voor garages in heel Friesland. Geen wachttijd, geen gedoe - gewoon oplossingen.
                             </p>
                             <div class="buttons">
                                 <a href="tel:+31512123456" class="button btn-primary is-large">
                                     <i class="fas fa-phone"></i>
-                                    <span class="ml-sm">Direct Bellen</span>
+                                    <span class="ml-sm">Direct Bellen: 0512-123-456</span>
                                 </a>
-                                <a href="https://wa.me/31512123456" target="_blank" class="button whatsapp-btn is-large">
+                                <a href="https://wa.me/31512123456?text=Hallo%20AutoService%20Pro,%20ik%20heb%20een%20monteur%20nodig%20voor%20mijn%20garage..." target="_blank" class="button whatsapp-btn is-large">
                                     <i class="fab fa-whatsapp"></i>
-                                    <span class="ml-sm">WhatsApp</span>
+                                    <span class="ml-sm">WhatsApp Direct</span>
                                 </a>
                             </div>
                         </div>
@@ -402,7 +405,7 @@
         <!-- Contact Form Section -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title">Contactformulier</h2>
+                <h2 class="section-title">Monteur Aanvragen - Binnen 24 uur Reactie</h2>
                 <div class="columns">
                     <div class="column is-8 is-offset-2">
                         <div class="form-card">
@@ -495,12 +498,12 @@
                                                 <div class="select is-fullwidth" :class="{'is-danger': errors.onderwerp, 'is-success': !errors.onderwerp && form.onderwerp.length > 0}">
                                                     <select v-model="form.onderwerp" @change="validateField('onderwerp')">
                                                         <option value="">Kies een onderwerp</option>
-                                                        <option value="Afspraak maken">Afspraak maken</option>
-                                                        <option value="APK keuring">APK keuring</option>
-                                                        <option value="Reparatie">Reparatie</option>
-                                                        <option value="Onderhoud">Onderhoud</option>
+                                                        <option value="Monteur inhuren">Monteur inhuren</option>
+                                                        <option value="Ziekte vervanging">Ziekte vervanging</option>
+                                                        <option value="Vakantie vervanging">Vakantie vervanging</option>
+                                                        <option value="Piekperiode ondersteuning">Piekperiode ondersteuning</option>
+                                                        <option value="Lange termijn inhuur">Lange termijn inhuur</option>
                                                         <option value="Offerte aanvragen">Offerte aanvragen</option>
-                                                        <option value="Klacht">Klacht</option>
                                                         <option value="Anders">Anders</option>
                                                     </select>
                                                 </div>
@@ -519,7 +522,7 @@
                                         <textarea 
                                             class="textarea" 
                                             :class="{'is-danger': errors.bericht, 'is-success': !errors.bericht && form.bericht.length > 0}"
-                                            placeholder="Beschrijf uw vraag of het probleem met uw auto..."
+                                            placeholder="Beschrijf uw personeelsbehoefte, gewenste periode, type werkzaamheden..."
                                             rows="6"
                                             v-model="form.bericht"
                                             @blur="validateField('bericht')"
@@ -577,7 +580,7 @@
                                     </div>
                                     <div class="contact-info">
                                         <i class="fas fa-envelope"></i>
-                                        <span>info@autoservicepro-drachten.nl</span>
+                                        <span>info@autoreparatieoploatie.nl</span>
                                     </div>
                                     <div class="contact-info">
                                         <i class="fas fa-globe"></i>
@@ -639,7 +642,7 @@
                             <h3 class="title is-4 text-primary text-center mb-lg">Direct Contact</h3>
                             <div class="content has-text-centered">
                                 <p class="mb-lg">
-                                    Voor snelle vragen kunt u ons direct een WhatsApp bericht sturen.
+                                    Voor acute personeelstekorten kunt u ons direct een WhatsApp bericht sturen.
                                 </p>
                                 <a href="https://wa.me/31512123456" target="_blank" class="button whatsapp-btn is-medium is-fullwidth mb-lg">
                                     <i class="fab fa-whatsapp"></i>
@@ -680,8 +683,8 @@
                             </div>
                         </div>
                         <div class="mt-lg">
-                            <p><strong>Ons werkgebied:</strong> Wij verlenen service in Drachten en heel Friesland (tot 25km).</p>
-                            <p><strong>Parkeren:</strong> Gratis parkeren direct voor de werkplaats beschikbaar.</p>
+                            <p><strong>Ons werkgebied:</strong> Wij ondersteunen garages in Drachten en heel Friesland (tot 25km).</p>
+                            <p><strong>Bezoek:</strong> Graag na afspraak voor persoonlijk contact over uw behoeften.</p>
                         </div>
                     </div>
                     
@@ -734,7 +737,7 @@
                         <div class="footer-section">
                             <div class="footer-title">
                                 <i class="fas fa-wrench"></i>
-                                AutoService Pro
+                                <span class="ml-sm">Auto Reparatie Op Locatie</span>
                             </div>
                             <p class="footer-description">
                                 Uw betrouwbare partner voor professionele autoservice. 
@@ -746,7 +749,7 @@
                             </div>
                             <div class="contact-info">
                                 <i class="fas fa-envelope"></i>
-                                <span>info@autoservicepro-drachten.nl</span>
+                                <span>info@autoreparatieoploatie.nl</span>
                             </div>
                         </div>
                     </div>
@@ -795,7 +798,7 @@
                 <hr style="background-color: rgba(255,255,255,0.1); margin: var(--space-xl) 0 var(--space-md) 0;">
                 <div class="has-text-centered">
                     <p class="text-sm" style="color: rgba(255,255,255,0.7);">
-                        © 2024 AutoService Pro. Alle rechten voorbehouden.
+                        © 2024 Auto Reparatie Op Locatie. Alle rechten voorbehouden.
                     </p>
                 </div>
             </div>
@@ -825,33 +828,33 @@
                     errors: {},
                     contactFaqs: [
                         {
-                            question: 'Hoe snel krijg ik antwoord op mijn vraag?',
-                            answer: 'Wij streven ernaar om binnen 24 uur te reageren op alle berichten. Voor spoedeisende vragen kunt u ons het beste direct bellen.',
+                            question: 'Hoe snel kunnen jullie een monteur leveren?',
+                            answer: 'Voor spoedsituaties kunnen wij vaak binnen 24 uur een monteur leveren. Voor geplande inhuur adviseren wij 1-2 dagen van tevoren contact op te nemen.',
                             isOpen: false
                         },
                         {
-                            question: 'Kan ik ook buiten openingstijden contact opnemen?',
-                            answer: 'Ja, u kunt altijd een bericht sturen via het contactformulier of WhatsApp.',
+                            question: 'Kunnen we ook buiten kantooruren ondersteuning krijgen?',
+                            answer: 'Ja, onze monteurs kunnen ook in de avonden en weekenden ingezet worden. Dit bespreken wij graag tijdens het eerste contact.',
                             isOpen: false
                         },
                         {
-                            question: 'Is er parkeergelegenheid bij de werkplaats?',
-                            answer: 'Ja, er is gratis parkeergelegenheid direct voor onze werkplaats. U hoeft zich geen zorgen te maken over parkeerkosten.',
+                            question: 'Hoe werkt de prijsstelling?',
+                            answer: 'Wij werken met transparante uurtarieven. U betaalt alleen voor de daadwerkelijk gewerkte uren. Geen verborgen kosten of minimum afname verplichtingen.',
                             isOpen: false
                         },
                         {
-                            question: 'Kunnen jullie ook bij mij thuis komen?',
-                            answer: 'Voor bepaalde diensten zoals APK keuring en klein onderhoud komen wij graag bij u thuis binnen een straal van 25 kilometer.',
+                            question: 'Zijn de monteurs verzekerd voor schade?',
+                            answer: 'Ja, al onze monteurs zijn volledig verzekerd voor aansprakelijkheid en bedrijfsschade. U loopt geen risico bij inhuur van onze mensen.',
                             isOpen: false
                         },
                         {
-                            question: 'Hoe maak ik een afspraak?',
-                            answer: 'U kunt een afspraak maken door te bellen, een bericht te sturen via het contactformulier, of ons te appen via WhatsApp. Wij bevestigen altijd uw afspraak.',
+                            question: 'Hoe regelen we de monteur inhuur?',
+                            answer: 'Na uw eerste contact bespreken wij uw specifieke behoefte. Vervolgens stellen wij de juiste monteur voor en regelen alle praktische zaken.',
                             isOpen: false
                         },
                         {
-                            question: 'Wat moet ik meenemen naar de afspraak?',
-                            answer: 'Neem altijd uw kentekenbewijs mee, en bij APK keuring ook uw rijbewijs. Voor garantie claims heeft u eventueel facturen nodig.',
+                            question: 'Wat als de samenwerking niet bevalt?',
+                            answer: 'De samenwerking kunt u op elk moment beëindigen. Wij streven altijd naar de beste match tussen monteur en garage om teleurstelling te voorkomen.',
                             isOpen: false
                         }
                     ]
