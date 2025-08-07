@@ -124,6 +124,7 @@
             border-radius: var(--radius-md);
             overflow: hidden;
             box-shadow: var(--shadow-sm);
+            width: 100%;
         }
         
         .opening-hours-table td {
@@ -271,6 +272,16 @@
             100% { transform: scale(1); }
         }
         
+        /* Contact page specific contact-info styling */
+        .contact-card .contact-info {
+            color: var(--text-dark) !important;
+            justify-content: center !important;
+        }
+        
+        .contact-card .contact-info i {
+            color: var(--accent-color);
+        }
+        
         /* Extra utility classes voor contact pagina */
         .opacity-20 { opacity: 0.2; }
         
@@ -306,10 +317,10 @@
                 
                 <div class="navbar-menu" :class="{'is-active': mobileMenuOpen}">
                     <div class="navbar-end">
-                        <a class="navbar-item" href="index.html" @click="closeMobileMenu">Home</a>
-                        <a class="navbar-item" href="over-ons.html" @click="closeMobileMenu">Over Ons</a>
-                        <a class="navbar-item" href="diensten.html" @click="closeMobileMenu">Diensten</a>
-                        <a class="navbar-item text-accent" href="contact.html" @click="closeMobileMenu">Contact</a>
+                        <a class="navbar-item" href="index.html">Home</a>
+                        <a class="navbar-item" href="over-ons.html">Over Ons</a>
+                        <a class="navbar-item" href="diensten.html">Diensten</a>
+                        <a class="navbar-item text-accent" href="contact.html">Contact</a>
                     </div>
                 </div>
             </div>
@@ -518,7 +529,7 @@
                                     <strong>Noorderbuurt 45</strong><br>
                                     9203 AB Drachten
                                 </p>
-                                <div class="text-left">
+                                <div style="">
                                     <div class="contact-info">
                                         <i class="fas fa-phone"></i>
                                         <span>+31 (0)512 123 456</span>
