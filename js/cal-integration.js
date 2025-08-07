@@ -1,12 +1,12 @@
 /**
  * AutoService Pro - Cal.com Integration Module
- * Easy-to-use Cal.com booking integration with click handlers
- * Based on Cal.com embed example
+ * Professional implementation following Cal.com official documentation
+ * https://cal.com/docs/developing/guides/embeds/embed-events
  */
 
 class CalComIntegration {
   constructor(options = {}) {
-    this.namespace = options.namespace || 'ochtend';
+    this.namespace = options.namespace || 'default';
     this.calLink = options.calLink || 'fsdf233/ochtend';
     this.config = {
       layout: 'month_view',
@@ -15,30 +15,31 @@ class CalComIntegration {
     };
     
     this.initialized = false;
+    this.calReady = false;
     this.init();
   }
 
   /**
-   * Initialize Cal.com embed script exactly as in the example
+   * Initialize Cal.com embed following official documentation
    */
   init() {
     if (this.initialized) return;
     
-    // Load Cal.com embed script with exact implementation from example
+    // Load Cal.com embed script using official implementation
     this.loadCalScript();
     
-    // Bind click handlers
-    this.bindClickHandlers();
+    // Set up event listeners
+    this.setupEventListeners();
     
     this.initialized = true;
-    console.log('Cal.com integration initialized with namespace:', this.namespace);
+    console.log('Cal.com integration initialized');
   }
 
   /**
-   * Load Cal.com embed script using exact code from example
+   * Load Cal.com embed script using official code from documentation
    */
   loadCalScript() {
-    // Exact Cal.com embed code from example
+    // Official Cal.com embed loader - DO NOT MODIFY
     (function (C, A, L) { 
       let p = function (a, ar) { a.q.push(ar); }; 
       let d = C.document; 
@@ -66,204 +67,241 @@ class CalComIntegration {
       }; 
     })(window, "https://app.cal.com/embed/embed.js", "init");
 
-    // Initialize Cal with namespace from example
+    // Initialize Cal.com with namespace - ONLY ONCE
     Cal("init", this.namespace, {origin:"https://app.cal.com"});
+    
+    // Preload the calendar for better performance
+    Cal("preload", { calLink: this.calLink });
     
     // Configure UI settings
     Cal.ns[this.namespace]("ui", this.config);
   }
 
   /**
-   * Bind click handlers to elements with Cal.com attributes
+   * Set up Cal.com event listeners and prepare for interactions
    */
-  bindClickHandlers() {
-    // Look for elements with data-cal-trigger attribute
-    document.addEventListener('click', (event) => {
-      const element = event.target.closest('[data-cal-trigger]');
-      if (element) {
-        event.preventDefault();
-        event.stopPropagation();
-        
-        // Prevent infinite loops by checking if this is already processed
-        if (element.dataset.calProcessing === 'true') {
-          return;
-        }
-        
-        this.openBooking(element);
+  setupEventListeners() {
+    // Wait for Cal.com to be ready
+    Cal("on", {
+      action: "linkReady",
+      callback: (e) => {
+        console.log('Cal.com is ready');
+        this.calReady = true;
+        this.enhanceButtons();
+      }
+    });
+
+    // Handle successful bookings
+    Cal("on", {
+      action: "bookingSuccessful", 
+      callback: (e) => {
+        console.log('Booking successful:', e.detail);
+        this.onBookingSuccess(e.detail);
+      }
+    });
+
+    // Handle booking failures
+    Cal("on", {
+      action: "linkFailed",
+      callback: (e) => {
+        console.error('Booking failed:', e.detail);
+        this.onBookingError(e.detail);
+      }
+    });
+
+    // Handle booking cancellations
+    Cal("on", {
+      action: "linkClosed",
+      callback: (e) => {
+        console.log('Booking modal closed');
+        this.onBookingClosed();
       }
     });
   }
 
   /**
-   * Open Cal.com booking modal by setting correct attributes
+   * Enhance buttons with proper Cal.com attributes
+   * This method sets up buttons correctly for Cal.com to handle automatically
    */
-  openBooking(element) {
-    console.log('Opening Cal.com booking for element:', element);
+  enhanceButtons() {
+    const buttons = document.querySelectorAll('[data-cal-trigger]');
     
-    // Check if we're in local development (localhost or file://)
-    const isLocalDev = window.location.hostname === 'localhost' || 
-                      window.location.hostname === '127.0.0.1' || 
-                      window.location.protocol === 'file:' ||
-                      window.location.hostname === '';
-    
-    if (isLocalDev) {
-      console.warn('Fake opening cal popup - local development mode');
-      return;
-    }
-    
-    // Prevent infinite loops
-    element.dataset.calProcessing = 'true';
-    
-    try {
-      // Get cal link from element or use default
-      const calLink = element.dataset.calLink || this.calLink;
-      const calNamespace = element.dataset.calNamespace || this.namespace;
+    buttons.forEach(button => {
+      // Get configuration from button data attributes
+      const calLink = button.dataset.calLink || this.calLink;
+      const calNamespace = button.dataset.calNamespace || this.namespace;
       
-      // Get custom config if provided
+      // Parse custom config if provided
       let customConfig = {};
-      if (element.dataset.calConfig) {
+      if (button.dataset.calConfig) {
         try {
-          customConfig = JSON.parse(element.dataset.calConfig);
+          customConfig = JSON.parse(button.dataset.calConfig);
         } catch (e) {
-          console.warn('Invalid Cal config JSON:', element.dataset.calConfig);
+          console.warn('Invalid Cal config JSON:', button.dataset.calConfig);
         }
       }
 
-      // Merge and set config - ensure not fullscreen on desktop
+      // Merge configurations
       const finalConfig = {
-        ...this.config, 
-        ...customConfig,
-        // Prevent fullscreen on desktop devices
-        layout: customConfig.layout || this.config.layout || 'month_view'
+        ...this.config,
+        ...customConfig
       };
-      
-      // Detect if desktop (screen width > 768px) and ensure popup mode
+
+      // Ensure proper layout for desktop
       if (window.innerWidth > 768) {
         finalConfig.layout = finalConfig.layout === 'mobile' ? 'month_view' : finalConfig.layout;
       }
 
-      console.log('Cal.com attributes set:', {
+      // Set the correct attributes for Cal.com to handle automatically
+      button.setAttribute('data-cal-link', calLink);
+      button.setAttribute('data-cal-namespace', calNamespace);
+      button.setAttribute('data-cal-config', JSON.stringify(finalConfig));
+
+      console.log('Enhanced button with Cal.com attributes:', {
+        element: button,
         calLink,
         calNamespace,
         finalConfig
       });
-
-      // Use Cal.com API directly instead of re-dispatching click events
-      if (window.Cal && window.Cal.ns && window.Cal.ns[calNamespace]) {
-        // Call Cal.com API directly to open the booking
-        try {
-          window.Cal.ns[calNamespace]('ui', finalConfig);
-          window.Cal("init", calNamespace, {origin:"https://app.cal.com"});
-          
-          // Open the specific calendar
-          setTimeout(() => {
-            if (window.Cal.ns[calNamespace]) {
-              window.Cal.ns[calNamespace]('inline', {
-                elementOrSelector: element,
-                calLink: calLink,
-                config: finalConfig
-              });
-            }
-          }, 100);
-        } catch (e) {
-          console.warn('Could not open Cal.com directly:', e);
-          // Fallback: set attributes and let Cal.com handle it naturally
-          element.setAttribute('data-cal-link', calLink);
-          element.setAttribute('data-cal-namespace', calNamespace);
-          element.setAttribute('data-cal-config', JSON.stringify(finalConfig));
-        }
-      } else {
-        console.warn('Cal.com not fully loaded yet');
-      }
-    } finally {
-      // Reset processing flag after a delay
-      setTimeout(() => {
-        delete element.dataset.calProcessing;
-      }, 1000);
-    }
+    });
   }
 
   /**
-   * Manually trigger booking (for programmatic use)
+   * Programmatically trigger a booking (alternative to button clicks)
+   * Uses the correct Cal.com API method
    */
   triggerBooking(options = {}) {
-    // Check if we're in local development
-    const isLocalDev = window.location.hostname === 'localhost' || 
-                      window.location.hostname === '127.0.0.1' || 
-                      window.location.protocol === 'file:' ||
-                      window.location.hostname === '';
-    
-    if (isLocalDev) {
-      console.warn('Fake opening cal popup - local development mode');
+    if (!this.calReady) {
+      console.warn('Cal.com not ready yet, please wait...');
       return;
     }
-    
+
     const calLink = options.calLink || this.calLink;
-    const calNamespace = options.namespace || this.namespace;
-    
-    // Create a temporary element with the correct attributes
-    const tempElement = document.createElement('div');
-    tempElement.setAttribute('data-cal-link', calLink);
-    tempElement.setAttribute('data-cal-namespace', calNamespace);
-    
-    let config = options.config || this.config;
-    
-    // Ensure not fullscreen on desktop
+    const config = {
+      ...this.config,
+      ...options.config
+    };
+
+    // Ensure proper layout for desktop
     if (window.innerWidth > 768) {
-      config = {
-        ...config,
-        layout: config.layout === 'mobile' ? 'month_view' : config.layout
-      };
+      config.layout = config.layout === 'mobile' ? 'month_view' : config.layout;
     }
-    
-    tempElement.setAttribute('data-cal-config', JSON.stringify(config));
-    
-    // Add to document temporarily
-    document.body.appendChild(tempElement);
-    
-    // Trigger click
-    const clickEvent = new Event('click', { bubbles: true });
-    tempElement.dispatchEvent(clickEvent);
-    
-    // Remove from document
-    setTimeout(() => {
-      if (tempElement.parentNode) {
-        document.body.removeChild(tempElement);
-      }
-    }, 100);
+
+    try {
+      // Use the correct Cal.com API to open booking
+      Cal.ns[this.namespace]("ui", config);
+      Cal.ns[this.namespace]("floatingButton", { calLink });
+    } catch (error) {
+      console.error('Failed to trigger Cal.com booking:', error);
+      
+      // Fallback: redirect to Cal.com directly
+      this.fallbackToDirectLink(calLink);
+    }
   }
 
   /**
-   * Update default configuration
+   * Fallback method for when embed fails (e.g., due to blocked cookies)
    */
-  updateConfig(newConfig) {
-    this.config = {...this.config, ...newConfig};
-    if (this.initialized && window.Cal && window.Cal.ns && window.Cal.ns[this.namespace]) {
-      Cal.ns[this.namespace]("ui", this.config);
+  fallbackToDirectLink(calLink) {
+    const url = `https://cal.com/${calLink}`;
+    console.log('Falling back to direct Cal.com link:', url);
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
+
+  /**
+   * Detect if third-party cookies/embeds are blocked
+   */
+  async detectEmbedSupport() {
+    return new Promise((resolve) => {
+      if (!window.Cal) {
+        resolve(false);
+        return;
+      }
+
+      const timeout = setTimeout(() => {
+        resolve(false);
+      }, 3000);
+
+      // Test if Cal.com can initialize properly
+      try {
+        Cal("on", {
+          action: "linkReady",
+          callback: () => {
+            clearTimeout(timeout);
+            resolve(true);
+          }
+        });
+      } catch (error) {
+        clearTimeout(timeout);
+        resolve(false);
+      }
+    });
+  }
+
+  /**
+   * Event handlers for booking lifecycle
+   */
+  onBookingSuccess(details) {
+    // Show success message or redirect
+    console.log('Booking confirmed:', details);
+    
+    // Optional: Show success notification
+    if (typeof window.showSuccessMessage === 'function') {
+      window.showSuccessMessage('Afspraak succesvol ingepland!');
     }
+  }
+
+  onBookingError(error) {
+    console.error('Booking error:', error);
+    
+    // Optional: Show error message
+    if (typeof window.showErrorMessage === 'function') {
+      window.showErrorMessage('Er is een fout opgetreden. Probeer het opnieuw of neem contact op.');
+    }
+  }
+
+  onBookingClosed() {
+    // Handle modal close
+    console.log('User closed booking modal');
   }
 
   /**
    * Check if Cal.com is properly loaded and ready
    */
   isReady() {
-    return this.initialized && window.Cal && window.Cal.ns && window.Cal.ns[this.namespace];
+    return this.calReady && window.Cal && window.Cal.ns && window.Cal.ns[this.namespace];
+  }
+
+  /**
+   * Update configuration dynamically
+   */
+  updateConfig(newConfig) {
+    this.config = { ...this.config, ...newConfig };
+    
+    if (this.isReady()) {
+      Cal.ns[this.namespace]("ui", this.config);
+    }
   }
 }
 
-// Auto-initialize with default settings when DOM is ready
+// Auto-initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize with settings from the example
+  // Initialize Cal.com integration with production-ready settings
   window.autoServiceCal = new CalComIntegration({
     namespace: 'ochtend',
     calLink: 'fsdf233/ochtend',
     config: {
       layout: 'month_view',
-      hideEventTypeDetails: false
+      hideEventTypeDetails: false,
+      styles: {
+        branding: {
+          brandColor: "#1e3a8a"
+        }
+      }
     }
   });
   
-  console.log('Cal.com integration ready');
+  console.log('Cal.com integration ready for production');
 });
 
 // Export for module systems
