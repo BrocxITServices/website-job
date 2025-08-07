@@ -88,6 +88,23 @@
   color: var(--primary-color) !important;
 }
 
+/* Active page indicator */
+.navbar-item.is-active {
+  color: var(--primary-color) !important;
+  font-weight: 600;
+  border-bottom: 3px solid var(--primary-color);
+  background-color: rgba(30, 58, 138, 0.05);
+}
+
+/* Active state on mobile */
+@media screen and (max-width: 1023px) {
+  .navbar-item.is-active {
+    border-bottom: none;
+    border-left: 4px solid var(--primary-color);
+    background-color: rgba(30, 58, 138, 0.08);
+  }
+}
+
 /* Responsive Navbar Fixes */
 @media screen and (max-width: 1023px) {
   .navbar-menu {
