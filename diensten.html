@@ -212,7 +212,6 @@
                         <a class="navbar-item" href="over-ons.html">Over Ons</a>
                         <a class="navbar-item is-active" href="diensten.html">Monteur Inhuur</a>
                         <a class="navbar-item" href="contact.html">Contact</a>
-                        <a class="navbar-item" href="boeken.html">Monteur Aanvragen</a>
                     </div>
                 </div>
             </div>
@@ -328,7 +327,7 @@
                             </ul>
                             
                             <div class="mt-lg">
-                                <a href="#contact" class="button btn-primary is-fullwidth">
+                                <a href="#" class="button btn-primary is-fullwidth" data-cal-trigger data-cal-link="fsdf233/ochtend" data-cal-namespace="ochtend">
                                     <i class="fas fa-calendar-alt"></i>
                                     <span class="ml-sm">Afspraak Maken</span>
                                 </a>
@@ -462,6 +461,9 @@
 
     <!-- Vue.js 3 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <!-- Cal.com Integration -->
+    <script src="js/cal-integration.js"></script>
     
     <script>
         const { createApp } = Vue;
