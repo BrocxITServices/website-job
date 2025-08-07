@@ -82,6 +82,13 @@ class CalComIntegration {
       const element = event.target.closest('[data-cal-trigger]');
       if (element) {
         event.preventDefault();
+        event.stopPropagation();
+        
+        // Prevent infinite loops by checking if this is already processed
+        if (element.dataset.calProcessing === 'true') {
+          return;
+        }
+        
         this.openBooking(element);
       }
     });
@@ -104,55 +111,75 @@ class CalComIntegration {
       return;
     }
     
-    // Get cal link from element or use default
-    const calLink = element.dataset.calLink || this.calLink;
-    const calNamespace = element.dataset.calNamespace || this.namespace;
+    // Prevent infinite loops
+    element.dataset.calProcessing = 'true';
     
-    // Get custom config if provided
-    let customConfig = {};
-    if (element.dataset.calConfig) {
-      try {
-        customConfig = JSON.parse(element.dataset.calConfig);
-      } catch (e) {
-        console.warn('Invalid Cal config JSON:', element.dataset.calConfig);
+    try {
+      // Get cal link from element or use default
+      const calLink = element.dataset.calLink || this.calLink;
+      const calNamespace = element.dataset.calNamespace || this.namespace;
+      
+      // Get custom config if provided
+      let customConfig = {};
+      if (element.dataset.calConfig) {
+        try {
+          customConfig = JSON.parse(element.dataset.calConfig);
+        } catch (e) {
+          console.warn('Invalid Cal config JSON:', element.dataset.calConfig);
+        }
       }
-    }
 
-    // Set the required attributes as per Cal.com example
-    element.setAttribute('data-cal-link', calLink);
-    element.setAttribute('data-cal-namespace', calNamespace);
-    
-    // Merge and set config - ensure not fullscreen on desktop
-    const finalConfig = {
-      ...this.config, 
-      ...customConfig,
-      // Prevent fullscreen on desktop devices
-      layout: customConfig.layout || this.config.layout || 'month_view'
-    };
-    
-    // Detect if desktop (screen width > 768px) and ensure popup mode
-    if (window.innerWidth > 768) {
-      finalConfig.layout = finalConfig.layout === 'mobile' ? 'month_view' : finalConfig.layout;
-    }
-    
-    element.setAttribute('data-cal-config', JSON.stringify(finalConfig));
-
-    console.log('Cal.com attributes set:', {
-      calLink,
-      calNamespace,
-      finalConfig
-    });
-
-    // Cal.com should automatically handle clicks on elements with these attributes
-    // If it doesn't work, we might need to manually trigger the click event
-    if (window.Cal && window.Cal.ns && window.Cal.ns[calNamespace]) {
-      // Try to programmatically open the booking
-      try {
-        const clickEvent = new Event('click', { bubbles: true });
-        element.dispatchEvent(clickEvent);
-      } catch (e) {
-        console.warn('Could not programmatically trigger Cal.com:', e);
+      // Merge and set config - ensure not fullscreen on desktop
+      const finalConfig = {
+        ...this.config, 
+        ...customConfig,
+        // Prevent fullscreen on desktop devices
+        layout: customConfig.layout || this.config.layout || 'month_view'
+      };
+      
+      // Detect if desktop (screen width > 768px) and ensure popup mode
+      if (window.innerWidth > 768) {
+        finalConfig.layout = finalConfig.layout === 'mobile' ? 'month_view' : finalConfig.layout;
       }
+
+      console.log('Cal.com attributes set:', {
+        calLink,
+        calNamespace,
+        finalConfig
+      });
+
+      // Use Cal.com API directly instead of re-dispatching click events
+      if (window.Cal && window.Cal.ns && window.Cal.ns[calNamespace]) {
+        // Call Cal.com API directly to open the booking
+        try {
+          window.Cal.ns[calNamespace]('ui', finalConfig);
+          window.Cal("init", calNamespace, {origin:"https://app.cal.com"});
+          
+          // Open the specific calendar
+          setTimeout(() => {
+            if (window.Cal.ns[calNamespace]) {
+              window.Cal.ns[calNamespace]('inline', {
+                elementOrSelector: element,
+                calLink: calLink,
+                config: finalConfig
+              });
+            }
+          }, 100);
+        } catch (e) {
+          console.warn('Could not open Cal.com directly:', e);
+          // Fallback: set attributes and let Cal.com handle it naturally
+          element.setAttribute('data-cal-link', calLink);
+          element.setAttribute('data-cal-namespace', calNamespace);
+          element.setAttribute('data-cal-config', JSON.stringify(finalConfig));
+        }
+      } else {
+        console.warn('Cal.com not fully loaded yet');
+      }
+    } finally {
+      // Reset processing flag after a delay
+      setTimeout(() => {
+        delete element.dataset.calProcessing;
+      }, 1000);
     }
   }
 
