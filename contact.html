@@ -285,6 +285,44 @@
             color: var(--accent-color);
         }
         
+        /* Social media icons in contact cards - specific styling only for contact cards */
+        .contact-card-social {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            margin: 0 0.5rem;
+            transition: var(--transition-normal);
+            text-decoration: none;
+        }
+        
+        .contact-card-social:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+        }
+        
+        /* Facebook specific */
+        .contact-card-social.facebook:hover {
+            background-color: #1877f2;
+        }
+        
+        /* Instagram specific */
+        .contact-card-social.instagram:hover {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+        
+        /* Google specific */
+        .contact-card-social.google:hover {
+            background-color: #ea4335;
+        }
+        
         /* Extra utility classes voor contact pagina */
         .opacity-20 { opacity: 0.2; }
         
@@ -581,7 +619,7 @@
                                     </tr>
                                     <tr>
                                         <td class="day">Zaterdag</td>
-                                        <td>09:00 - 16:00</td>
+                                        <td>Op afspraak</td>
                                     </tr>
                                     <tr>
                                         <td class="day">Zondag</td>
@@ -610,13 +648,13 @@
                                 
                                 <p class="has-text-weight-semibold mb-md">Volg ons ook op:</p>
                                 <div class="has-text-centered">
-                                    <a href="#" class="social-link">
+                                    <a href="https://facebook.com/autoservicepro" target="_blank" rel="noopener noreferrer" class="contact-card-social facebook" aria-label="Facebook">
                                         <i class="fab fa-facebook-f"></i>
                                     </a>
-                                    <a href="#" class="social-link">
+                                    <a href="https://instagram.com/autoservicepro" target="_blank" rel="noopener noreferrer" class="contact-card-social instagram" aria-label="Instagram">
                                         <i class="fab fa-instagram"></i>
                                     </a>
-                                    <a href="#" class="social-link">
+                                    <a href="https://g.page/autoservicepro" target="_blank" rel="noopener noreferrer" class="contact-card-social google" aria-label="Google Business">
                                         <i class="fab fa-google"></i>
                                     </a>
                                 </div>
@@ -631,7 +669,7 @@
         <section class="section">
             <div class="container">
                 <div class="columns">
-                    <div class="column is-8">
+                    <div class="column is-12">
                         <h2 class="title is-3 text-primary mb-2xl">Locatie & Route</h2>
                         <div class="map-placeholder">
                             <div>
@@ -647,7 +685,7 @@
                         </div>
                     </div>
                     
-                    <div class="column is-4">
+                    <!-- <div class="column is-4">
                         <div class="emergency-card pulse">
                             <i class="fas fa-ambulance mb-md" style="font-size: 3rem;"></i>
                             <h3 class="title is-4">Spoedeisende Reparaties</h3>
@@ -663,7 +701,7 @@
                                 Service in heel Friesland
                             </p>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </section>
@@ -693,60 +731,68 @@
             <div class="container">
                 <div class="columns">
                     <div class="column is-4">
-                        <div class="footer-title">
-                            <i class="fas fa-wrench"></i>
-                            <span class="ml-sm">AutoService Pro</span>
-                        </div>
-                        <p class="footer-description">
-                            Uw betrouwbare partner voor professionele autoservice. 
-                            Al meer dan 15 jaar zorgen wij voor kwaliteit en betrouwbaarheid.
-                        </p>
-                        <div class="contact-info">
-                            <i class="fas fa-phone"></i>
-                            <span>+31 (0)512 123 456</span>
-                        </div>
-                        <div class="contact-info">
-                            <i class="fas fa-envelope"></i>
-                            <span>info@autoservicepro-drachten.nl</span>
-                        </div>
-                    </div>
-                    <div class="column is-4">
-                        <div class="footer-title">Contactgegevens</div>
-                        <div class="contact-info">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Noorderbuurt 45<br>9203 AB Drachten</span>
-                        </div>
-                        <div class="mt-md">
-                            <p class="has-text-weight-semibold mb-sm" style="color: rgba(255,255,255,0.9);">Openingstijden:</p>
-                            <p class="text-sm" style="color: rgba(255,255,255,0.8); line-height: 1.4;">
-                                Maandag - Vrijdag: 08:00 - 17:30<br>
-                                Zaterdag: 09:00 - 16:00<br>
-                                Zondag: Gesloten
+                        <div class="footer-section">
+                            <div class="footer-title">
+                                <i class="fas fa-wrench"></i>
+                                AutoService Pro
+                            </div>
+                            <p class="footer-description">
+                                Uw betrouwbare partner voor professionele autoservice. 
+                                Al meer dan 15 jaar zorgen wij voor kwaliteit en betrouwbaarheid.
                             </p>
+                            <div class="contact-info">
+                                <i class="fas fa-phone"></i>
+                                <span>+31 (0)512 123 456</span>
+                            </div>
+                            <div class="contact-info">
+                                <i class="fas fa-envelope"></i>
+                                <span>info@autoservicepro-drachten.nl</span>
+                            </div>
                         </div>
                     </div>
                     <div class="column is-4">
-                        <div class="footer-title">Snelle Links</div>
-                        <div class="content">
-                            <p><a href="index.html" class="footer-link">Home</a></p>
-                            <p><a href="over-ons.html" class="footer-link">Over Ons</a></p>
-                            <p><a href="diensten.html" class="footer-link">Diensten</a></p>
-                            <p><a href="contact.html" class="footer-link">Contact</a></p>
+                        <div class="footer-section">
+                            <div class="footer-title">Contactgegevens</div>
+                            <div class="contact-info">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Noorderbuurt 45<br>9203 AB Drachten</span>
+                            </div>
+                            <div class="mt-md">
+                                <p class="has-text-weight-semibold mb-sm" style="color: rgba(255,255,255,0.9);">
+                                    Openingstijden:
+                                </p>
+                                <p class="text-sm" style="color: rgba(255,255,255,0.8); line-height: 1.4;">
+                                    Maandag - Vrijdag: 08:00 - 17:30<br>
+                                    Zaterdag: 09:00 - 16:00<br>
+                                    Zondag: Gesloten
+                                </p>
+                            </div>
                         </div>
-                        <div class="mt-2xl">
-                            <a href="#" class="social-link">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="social-link">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="social-link">
-                                <i class="fab fa-google"></i>
-                            </a>
+                    </div>
+                    <div class="column is-4">
+                        <div class="footer-section">
+                            <div class="footer-title">Snelle Links</div>
+                            <div class="content">
+                                <a href="index.html" class="footer-link">Home</a>
+                                <a href="over-ons.html" class="footer-link">Over Ons</a>
+                                <a href="diensten.html" class="footer-link">Diensten</a>
+                                <a href="contact.html" class="footer-link">Contact</a>
+                            </div>
+                            <div class="social-links">
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-link">
+                                    <i class="fab fa-google"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <hr class="mt-2xl mb-md" style="background-color: rgba(255,255,255,0.1);">
+                <hr style="background-color: rgba(255,255,255,0.1); margin: var(--space-xl) 0 var(--space-md) 0;">
                 <div class="has-text-centered">
                     <p class="text-sm" style="color: rgba(255,255,255,0.7);">
                         © 2024 AutoService Pro. Alle rechten voorbehouden.
@@ -785,7 +831,7 @@
                         },
                         {
                             question: 'Kan ik ook buiten openingstijden contact opnemen?',
-                            answer: 'Ja, u kunt altijd een bericht sturen via het contactformulier of WhatsApp. Voor noodgevallen hebben wij een 24/7 pechhulplijn beschikbaar.',
+                            answer: 'Ja, u kunt altijd een bericht sturen via het contactformulier of WhatsApp.',
                             isOpen: false
                         },
                         {
