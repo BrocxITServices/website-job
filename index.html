@@ -628,7 +628,7 @@
                         <a class="navbar-item" href="over-ons.html">Over Ons</a>
                         <a class="navbar-item" href="diensten.html">Monteur Inhuur</a>
                         <a class="navbar-item" href="contact.html">Contact</a>
-                        <a class="navbar-item" href="boeken.html">Monteur Aanvragen</a>
+                        <a class="navbar-item" href="#" data-cal-trigger data-cal-link="fsdf233/ochtend" data-cal-namespace="ochtend">Monteur Aanvragen</a>
                     </div>
                 </div>
             </div>
@@ -648,10 +648,16 @@
                                 Van ziekte vervanging tot APK-seizoen versterking. Geen overhead, geen lange contracten. 
                                 3 gecertificeerde monteurs met 15+ jaar ervaring en eigen gereedschap.
                             </p>
-                            <a href="tel:+31512123456" class="button btn-primary is-large">
-                                <i class="fas fa-phone"></i>
-                                <span class="ml-sm">Direct Bellen: 0512-123-456</span>
-                            </a>
+                            <div class="buttons">
+                                <a href="tel:+31512123456" class="button btn-primary is-large">
+                                    <i class="fas fa-phone"></i>
+                                    <span class="ml-sm">Direct Bellen: 0512-123-456</span>
+                                </a>
+                                <button class="button btn-accent is-large" data-cal-trigger data-cal-link="fsdf233/ochtend" data-cal-namespace="ochtend" data-cal-config='{"layout":"month_view"}'>
+                                    <i class="fas fa-calendar-plus"></i>
+                                    <span class="ml-sm">Plan Afspraak</span>
+                                </button>
+                            </div>
                         </div>
                         <div class="column is-6 has-text-centered">
                             <i class="fas fa-car text-white opacity-10" style="font-size: 12rem;"></i>
@@ -1005,6 +1011,9 @@
 
     <!-- Vue.js 3 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <!-- Cal.com Integration -->
+    <script src="js/cal-integration.js"></script>
     
     <script>
         const { createApp } = Vue;
