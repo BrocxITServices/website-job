@@ -1,0 +1,6 @@
+/*
+  X-Pretty-Urls: false
+
+/*.html
+  Cache-Control: public, max-age=3600
+  Content-Type: text/html; charset=UTF-8
