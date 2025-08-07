@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoService Pro - Accentkleur Voorbeelden</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8fafc;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #1e3a8a;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+        
+        .current-colors {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .current-colors h2 {
+            color: #374151;
+            margin-bottom: 20px;
+        }
+        
+        .current-preview {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            height: 150px;
+        }
+        
+        .primary-box {
+            background: #1e3a8a;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .accent-box-current {
+            background: #f97316;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .option-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+        
+        .option-header {
+            padding: 20px;
+            background: #f3f4f6;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .option-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #1e3a8a;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .option-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1f2937;
+            display: inline-block;
+        }
+        
+        .color-preview {
+            height: 200px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+        }
+        
+        .main-color {
+            background: #1e3a8a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 20px;
+        }
+        
+        .accent-color {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 20px;
+        }
+        
+        .color-code {
+            margin-top: 10px;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .option-details {
+            padding: 20px;
+        }
+        
+        .pros-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .pros-list li {
+            padding: 8px 0;
+            color: #4b5563;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .pros-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .demo-buttons {
+            padding: 20px;
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-demo {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .btn-demo:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-primary-demo {
+            background: #1e3a8a;
+            color: white;
+        }
+        
+        /* Optie 1: Automotive Rood */
+        .accent-1 { background: #dc2626; }
+        
+        /* Optie 2: Elektrisch Groen */
+        .accent-2 { background: #10b981; }
+        
+        /* Optie 3: Premium Goud */
+        .accent-3 { background: #d97706; }
+        
+        /* Optie 4: Tech Turquoise */
+        .accent-4 { background: #0891b2; }
+        
+        /* Optie 5: Racing Geel */
+        .accent-5 { background: #eab308; color: #1f2937 !important; }
+        
+        .recommendation {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            color: #92400e;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AutoService Pro - Accentkleur Voorbeelden</h1>
+        <p class="subtitle">Kies de perfecte accentkleur voor uw automotive service website</p>
+        
+        <div class="current-colors">
+            <h2>Huidige Kleuren</h2>
+            <div class="current-preview">
+                <div class="primary-box">
+                    Hoofdkleur (Donkerblauw) #1e3a8a
+                </div>
+                <div class="accent-box-current">
+                    Huidige Accent #f97316
+                </div>
+            </div>
+        </div>
+        
+        <div class="options-grid">
+            <!-- Optie 1: Automotive Rood -->
+            <div class="option-card">
+                <div class="option-header">
+                    <span class="option-number">1</span>
+                    <span class="option-title">Automotive Rood</span>
+                </div>
+                <div class="color-preview">
+                    <div class="main-color">Hoofdkleur</div>
+                    <div class="accent-color accent-1">
+                        Accent
+                        <span class="color-code">#dc2626</span>
+                    </div>
+                </div>
+                <div class="option-details">
+                    <ul class="pros-list">
+                        <li>Klassieke automotive industrie kleur</li>
+                        <li>Excellent contrast voor knoppen</li>
+                        <li>Geeft energie en urgentie</li>
+                        <li>Professioneel en vertrouwd</li>
+                    </ul>
+                    <div class="recommendation">⭐ AANBEVOLEN - Beste keuze voor automotive sector</div>
+                </div>
+                <div class="demo-buttons">
+                    <button class="btn-demo btn-primary-demo">Primaire Knop</button>
+                    <button class="btn-demo" style="background: #dc2626; color: white;">Accent Knop</button>
+                    <button class="btn-demo" style="background: white; color: #dc2626; border: 2px solid #dc2626;">Outline</button>
+                </div>
+            </div>
+            
+            <!-- Optie 2: Elektrisch Groen -->
+            <div class="option-card">
+                <div class="option-header">
+                    <span class="option-number">2</span>
+                    <span class="option-title">Elektrisch Groen</span>
+                </div>
+                <div class="color-preview">
+                    <div class="main-color">Hoofdkleur</div>
+                    <div class="accent-color accent-2">
+                        Accent
+                        <span class="color-code">#10b981</span>
+                    </div>
+                </div>
+                <div class="option-details">
+                    <ul class="pros-list">
+                        <li>Modern en milieuvriendelijk</li>
+                        <li>Suggereert duurzaamheid</li>
+                        <li>Onderscheidend van concurrenten</li>
+                        <li>Goede leesbaarheid</li>
+                    </ul>
+                </div>
+                <div class="demo-buttons">
+                    <button class="btn-demo btn-primary-demo">Primaire Knop</button>
+                    <button class="btn-demo" style="background: #10b981; color: white;">Accent Knop</button>
+                    <button class="btn-demo" style="background: white; color: #10b981; border: 2px solid #10b981;">Outline</button>
+                </div>
+            </div>
+            
+            <!-- Optie 3: Premium Goud -->
+            <div class="option-card">
+                <div class="option-header">
+                    <span class="option-number">3</span>
+                    <span class="option-title">Premium Goud</span>
+                </div>
+                <div class="color-preview">
+                    <div class="main-color">Hoofdkleur</div>
+                    <div class="accent-color accent-3">
+                        Accent
+                        <span class="color-code">#d97706</span>
+                    </div>
+                </div>
+                <div class="option-details">
+                    <ul class="pros-list">
+                        <li>Suggereert kwaliteit en premium service</li>
+                        <li>Warm maar subtieler dan oranje</li>
+                        <li>Professioneel maar toegankelijk</li>
+                        <li>Goed contrast behouden</li>
+                    </ul>
+                </div>
+                <div class="demo-buttons">
+                    <button class="btn-demo btn-primary-demo">Primaire Knop</button>
+                    <button class="btn-demo" style="background: #d97706; color: white;">Accent Knop</button>
+                    <button class="btn-demo" style="background: white; color: #d97706; border: 2px solid #d97706;">Outline</button>
+                </div>
+            </div>
+            
+            <!-- Optie 4: Tech Turquoise -->
+            <div class="option-card">
+                <div class="option-header">
+                    <span class="option-number">4</span>
+                    <span class="option-title">Tech Turquoise</span>
+                </div>
+                <div class="color-preview">
+                    <div class="main-color">Hoofdkleur</div>
+                    <div class="accent-color accent-4">
+                        Accent
+                        <span class="color-code">#0891b2</span>
+                    </div>
+                </div>
+                <div class="option-details">
+                    <ul class="pros-list">
+                        <li>Moderne, technische uitstraling</li>
+                        <li>Suggereert precisie en innovatie</li>
+                        <li>Harmonieus met hoofdkleur</li>
+                        <li>Uitstekende leesbaarheid</li>
+                    </ul>
+                </div>
+                <div class="demo-buttons">
+                    <button class="btn-demo btn-primary-demo">Primaire Knop</button>
+                    <button class="btn-demo" style="background: #0891b2; color: white;">Accent Knop</button>
+                    <button class="btn-demo" style="background: white; color: #0891b2; border: 2px solid #0891b2;">Outline</button>
+                </div>
+            </div>
+            
+            <!-- Optie 5: Racing Geel -->
+            <div class="option-card">
+                <div class="option-header">
+                    <span class="option-number">5</span>
+                    <span class="option-title">Racing Geel</span>
+                </div>
+                <div class="color-preview">
+                    <div class="main-color">Hoofdkleur</div>
+                    <div class="accent-color accent-5">
+                        Accent
+                        <span class="color-code">#eab308</span>
+                    </div>
+                </div>
+                <div class="option-details">
+                    <ul class="pros-list">
+                        <li>Energiek en opvallend</li>
+                        <li>Automotive heritage (waarschuwingslichten)</li>
+                        <li>Maximaal contrast met donkerblauw</li>
+                        <li>Trekt aandacht voor belangrijke elementen</li>
+                    </ul>
+                </div>
+                <div class="demo-buttons">
+                    <button class="btn-demo btn-primary-demo">Primaire Knop</button>
+                    <button class="btn-demo" style="background: #eab308; color: #1f2937;">Accent Knop</button>
+                    <button class="btn-demo" style="background: white; color: #ca8a04; border: 2px solid #eab308;">Outline</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
