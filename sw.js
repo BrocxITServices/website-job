@@ -1,4 +1,4 @@
-// AutoService Pro - Service Worker
+// Autoreparatie Op Locatie - Service Worker
 // PWA Service Worker for offline functionality and caching
 
 const CACHE_NAME = 'autoservice-pro-v1.0.0';
@@ -122,7 +122,7 @@ async function syncContactForm() {
 // Push notification handler
 self.addEventListener('push', event => {
   const options = {
-    body: event.data ? event.data.text() : 'AutoService Pro update',
+    body: event.data ? event.data.text() : 'Autoreparatie Op Locatie update',
     icon: '/android-chrome-192x192.png',
     badge: '/favicon-32x32.png',
     vibrate: [200, 100, 200],
@@ -132,7 +132,7 @@ self.addEventListener('push', event => {
   };
 
   event.waitUntil(
-    self.registration.showNotification('AutoService Pro', options)
+    self.registration.showNotification('Autoreparatie Op Locatie', options)
   );
 });
 

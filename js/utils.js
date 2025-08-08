@@ -1,5 +1,5 @@
 /**
- * AutoService Pro - Utility Functions
+ * Autoreparatie Op Locatie - Utility Functions
  * Helper functies, formatting en storage handlers
  */
 
