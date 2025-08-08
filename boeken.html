@@ -17,6 +17,9 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
     
+    <!-- Animations CSS -->
+    <link rel="stylesheet" href="css/animations.css">
+    
     <!-- Vue.js 3 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     
@@ -146,6 +149,19 @@
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-wrench"></i>
+            </div>
+            <p class="loading-message">Even geduld...</p>
+        </div>
+    </div>
+            
+        </div>
+    </div>
+    
     <!-- Header -->
     <nav class="navbar is-fixed-top" role="navigation">
         <div class="container">
@@ -853,8 +869,8 @@
                     this.timeSlots = [];
                     this.selectedTime = '';
                     
-                    // Simulate API call
-                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    // Simulate API call - faster loading
+                    await new Promise(resolve => setTimeout(resolve, 200));
                     
                     // Mock time slots - in production this would come from API
                     const mockSlots = [
@@ -1096,7 +1112,20 @@
                     };
                     this.errors = {};
                     this.timeSlots = [];
+                },
+                hideLoader() {
+                    const loader = document.getElementById('loadingScreen');
+                    if (loader) {
+                        loader.classList.add('hide');
+                        setTimeout(() => {
+                            loader.style.display = 'none';
+                        }, 150);
+                    }
                 }
+            },
+            mounted() {
+                // Hide loading screen immediately when Vue is mounted and config is loaded
+                this.hideLoader();
             }
         }).mount('#bookingApp');
     </script>

@@ -39,6 +39,9 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
     
+    <!-- Animations CSS -->
+    <link rel="stylesheet" href="css/animations.css">
+    
     <style>
         /* ========================================================================
            CONTACT PAGINA SPECIFIEKE STYLES
@@ -339,6 +342,19 @@
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-wrench"></i>
+            </div>
+            <p class="loading-message">Even geduld...</p>
+        </div>
+    </div>
+            
+        </div>
+    </div>
+    
     <div id="app">
         <!-- Navbar -->
         <nav class="navbar is-fixed-top" role="navigation">
@@ -942,12 +958,12 @@
                     this.formError = false;
                     
                     try {
-                        // Simulate form submission
+                        // Simulate form submission - faster for better UX
                         await new Promise((resolve, reject) => {
                             setTimeout(() => {
                                 // Simulate success/failure randomly for demo
                                 Math.random() > 0.1 ? resolve() : reject();
-                            }, 2000);
+                            }, 800);
                         });
                         
                         this.formSubmitted = true;
@@ -974,9 +990,21 @@
                 },
                 toggleFaq(index) {
                     this.contactFaqs[index].isOpen = !this.contactFaqs[index].isOpen;
+                },
+                hideLoader() {
+                    const loader = document.getElementById('loadingScreen');
+                    if (loader) {
+                        loader.classList.add('hide');
+                        setTimeout(() => {
+                            loader.style.display = 'none';
+                        }, 150);
+                    }
                 }
             },
             mounted() {
+                // Hide loading screen immediately when Vue is mounted and config is loaded
+                this.hideLoader();
+
                 // Vue 3 doesn't have $set, so we'll use a workaround
                 this.$set = (obj, key, value) => {
                     obj[key] = value;

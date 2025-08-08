@@ -106,6 +106,9 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
     
+    <!-- Animations CSS -->
+    <link rel="stylesheet" href="css/animations.css">
+    
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -603,6 +606,16 @@
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-wrench"></i>
+            </div>
+            <p class="loading-message">Even geduld...</p>
+        </div>
+    </div>
+    
     <div id="app">
         <!-- Navbar -->
         <nav class="navbar is-fixed-top" role="navigation">
@@ -1033,9 +1046,21 @@
                 },
                 closeMobileMenu() {
                     this.mobileMenuOpen = false;
+                },
+                hideLoader() {
+                    const loader = document.getElementById('loadingScreen');
+                    if (loader) {
+                        loader.classList.add('hide');
+                        setTimeout(() => {
+                            loader.style.display = 'none';
+                        }, 150);
+                    }
                 }
             },
             mounted() {
+                // Hide loading screen immediately when Vue is mounted and config is loaded
+                this.hideLoader();
+
                 // Smooth scrolling for anchor links
                 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                     anchor.addEventListener('click', function (e) {

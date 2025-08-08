@@ -21,6 +21,9 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
     
+    <!-- Animations CSS -->
+    <link rel="stylesheet" href="css/animations.css">
+    
     <style>
         /* Pagina-specifieke CSS voor over-ons.html */
         
@@ -179,6 +182,19 @@
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-wrench"></i>
+            </div>
+            <p class="loading-message">Even geduld...</p>
+        </div>
+    </div>
+            
+        </div>
+    </div>
+    
     <div id="app">
         <!-- Navbar -->
         <nav class="navbar is-fixed-top" role="navigation">
@@ -586,7 +602,20 @@
                 },
                 closeMobileMenu() {
                     this.mobileMenuOpen = false;
+                },
+                hideLoader() {
+                    const loader = document.getElementById('loadingScreen');
+                    if (loader) {
+                        loader.classList.add('hide');
+                        setTimeout(() => {
+                            loader.style.display = 'none';
+                        }, 150);
+                    }
                 }
+            },
+            mounted() {
+                // Hide loading screen immediately when Vue is mounted and config is loaded
+                this.hideLoader();
             }
         }).mount('#app');
     </script>
