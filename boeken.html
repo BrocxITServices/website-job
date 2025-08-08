@@ -144,22 +144,29 @@
 </head>
 <body>
     <!-- Header -->
-    <nav class="navbar is-white" role="navigation">
+    <nav class="navbar is-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-brand">
-                <a class="navbar-item" href="index.html">
+                <a class="navbar-item" href="#home">
                     <i class="fas fa-wrench"></i>
                     <div class="ml-sm">
                         <div class="has-text-weight-bold">Autoreparatie Op Locatie</div>
                     </div>
                 </a>
+                
+                <a role="button" class="navbar-burger" :class="{'is-active': mobileMenuOpen}" @click="toggleMobileMenu">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
             </div>
-            <div class="navbar-menu">
+            
+            <div class="navbar-menu" :class="{'is-active': mobileMenuOpen}">
                 <div class="navbar-end">
-                    <a class="navbar-item" href="index.html">
-                        <i class="fas fa-home mr-1"></i>
-                        Terug naar Home
-                    </a>
+                    <a class="navbar-item" href="index.html">Home</a>
+                    <a class="navbar-item" href="over-ons.html">Over Ons</a>
+                    <a class="navbar-item" href="diensten.html">Monteur Inhuur</a>
+                    <a class="navbar-item" href="contact.html">Contact</a>
                 </div>
             </div>
         </div>
