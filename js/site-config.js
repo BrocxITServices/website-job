@@ -26,8 +26,8 @@ const SiteConfig = {
             whatsapp: "31512123456"
         },
         email: {
-            main: "info@autoreparatieoploatie.nl", // TODO: Check spelling
-            support: "info@arol-mobiel.nl"
+            main: "info@autoreparatieoplocatie.nl", // TODO: Check spelling
+            support: "info@autoreparatieoplocatie.nl"
         },
         address: {
             street: "Noorderbuurt 45",

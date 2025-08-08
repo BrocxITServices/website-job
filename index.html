@@ -611,7 +611,7 @@
                     <a class="navbar-item" href="#home">
                         <i class="fas fa-wrench"></i>
                         <div class="ml-sm">
-                            <div class="has-text-weight-bold">Autoreparatie Op Locatie</div>
+                            <div class="has-text-weight-bold">{{ config.company.name }}</div>
                         </div>
                     </a>
                     
@@ -643,16 +643,16 @@
                                 Direct Oplossing voor Personeelstekorten in uw Garage
                             </h1>
                             <p class="hero-subtitle">
-                                Monteur nodig? Autoreparatie Op Locatie levert binnen 24 uur ervaren monteurs aan garages in Friesland. 
+                                Monteur nodig? {{ config.company.name }} levert binnen 24 uur ervaren monteurs aan garages in {{ config.contact.address.region }}. 
                                 Van ziekte vervanging tot APK-seizoen versterking. Geen overhead, geen lange contracten. 
                                 3 gecertificeerde monteurs met 15+ jaar ervaring en eigen gereedschap.
                             </p>
                             <div class="buttons">
-                                <a href="tel:+31512123456" class="button btn-primary is-large">
+                                <a :href="'tel:' + config.contact.phone.primary.replace(/\D/g, '')" class="button btn-primary is-large">
                                     <i class="fas fa-phone"></i>
-                                    <span class="ml-sm">Bel Ons: 0512-123-456</span>
+                                    <span class="ml-sm">Bel Ons: {{ config.contact.phone.primary.replace('+31 (0)', '0') }}</span>
                                 </a>
-                                <button class="button btn-accent is-large" data-cal-trigger data-cal-link="fsdf233/ochtend" data-cal-namespace="ochtend" data-cal-config='{"layout":"month_view"}'>
+                                <button class="button btn-accent is-large" data-cal-trigger :data-cal-link="config.booking.calLink" :data-cal-namespace="config.booking.namespace" data-cal-config='{"layout":"month_view"}'>
                                     <i class="fas fa-calendar-plus"></i>
                                     <span class="ml-sm">Plan Afspraak</span>
                                 </button>
@@ -915,8 +915,8 @@
                         <div class="bg-accent p-lg border-radius text-center mt-lg">
                             <h4 class="text-white font-bold mb-sm">Service Binnen 25km</h4>
                             <p class="text-white mb-md">Geen extra kosten voor aanrijden - Binnen 30 minuten ter plaatse</p>
-                            <a href="tel:+31512123456" class="bg-white text-accent p-md border-radius font-semibold d-inline-block" style="text-decoration: none;">
-                                Bel Direct: 0512-123-456
+                            <a :href="'tel:' + config.contact.phone.primary.replace(/\D/g, '')" class="bg-white text-accent p-md border-radius font-semibold d-inline-block" style="text-decoration: none;">
+                                Bel Direct: {{ config.contact.phone.primary.replace('+31 (0)', '0') }}
                             </a>
                         </div>
                     </div>
@@ -931,39 +931,39 @@
                     <div class="column is-4">
                         <div class="footer-title">
                             <i class="fas fa-wrench"></i>
-                            <span class="ml-sm">Autoreparatie Op Locatie</span>
+                            <span class="ml-sm">{{ config.company.name }}</span>
                         </div>
                         <p class="footer-description mb-md">
-                            Flexibele monteurs voor garages in Friesland. 
-                            Volledig verzekerd • Ervaren personeel • 15+ jaar expertise
+                            Flexibele monteurs voor garages in {{ config.contact.address.region }}. 
+                            Volledig verzekerd • Ervaren personeel • Sinds {{ config.company.established }}
                         </p>
                         <div class="mb-lg text-sm opacity-70">
                             <p class="mb-xs"><strong style="color:white;">Werkgebied:</strong></p>
-                            <p>Drachten • Heerenveen • Gorredijk • Leeuwarden</p>
-                            <p>Ureterp • Beetsterzwaag • En omliggende gemeenten</p>
+                            <p>{{ config.service.cities.slice(0, 4).join(' • ') }}</p>
+                            <p>{{ config.service.cities.slice(4).join(' • ') }} • En omliggende gemeenten</p>
                         </div>
                         <div class="contact-info">
                             <i class="fas fa-phone"></i>
-                            <span>+31 (0)512 123 456</span>
+                            <span>{{ config.contact.phone.primary }}</span>
                         </div>
                         <div class="contact-info">
                             <i class="fas fa-envelope"></i>
-                            <span>info@arol-mobiel.nl</span>
+                            <span>{{ config.contact.email.support }}</span>
                         </div>
                     </div>
                     <div class="column is-4">
                         <div class="footer-title">Contactgegevens</div>
                         <div class="contact-info">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Noorderbuurt 45<br>9203 AB Drachten<br><small class="opacity-60">Thuisbasis - Wij komen bij u!</small></span>
+                            <span>{{ config.contact.address.street }}<br>{{ config.contact.address.postalCode }} {{ config.contact.address.city }}<br><small class="opacity-60">Thuisbasis - Wij komen bij u!</small></span>
                         </div>
                         <div class="mt-md">
                             <p class="has-text-weight-semibold opacity-90 mb-sm">Service tijden:</p>
                             <p class="opacity-80 text-sm" style="line-height: 1.4;">
-                                Ma-Vr: 08:00 - 17:30 (mobiele service)<br>
-                                Zaterdag: 09:00 - 16:00<br>
+                                Ma-Vr: {{ config.hours.weekdays }} (mobiele service)<br>
+                                Zaterdag: {{ config.hours.saturday }}<br>
                                 24/7 Pechhulp beschikbaar<br>
-                                <small class="text-accent">Binnen 25km van Drachten/Heerenveen</small>
+                                <small class="text-accent">Binnen {{ config.service.radius }} van {{ config.service.baseCity }}/Heerenveen</small>
                             </p>
                         </div>
                     </div>
@@ -983,17 +983,17 @@
                         </div>
                         <div class="social-links">
                             <p class="opacity-90 text-sm mb-sm">Volg ons & Beoordeel ons:</p>
-                            <a href="https://www.google.com/maps/place/AutoService+Pro" class="social-link" title="Google Maps & Reviews">
+                            <a :href="config.social.google" class="social-link" title="Google Maps & Reviews">
                                 <i class="fab fa-google"></i>
                             </a>
-                            <a href="https://www.facebook.com/AutoreparatieOpLocatieNL" class="social-link" title="Facebook">
+                            <a :href="config.social.facebook" class="social-link" title="Facebook">
                                 <i class="fab fa-facebook"></i>
                             </a>
-                            <a href="https://www.instagram.com/autoreparatieoplocatie_nl" class="social-link" title="Instagram">
+                            <a :href="config.social.instagram" class="social-link" title="Instagram">
                                 <i class="fab fa-instagram"></i>
                             </a>
                             <p class="opacity-60 mt-sm" style="font-size: 0.8rem;">
-                                4.8 ★★★★★ (127 Google Reviews)
+                                {{ config.reviews.rating }} ★★★★★ ({{ config.reviews.count }} Google Reviews)
                             </p>
                         </div>
                     </div>
@@ -1001,7 +1001,7 @@
                 <hr class="mt-xl mb-md" style="background-color: rgba(255,255,255,0.1);">
                 <div class="has-text-centered">
                     <p class="opacity-70 text-sm">
-                        © 2024 Autoreparatie Op Locatie B.V. - Monteur Inhuur Specialist Drachten & Friesland | KvK: 12345678 | Volledig Verzekerd | RDW Erkend
+                        © 2024 {{ config.company.legalName }} - Monteur Inhuur Specialist {{ config.service.baseCity }} & {{ config.contact.address.region }} | KvK: {{ config.company.kvk }} | {{ config.certifications.join(' | ') }}
                     </p>
                 </div>
             </div>
@@ -1010,6 +1010,9 @@
 
     <!-- Vue.js 3 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <!-- Site Configuration -->
+    <script src="js/site-config.js"></script>
     
     <!-- Cal.com Integration -->
     <script src="js/cal-integration.js"></script>
@@ -1020,7 +1023,8 @@
         createApp({
             data() {
                 return {
-                    mobileMenuOpen: false
+                    mobileMenuOpen: false,
+                    config: SiteConfig
                 }
             },
             methods: {

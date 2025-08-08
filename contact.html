@@ -347,7 +347,7 @@
                     <a class="navbar-item" href="index.html">
                         <i class="fas fa-wrench"></i>
                         <div class="ml-sm">
-                            <div class="has-text-weight-bold">Autoreparatie Op Locatie</div>
+                            <div class="has-text-weight-bold">{{ config.company.name }}</div>
                         </div>
                     </a>
                     
@@ -383,11 +383,11 @@
                                 3 ervaren monteurs beschikbaar voor garages in heel Friesland. Geen wachttijd, geen gedoe - gewoon oplossingen.
                             </p>
                             <div class="buttons">
-                                <a href="tel:+31512123456" class="button btn-primary is-large">
+                                <a :href="'tel:' + config.contact.phone.primary.replace(/\D/g, '')" class="button btn-primary is-large">
                                     <i class="fas fa-phone"></i>
-                                    <span class="ml-sm">Direct Bellen: 0512-123456</span>
+                                    <span class="ml-sm">Direct Bellen: {{ config.contact.phone.primary.replace('+31 (0)', '0') }}</span>
                                 </a>
-                                <a href="https://wa.me/31612345678" target="_blank" class="button whatsapp-btn is-large">
+                                <a :href="'https://wa.me/' + config.contact.phone.whatsapp" target="_blank" class="button whatsapp-btn is-large">
                                     <i class="fab fa-whatsapp"></i>
                                     <span class="ml-sm">WhatsApp Direct</span>
                                 </a>
@@ -422,7 +422,7 @@
                                 <i class="fas fa-exclamation-circle"></i>
                                 <div>
                                     <strong>Er is een fout opgetreden.</strong><br>
-                                    Probeer het opnieuw of bel ons direct: 0512-123456
+                                    Probeer het opnieuw of bel ons direct: {{ config.contact.phone.primary.replace('+31 (0)', '0') }}
                                 </div>
                             </div>
                             
@@ -569,21 +569,21 @@
                             <h3 class="title is-4 text-primary text-center mb-lg">Bezoekadres</h3>
                             <div class="content">
                                 <p class="has-text-centered text-lg mb-lg">
-                                    <strong>Hoofdstraat 123</strong><br>
-                                    9202 AA Drachten
+                                    <strong>{{ config.contact.address.street }}</strong><br>
+                                    {{ config.contact.address.postalCode }} {{ config.contact.address.city }}
                                 </p>
                                 <div>
                                     <div class="contact-info">
                                         <i class="fas fa-phone"></i>
-                                        <span>0512-123456</span>
+                                        <span>{{ config.contact.phone.primary.replace('+31 (0)', '0') }}</span>
                                     </div>
                                     <div class="contact-info">
                                         <i class="fas fa-envelope"></i>
-                                        <span>info@autoreparatieoplocatie.nl</span>
+                                        <span>{{ config.contact.email.main }}</span>
                                     </div>
                                     <div class="contact-info">
                                         <i class="fas fa-globe"></i>
-                                        <span>autoreparatieoplocatie.nl</span>
+                                        <span>{{ config.site.domain }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -643,7 +643,7 @@
                                 <p class="mb-lg">
                                     Voor acute personeelstekorten kunt u ons direct een WhatsApp bericht sturen.
                                 </p>
-                                <a href="https://wa.me/31612345678" target="_blank" class="button whatsapp-btn is-medium is-fullwidth mb-lg">
+                                <a :href="'https://wa.me/' + config.contact.phone.whatsapp" target="_blank" class="button whatsapp-btn is-medium is-fullwidth mb-lg">
                                     <i class="fab fa-whatsapp"></i>
                                     <span class="ml-sm">WhatsApp Sturen</span>
                                 </a>
@@ -677,7 +677,7 @@
                             <div>
                                 <i class="fas fa-map-marked-alt mb-md" style="font-size: 3rem; display: block;"></i>
                                 <strong>Google Maps wordt hier geïntegreerd</strong><br>
-                                <span style="font-size: 1rem;">Hoofdstraat 123, 9202 AA Drachten</span><br>
+                                <span style="font-size: 1rem;">{{ config.contact.address.street }}, {{ config.contact.address.postalCode }} {{ config.contact.address.city }}</span><br>
                                 <small>Klik hier om routebeschrijving te krijgen</small>
                             </div>
                         </div>
@@ -736,7 +736,7 @@
                         <div class="footer-section">
                             <div class="footer-title">
                                 <i class="fas fa-wrench"></i>
-                                <span class="ml-sm">Autoreparatie Op Locatie</span>
+                                <span class="ml-sm">{{ config.company.name }}</span>
                             </div>
                             <p class="footer-description">
                                 Uw betrouwbare partner voor professionele autoservice. 
@@ -744,11 +744,11 @@
                             </p>
                             <div class="contact-info">
                                 <i class="fas fa-phone"></i>
-                                <span>0512-123456</span>
+                                <span>{{ config.contact.phone.primary.replace('+31 (0)', '0') }}</span>
                             </div>
                             <div class="contact-info">
                                 <i class="fas fa-envelope"></i>
-                                <span>info@autoreparatieoplocatie.nl</span>
+                                <span>{{ config.contact.email.main }}</span>
                             </div>
                         </div>
                     </div>
@@ -757,16 +757,16 @@
                             <div class="footer-title">Contactgegevens</div>
                             <div class="contact-info">
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span>Hoofdstraat 123<br>9202 AA Drachten</span>
+                                <span>{{ config.contact.address.street }}<br>{{ config.contact.address.postalCode }} {{ config.contact.address.city }}</span>
                             </div>
                             <div class="mt-md">
                                 <p class="has-text-weight-semibold mb-sm" style="color: rgba(255,255,255,0.9);">
                                     Openingstijden:
                                 </p>
                                 <p class="text-sm" style="color: rgba(255,255,255,0.8); line-height: 1.4;">
-                                    Ma-Vr: 08:00-17:00<br>
-                                    Zaterdag: 09:00-15:00<br>
-                                    Zondag: Gesloten
+                                    Ma-Vr: {{ config.hours.weekdays }}<br>
+                                    Zaterdag: {{ config.hours.saturday }}<br>
+                                    Zondag: {{ config.hours.sunday }}
                                 </p>
                             </div>
                         </div>
@@ -797,7 +797,7 @@
                 <hr style="background-color: rgba(255,255,255,0.1); margin: var(--space-xl) 0 var(--space-md) 0;">
                 <div class="has-text-centered">
                     <p class="text-sm" style="color: rgba(255,255,255,0.7);">
-                        © 2024 Autoreparatie Op Locatie. Alle rechten voorbehouden.
+                        © 2024 {{ config.company.name }}. Alle rechten voorbehouden.
                     </p>
                 </div>
             </div>
@@ -807,6 +807,9 @@
     <!-- Vue.js 3 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     
+    <!-- Site Configuration -->
+    <script src="js/site-config.js"></script>
+    
     
     <script>
         const { createApp } = Vue;
@@ -815,6 +818,7 @@
             data() {
                 return {
                     mobileMenuOpen: false,
+                    config: SiteConfig,
                     isSubmitting: false,
                     formSubmitted: false,
                     formError: false,

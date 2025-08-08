@@ -256,7 +256,7 @@
                     <a class="navbar-item" href="index.html">
                         <i class="fas fa-wrench"></i>
                         <div class="ml-sm">
-                            <div class="has-text-weight-bold">Autoreparatie Op Locatie</div>
+                            <div class="has-text-weight-bold">{{ config.company.name }}</div>
                         </div>
                     </a>
                     
@@ -288,7 +288,7 @@
                                 Monteur Inhuur voor uw Garage - Direct Beschikbaar
                             </h1>
                             <p class="hero-subtitle">
-                                Personeelstekort in uw garage? Autoreparatie Op Locatie levert binnen 24 uur ervaren monteurs voor elke situatie. 
+                                Personeelstekort in uw garage? {{ config.company.name }} levert binnen 24 uur ervaren monteurs voor elke situatie. 
                                 Van spoedvervanging bij ziekte tot structurele ondersteuning tijdens groei. Flexibel, betrouwbaar en zonder overhead.
                             </p>
                             <div class="buttons">
@@ -461,7 +461,7 @@
                         <div class="footer-section">
                             <div class="footer-title">
                                 <i class="fas fa-wrench"></i>
-                                <span class="ml-sm">Autoreparatie Op Locatie</span>
+                                <span class="ml-sm">{{ config.company.name }}</span>
                             </div>
                             <p class="footer-description">
                                 Uw betrouwbare partner voor professionele autoservice. 
@@ -520,7 +520,7 @@
                 <hr class="opacity-10 bg-white mt-xl mb-md">
                 <div class="has-text-centered">
                     <p class="text-white opacity-70 text-sm">
-                        © 2024 Autoreparatie Op Locatie. Alle rechten voorbehouden.
+                        © 2024 {{ config.company.name }}. Alle rechten voorbehouden.
                     </p>
                 </div>
             </div>
@@ -530,6 +530,8 @@
     <!-- Vue.js 3 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     
+    <!-- Site Configuration -->
+    <script src="js/site-config.js"></script>
     
     <!-- Cal.com Integration -->
     <script src="js/cal-integration.js"></script>
@@ -541,6 +543,7 @@
             data() {
                 return {
                     mobileMenuOpen: false,
+                    config: SiteConfig,
                     activeFilter: 'alle',
                     services: [
                         {
