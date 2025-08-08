@@ -249,7 +249,36 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Header -->
+    <nav class="navbar is-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="#home">
+                    <i class="fas fa-wrench"></i>
+                    <div class="ml-sm">
+                        <div class="has-text-weight-bold">Autoreparatie Op Locatie</div>
+                    </div>
+                </a>
+                
+                <a role="button" class="navbar-burger" :class="{'is-active': mobileMenuOpen}" @click="toggleMobileMenu">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            
+            <div class="navbar-menu" :class="{'is-active': mobileMenuOpen}">
+                <div class="navbar-end">
+                    <a class="navbar-item" href="index.html">Home</a>
+                    <a class="navbar-item" href="over-ons.html">Over Ons</a>
+                    <a class="navbar-item" href="diensten.html">Monteur Inhuur</a>
+                    <a class="navbar-item" href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 80px;">
         <h1>Autoreparatie Op Locatie - Accentkleur Voorbeelden</h1>
         <p class="subtitle">Kies de perfecte accentkleur voor uw automotive service website</p>
         

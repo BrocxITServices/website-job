@@ -24,6 +24,16 @@
     <style>
         /* Page-specific styles only - base styles are in base.css */
         
+        /* Fix for horizontal scroll */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+        
+        #app {
+            overflow-x: hidden;
+        }
+        
         .filter-controls {
             background: white;
             padding: 2rem;
@@ -42,6 +52,16 @@
             margin: 0.25rem;
             transition: all 0.3s ease;
             cursor: pointer;
+            white-space: nowrap;
+            display: inline-block;
+        }
+        
+        /* Responsive filter buttons */
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
         }
         
         .filter-btn:hover {
@@ -90,6 +110,19 @@
             border-bottom: 1px solid #f3f4f6;
             display: flex;
             align-items: center;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
+        /* Ensure all text content wraps properly */
+        .service-detail-card p,
+        .service-detail-card h3,
+        .service-detail-card h4,
+        .service-title,
+        .service-description {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
         }
         
         .service-features li:last-child {
@@ -183,6 +216,34 @@
             .filter-controls {
                 padding: var(--space-md);
             }
+            
+            /* Responsive text for mobile */
+            .mobile-hide {
+                display: none !important;
+            }
+            
+            .mobile-show {
+                display: inline !important;
+            }
+            
+            /* Ensure buttons don't overflow */
+            .button {
+                white-space: normal;
+                height: auto;
+                padding: 0.75rem 1rem;
+            }
+            
+            /* Make filter buttons smaller on mobile */
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .mobile-show {
+                display: none !important;
+            }
         }
     </style>
 </head>
@@ -230,10 +291,16 @@
                                 Personeelstekort in uw garage? Autoreparatie Op Locatie levert binnen 24 uur ervaren monteurs voor elke situatie. 
                                 Van spoedvervanging bij ziekte tot structurele ondersteuning tijdens groei. Flexibel, betrouwbaar en zonder overhead.
                             </p>
-                            <a href="tel:+31512123456" class="button btn-primary btn-lg">
-                                <i class="fas fa-phone"></i>
-                                <span class="ml-sm">Direct Contact: 0512-123-456</span>
-                            </a>
+                            <div class="buttons">
+                                <a href="tel:+31512123456" class="button btn-primary btn-lg">
+                                    <i class="fas fa-phone"></i>
+                                    <span class="ml-sm">Direct Contact: 0512-123-456</span>
+                                </a>
+                                <button class="button btn-accent btn-lg" data-cal-trigger data-cal-link="fsdf233/ochtend" data-cal-namespace="ochtend" data-cal-config='{"layout":"month_view"}'>
+                                    <i class="fas fa-calendar-plus"></i>
+                                    <span class="ml-sm">Plan Afspraak</span>
+                                </button>
+                            </div>
                         </div>
                         <div class="column is-4 has-text-centered">
                             <i class="fas fa-tools text-white opacity-20" style="font-size: 8rem;"></i>
@@ -373,7 +440,8 @@
                         <div class="buttons is-centered">
                             <a href="tel:+31512123456" class="button btn-lg bg-white text-primary font-semibold">
                                 <i class="fas fa-phone"></i>
-                                <span class="ml-sm">Monteur Nodig? Bel: +31 (0)512 123 456</span>
+                                <span class="ml-sm mobile-hide">Monteur Nodig? Bel: +31 (0)512 123 456</span>
+                                <span class="ml-sm mobile-show">Bel Nu</span>
                             </a>
                             <a href="mailto:info@autoreparatieoploatie.nl" class="button btn-primary btn-lg">
                                 <i class="fas fa-envelope"></i>
