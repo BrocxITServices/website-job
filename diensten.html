@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monteur Inhuur Garage | Tijdelijke Monteurs Friesland | Autoreparatie Op Locatie</title>
-    <meta name="description" content="Monteur inhuur voor garages in Friesland: ziekte vervanging, vakantie ondersteuning, APK seizoen versterking. 3 ervaren monteurs binnen 24 uur beschikbaar. Geen overhead kosten.">
+    <meta name="description" content="Monteur inhuur voor garages in Friesland: ziekte vervanging, vakantie ondersteuning, APK seizoen versterking. 3 ervaren monteurs snel beschikbaar. Geen overhead kosten.">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     <link rel="canonical" href="https://autoreparatieoplocatie.nl/diensten.html">
     <link rel="alternate" hreflang="nl" href="https://autoreparatieoplocatie.nl/diensten.html">
@@ -23,6 +23,9 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
+    
+    <!-- Structured Data -->
+    <script src="js/structured-data.js"></script>
     
     <style>
         /* Page-specific styles only - base styles are in base.css */
@@ -291,7 +294,7 @@
                                 Monteur Inhuur voor uw Garage - Direct Beschikbaar
                             </h1>
                             <p class="hero-subtitle">
-                                Personeelstekort in uw garage? {{ config.company.name }} levert binnen 24 uur ervaren monteurs voor elke situatie. 
+                                Personeelstekort in uw garage? {{ config.company.name }} levert spoedig inzetbare ervaren monteurs voor elke situatie. 
                                 Van spoedvervanging bij ziekte tot structurele ondersteuning tijdens groei. Flexibel, betrouwbaar en zonder overhead.
                             </p>
                             <div class="buttons">
@@ -525,7 +528,7 @@
                 <hr class="opacity-10 bg-white mt-xl mb-md">
                 <div class="has-text-centered">
                     <p class="text-white opacity-70 text-sm">
-                        © 2024 {{ config.company.name }}. Alle rechten voorbehouden.
+                        © {{ config.getCurrentYear() }} {{ config.company.name }}. Alle rechten voorbehouden.
                     </p>
                 </div>
             </div>
@@ -538,186 +541,7 @@
     <!-- Site Configuration -->
     <script src="js/site-config.js"></script>
     
-    <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": ["Service", "ItemList"],
-        "name": "Monteur Inhuur Services voor Garages",
-        "description": "Uitgebreide monteur inhuur services voor garages in Friesland. Van spoedvervanging bij ziekte tot structurele ondersteuning bij groei. Ervaren monteurs binnen 24 uur beschikbaar.",
-        "provider": {
-            "@type": "LocalBusiness",
-            "name": "Autoreparatie Op Locatie",
-            "legalName": "Autoreparatie Op Locatie V.O.F.",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Noorderbuurt 45",
-                "addressLocality": "Drachten",
-                "postalCode": "9203 AB",
-                "addressRegion": "Friesland",
-                "addressCountry": "NL"
-            },
-            "telephone": "+31850601132",
-            "email": "info@autoreparatieoplocatie.nl",
-            "url": "https://autoreparatieoplocatie.nl"
-        },
-        "serviceType": "Automotive Technician Staffing",
-        "category": "Professional Services",
-        "areaServed": {
-            "@type": "GeoCircle",
-            "geoMidpoint": {
-                "@type": "GeoCoordinates",
-                "latitude": 53.1133,
-                "longitude": 6.0980
-            },
-            "geoRadius": "45000"
-        },
-        "itemListElement": [
-            {
-                "@type": "Service",
-                "position": 1,
-                "name": "Ziekte Vervanging",
-                "description": "Direct beschikbare monteur bij ziekte van uw personeel. Ervaren monteur zonder inwerktijd, flexibele periode van dag tot weken.",
-                "provider": {
-                    "@type": "Organization",
-                    "name": "Autoreparatie Op Locatie"
-                },
-                "serviceOutput": "Qualified replacement automotive technician",
-                "additionalType": "https://schema.org/ProfessionalService"
-            },
-            {
-                "@type": "Service",
-                "position": 2,
-                "name": "Vakantie Vervanging",
-                "description": "Geplande monteur ondersteuning tijdens vakantieperiodes van uw team. Behoud van productiviteit en continuïteit van service.",
-                "provider": {
-                    "@type": "Organization",
-                    "name": "Autoreparatie Op Locatie"
-                },
-                "serviceOutput": "Planned vacation coverage technician",
-                "additionalType": "https://schema.org/ProfessionalService"
-            },
-            {
-                "@type": "Service",
-                "position": 3,
-                "name": "Piekperiode Ondersteuning",
-                "description": "Extra monteur capaciteit bij drukte zoals APK seizoen of speciale acties. Helpt wachttijden verkorten zonder lange termijn verplichtingen.",
-                "provider": {
-                    "@type": "Organization",
-                    "name": "Autoreparatie Op Locatie"
-                },
-                "serviceOutput": "Peak period automotive technician support",
-                "additionalType": "https://schema.org/ProfessionalService"
-            },
-            {
-                "@type": "Service",
-                "position": 4,
-                "name": "Specialistische Ondersteuning",
-                "description": "Expert monteur voor complexe diagnoses of specialistische merken. On-demand expertise met moderne diagnose apparatuur.",
-                "provider": {
-                    "@type": "Organization",
-                    "name": "Autoreparatie Op Locatie"
-                },
-                "serviceOutput": "Specialist automotive diagnostics and repair",
-                "additionalType": "https://schema.org/ProfessionalService"
-            },
-            {
-                "@type": "Service", 
-                "position": 5,
-                "name": "Lange Termijn Inhuur",
-                "description": "Monteur voor langere periode bij structurele groei of tijdelijke projecten. Stabiele langetermijn samenwerking met flexibele contractduur.",
-                "provider": {
-                    "@type": "Organization",
-                    "name": "Autoreparatie Op Locatie"
-                },
-                "serviceOutput": "Long-term automotive technician staffing",
-                "additionalType": "https://schema.org/ProfessionalService"
-            },
-            {
-                "@type": "Service",
-                "position": 6,
-                "name": "Spoed Ondersteuning",
-                "description": "Acute monteur inhuur bij onverwachte uitval of spoedklussen binnen 24 uur. Ervaren in crisis situaties met flexibele inzet.",
-                "provider": {
-                    "@type": "Organization",
-                    "name": "Autoreparatie Op Locatie"
-                },
-                "serviceOutput": "Emergency automotive technician support",
-                "additionalType": "https://schema.org/ProfessionalService"
-            },
-            {
-                "@type": "Service",
-                "position": 7,
-                "name": "APK Seizoen Versterking",
-                "description": "Extra APK keurmeester tijdens drukke APK periodes. Gecertificeerde keurmeester met ervaring in alle voertuigtypen.",
-                "provider": {
-                    "@type": "Organization",
-                    "name": "Autoreparatie Op Locatie"
-                },
-                "serviceOutput": "Certified APK inspection technician",
-                "additionalType": "https://schema.org/ProfessionalService"
-            },
-            {
-                "@type": "Service",
-                "position": 8,
-                "name": "Weekend & Avond Ondersteuning",
-                "description": "Monteur voor weekends of avonden wanneer uw reguliere team niet beschikbaar is. Service continuïteit voor spoedreparaties.",
-                "provider": {
-                    "@type": "Organization",
-                    "name": "Autoreparatie Op Locatie"
-                },
-                "serviceOutput": "After-hours automotive technician support",
-                "additionalType": "https://schema.org/ProfessionalService"
-            },
-            {
-                "@type": "Service",
-                "position": 9,
-                "name": "Opleidingsondersteuning",
-                "description": "Ervaren monteur die uw junior medewerkers kan begeleiden en opleiden. Praktijkgerichte begeleiding en kennisoverdracht.",
-                "provider": {
-                    "@type": "Organization",
-                    "name": "Autoreparatie Op Locatie"
-                },
-                "serviceOutput": "Automotive technician training and mentorship",
-                "additionalType": "https://schema.org/ProfessionalService"
-            }
-        ],
-        "audience": {
-            "@type": "BusinessAudience",
-            "audienceType": "Automotive Garages and Repair Shops"
-        },
-        "availableChannel": {
-            "@type": "ServiceChannel",
-            "serviceUrl": "https://autoreparatieoplocatie.nl/diensten.html",
-            "serviceName": "Monteur Inhuur Services Overview",
-            "availableLanguage": "nl"
-        },
-        "hoursAvailable": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday"
-            ],
-            "opens": "08:00",
-            "closes": "18:00"
-        },
-        "offers": {
-            "@type": "AggregateOffer",
-            "offerCount": "9",
-            "lowPrice": "40",
-            "highPrice": "58",
-            "priceCurrency": "EUR",
-            "priceSpecification": {
-                "@type": "PriceSpecification",
-                "unitCode": "HUR",
-                "unitText": "per hour"
-            }
-        }
-    }
-    </script>
+    <!-- Structured data now handled by js/structured-data.js -->
     
     <!-- Cal.com Integration -->
     <script src="js/cal-integration.js"></script>
@@ -736,7 +560,6 @@
                             id: 1,
                             name: 'Ziekte Vervanging',
                             description: 'Monteur bij ziekte van uw personeel. Direct inzetbaar, geen inwerktijd nodig.',
-                            price: '€ 45,-',
                             duration: 'Per uur',
                             category: 'onderhoud',
                             icon: 'fas fa-user-clock',
@@ -811,12 +634,12 @@
                         {
                             id: 6,
                             name: 'Spoed Ondersteuning',
-                            description: 'Acute monteur inhuur bij onverwachte uitval of spoedklussen binnen 24 uur.',
+                            description: 'Acute monteur inhuur bij onverwachte uitval of spoedklussen op korte termijn.',
                             duration: 'Per uur',
                             category: 'noodhulp',
                             icon: 'fas fa-ambulance',
                             features: [
-                                'Binnen 24 uur beschikbaar',
+                                'Snel beschikbaar',
                                 'Bij acute personeelsuitval',
                                 'Spoedklussen ondersteuning',
                                 'Flexibele inzet mogelijk',
@@ -885,13 +708,13 @@
                         },
                         // {
                         //     id: 11,
-                        //     name: '24/7 Pechhulp',
-                        //     description: 'Dag en nacht pechhulp service. Wij komen naar u toe waar u ook bent.',
+                        //     name: 'Pechhulp Service',
+                        //     description: 'Pechhulp service tijdens openingstijden. Wij komen naar u toe waar u ook bent.',
                         //     duration: 'Variabel',
                         //     category: 'noodhulp',
                         //     icon: 'fas fa-ambulance',
                         //     features: [
-                        //         '24/7 bereikbaar voor noodgevallen',
+                        //         'Bereikbaar tijdens openingstijden voor noodgevallen',
                         //         'Snelle responstijd (gem. 30 min)',
                         //         'Ter plaatse reparatie indien mogelijk',
                         //         'Sleep service naar werkplaats',
@@ -902,7 +725,7 @@
                     faqs: [
                         {
                             question: 'Hoe snel kunnen jullie een monteur leveren?',
-                            answer: 'Voor geplande inhuur kunnen wij meestal binnen 1-2 dagen een monteur leveren. Voor spoedgevallen streven wij naar beschikbaarheid binnen 24 uur.',
+                            answer: 'Voor geplande inhuur kunnen wij meestal binnen 1-2 dagen een monteur leveren. Voor spoedgevallen is dezelfde dag mogelijk.',
                             isOpen: false
                         },
                         {

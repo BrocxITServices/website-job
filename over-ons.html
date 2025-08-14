@@ -24,6 +24,9 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
     
+    <!-- Structured Data -->
+    <script src="js/structured-data.js"></script>
+    
     <style>
         /* Pagina-specifieke CSS voor over-ons.html */
         
@@ -244,7 +247,7 @@
                         </p>
                         <p class="mb-lg">
                             Wij begrijpen de urgentie van garage-eigenaren. Een zieke monteur kan betekenen: lange wachttijden, 
-                            ontevreden klanten en gederfde omzet. Onze oplossing is simpel: binnen 24 uur leveren wij een 
+                            ontevreden klanten en gederfde omzet. Onze oplossing is simpel: wij leveren spoedig een 
                             ervaren monteur die direct aan de slag kan.
                         </p>
                         <p>
@@ -401,40 +404,40 @@
         <!-- Timeline Section -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title">Groei sinds 2008</h2>
+                <h2 class="section-title">Groei sinds 2024</h2>
                 <div class="timeline">
                     <div class="timeline-item timeline-left">
                         <div class="timeline-content">
-                            <h3 class="title is-5">2008</h3>
-                            <h4 class="subtitle is-6 text-accent">De Start</h4>
-                            <p>Jan van der Berg opent Autoreparatie Op Locatie als eenmanszaak in een kleine garage aan de Hoofdstraat.</p>
+                            <h3 class="title is-5">juli 2024</h3>
+                            <h4 class="subtitle is-6 text-primary">De Start</h4>
+                            <p>Job van Veen opent Autoreparatie Op Locatie als eenmanszaak en koopt zijn eerste bus.</p>
                         </div>
                     </div>
                     <div class="timeline-item timeline-right">
                         <div class="timeline-content">
-                            <h3 class="title is-5">2012</h3>
-                            <h4 class="subtitle is-6 text-accent">Uitbreiding Team</h4>
+                            <h3 class="title is-5">sept. 2024</h3>
+                            <h4 class="subtitle is-6 text-primary">Uitbreiding Team</h4>
+                            <p>Peter Hendriks sluit zich aan als senior monteur. Het team groeit naar 2 medewerkers.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item timeline-left">
+                        <div class="timeline-content">
+                            <h3 class="title is-5">feb. 2025</h3>
+                            <h4 class="subtitle is-6 text-primary">Uitbreiding Team</h4>
                             <p>Peter Hendriks sluit zich aan als senior monteur. Het team groeit naar 3 medewerkers.</p>
                         </div>
                     </div>
-                    <div class="timeline-item timeline-left">
-                        <div class="timeline-content">
-                            <h3 class="title is-5">2015</h3>
-                            <h4 class="subtitle is-6 text-accent">RDW Erkenning</h4>
-                            <p>Autoreparatie Op Locatie wordt officieel erkend voor APK keuringen. Lisa de Jong wordt keurmeester.</p>
-                        </div>
-                    </div>
                     <div class="timeline-item timeline-right">
                         <div class="timeline-content">
-                            <h3 class="title is-5">2018</h3>
-                            <h4 class="subtitle is-6 text-accent">Modernisering</h4>
-                            <p>Grote investering in moderne apparatuur en uitbreiding van de werkplaats.</p>
+                            <h3 class="title is-5">juni 2025</h3>
+                            <h4 class="subtitle is-6 text-primary">Modernisering</h4>
+                            <p>Grote investering in moderne apparatuur en uitbreiding van gereedschap.</p>
                         </div>
                     </div>
                     <div class="timeline-item timeline-left">
                         <div class="timeline-content">
-                            <h3 class="title is-5">2024</h3>
-                            <h4 class="subtitle is-6 text-accent">Digitaal Tijdperk</h4>
+                            <h3 class="title is-5">aug. 2025</h3>
+                            <h4 class="subtitle is-6 text-primary">Digitaal Tijdperk</h4>
                             <p>Lancering van online diensten en digitale klantcommunicatie voor nog betere service.</p>
                         </div>
                     </div>
@@ -457,7 +460,7 @@
                         <div class="columns is-multiline">
                             <div class="column is-6">
                                 <div class="stats-card">
-                                    <p class="title is-3">50+</p>
+                                    <p class="title is-3">8+</p>
                                     <p class="subtitle is-6">Garages Ondersteund</p>
                                 </div>
                             </div>
@@ -472,11 +475,11 @@
                             <h4 class="title is-6">Ondersteunde garage locaties:</h4>
                             <div class="content">
                                 <ul>
-                                    <li>Garages in Drachten en omgeving</li>
+                                    <li>Garages in Drachten, Leeuwarden en Groningen en omgeving</li>
                                     <li>Autowerkplaatsen Heerenveen</li>
                                     <li>Servicebedrijven Gorredijk</li>
                                     <li>APK stations Leeuwarden</li>
-                                    <li>Alle garages binnen 25km radius</li>
+                                    <li>Alle garages binnen 45km radius</li>
                                 </ul>
                             </div>
                         </div>
@@ -559,7 +562,7 @@
                 <hr style="background-color: rgba(255,255,255,0.1); margin: var(--space-xl) 0 var(--space-md) 0;">
                 <div class="has-text-centered">
                     <p class="text-sm" style="color: rgba(255,255,255,0.7);">
-                        © 2024 {{ config.company.name }}. Alle rechten voorbehouden.
+                        © {{ config.getCurrentYear() }} {{ config.company.name }}. Alle rechten voorbehouden.
                     </p>
                 </div>
             </div>
@@ -572,207 +575,7 @@
     <!-- Site Configuration -->
     <script src="js/site-config.js"></script>
     
-    <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "AboutPage",
-        "name": "Over Autoreparatie Op Locatie - Monteur Inhuur Specialist",
-        "description": "Autoreparatie Op Locatie: dé specialist in monteur inhuur voor garages sinds 2024. 3 ervaren monteurs, 50+ garages geholpen, volledig verzekerd. Van garage voor garages.",
-        "url": "https://autoreparatieoplocatie.nl/over-ons.html",
-        "mainEntity": {
-            "@type": "LocalBusiness",
-            "additionalType": "https://schema.org/AutomotiveBusiness",
-            "name": "Autoreparatie Op Locatie",
-            "legalName": "Autoreparatie Op Locatie V.O.F.",
-            "description": "Specialist in monteur inhuur voor garages in Friesland. Ontstaan uit een concrete behoefte van garage-eigenaren die worstelden met personeelstekorten.",
-            "foundingDate": "2024",
-            "founder": {
-                "@type": "Person",
-                "name": "Jan van der Berg",
-                "jobTitle": "Eigenaar & Senior Monteur",
-                "description": "Jan runde zelf een garage en kende de pijn van personeelsproblemen. Dit inzicht groeide uit tot Autoreparatie Op Locatie."
-            },
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Noorderbuurt 45",
-                "addressLocality": "Drachten",
-                "postalCode": "9203 AB",
-                "addressRegion": "Friesland",
-                "addressCountry": "NL"
-            },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 53.1133,
-                "longitude": 6.0980
-            },
-            "telephone": "+31850601132",
-            "email": "info@autoreparatieoplocatie.nl",
-            "url": "https://autoreparatieoplocatie.nl",
-            "vatID": "97965952",
-            "numberOfEmployees": 3,
-            "employee": [
-                {
-                    "@type": "Person",
-                    "name": "Jan van der Berg",
-                    "jobTitle": "Senior Monteur & Eigenaar",
-                    "description": "Meer dan 20 jaar ervaring, specialiseert zich in motor- en transmissiereparaties. Staat bekend om zijn grondige aanpak en het oplossen van moeilijke problemen.",
-                    "worksFor": {
-                        "@type": "Organization",
-                        "name": "Autoreparatie Op Locatie"
-                    }
-                },
-                {
-                    "@type": "Person",
-                    "name": "Peter Hendriks", 
-                    "jobTitle": "Elektronica Specialist",
-                    "description": "15 jaar ervaring gespecialiseerd in moderne elektronica en diagnose systemen. Perfect voor hybride en elektrische voertuigen.",
-                    "worksFor": {
-                        "@type": "Organization",
-                        "name": "Autoreparatie Op Locatie"
-                    }
-                },
-                {
-                    "@type": "Person",
-                    "name": "Lisa de Jong",
-                    "jobTitle": "Algemeen Monteur & APK Expert", 
-                    "description": "Gecertificeerd APK keurmeester en breed inzetbare monteur. Scherpe oog voor detail en klantvriendelijke aanpak.",
-                    "worksFor": {
-                        "@type": "Organization",
-                        "name": "Autoreparatie Op Locatie"
-                    }
-                }
-            ],
-            "hasCredential": [
-                {
-                    "@type": "EducationalOccupationalCredential",
-                    "credentialCategory": "certification",
-                    "name": "RDW Erkend",
-                    "description": "Officieel erkend voor APK keuringen"
-                },
-                {
-                    "@type": "EducationalOccupationalCredential", 
-                    "credentialCategory": "insurance",
-                    "name": "Volledig Verzekerd",
-                    "description": "Kwaliteitsgarantie en volledige dekking"
-                }
-            ],
-            "makesOffer": [
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Ziekte Vervanging",
-                        "description": "Direct beschikbare monteur bij ziekte van uw personeel"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Vakantie Vervanging", 
-                        "description": "Geplande monteur ondersteuning tijdens vakantieperiodes"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Piekperiode Ondersteuning",
-                        "description": "Extra monteur capaciteit tijdens drukke periodes"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Specialistische Ondersteuning",
-                        "description": "Expert monteur voor complexe diagnoses"
-                    }
-                }
-            ],
-            "areaServed": [
-                {
-                    "@type": "City",
-                    "name": "Drachten",
-                    "containedInPlace": {
-                        "@type": "AdministrativeArea",
-                        "name": "Friesland"
-                    }
-                },
-                {
-                    "@type": "City",
-                    "name": "Heerenveen",
-                    "containedInPlace": {
-                        "@type": "AdministrativeArea",
-                        "name": "Friesland"
-                    }
-                },
-                {
-                    "@type": "City",
-                    "name": "Gorredijk",
-                    "containedInPlace": {
-                        "@type": "AdministrativeArea",
-                        "name": "Friesland"
-                    }
-                },
-                {
-                    "@type": "City",
-                    "name": "Leeuwarden",
-                    "containedInPlace": {
-                        "@type": "AdministrativeArea",
-                        "name": "Friesland"
-                    }
-                }
-            ],
-            "knowsAbout": [
-                "Automotive Repair",
-                "Car Maintenance",
-                "APK Inspection",
-                "Vehicle Diagnostics",
-                "Automotive Electronics",
-                "Garage Support Services",
-                "Technician Staffing",
-                "Emergency Vehicle Repair",
-                "Professional Service Management"
-            ],
-            "mission": "Het oplossen van personeelstekorten in garages door het leveren van ervaren, direct inzetbare monteurs",
-            "values": [
-                "Betrouwbaarheid",
-                "Eerlijkheid", 
-                "Kwaliteit",
-                "Klantenservice"
-            ],
-            "slogan": "Flexibele Monteurs voor Garages",
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.8",
-                "bestRating": "5",
-                "ratingCount": "127"
-            },
-            "hasOfferingCatalog": {
-                "@type": "OfferingCatalog",
-                "name": "Monteur Inhuur Services",
-                "description": "Uitgebreide monteur inhuur oplossingen voor alle garage behoeften"
-            }
-        },
-        "significantLink": [
-            "https://autoreparatieoplocatie.nl/diensten.html",
-            "https://autoreparatieoplocatie.nl/contact.html",
-            "https://autoreparatieoplocatie.nl/boeken.html"
-        ],
-        "speakable": {
-            "@type": "SpeakableSpecification",
-            "cssSelector": [".hero-title", ".section-title", ".value-card h3"]
-        },
-        "inLanguage": "nl",
-        "isPartOf": {
-            "@type": "WebSite",
-            "name": "Autoreparatie Op Locatie",
-            "url": "https://autoreparatieoplocatie.nl"
-        }
-    }
-    </script>
+    <!-- Structured data now handled by js/structured-data.js -->
     
     
     <script>

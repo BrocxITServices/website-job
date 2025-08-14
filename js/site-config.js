@@ -44,15 +44,14 @@ const SiteConfig = {
     hours: {
         weekdays: "08:00 - 18:00",
         saturday: "Op afspraak", 
-        sunday: "Gesloten",
-        emergency: false
+        sunday: "Gesloten"
     },
 
     // Service gebied
     service: {
         radius: "45km", // TODO: update juiste cities, die voldoen aan de km radius
         baseCity: "Drachten",
-        cities: ["Drachten", "Heerenveen", "Gorredijk", "Leeuwarden", "Ureterp", "Beetsterzwaag"]
+        cities: ["Drachten", "Heerenveen", "Gorredijk", "Leeuwarden", "Ureterp", "Beetsterzwaag", "Groningen", "Leek"]
     },
 
     // Social media
@@ -81,6 +80,11 @@ const SiteConfig = {
     reviews: {
         rating: 4.8,
         count: 127
+    },
+
+    // Utility functions
+    getCurrentYear() {
+        return new Date().getFullYear();
     }
 };
 
