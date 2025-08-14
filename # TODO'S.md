@@ -11,3 +11,5 @@
 - ~~Contact: "Spoedeisende Reparaties" moet weg, onzichtbaar, klaar om later nog aangezet te worden~~
 - ~~Contact: "Direct Contact" socials logos zijn niet zichtbaar~~
 - Contactformulier aanpassen/ook die voor het invullen bij het boeken
+- Kleuren aanpassen naar keuze 5 blauw geel
+-

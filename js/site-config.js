@@ -14,16 +14,16 @@ const SiteConfig = {
         name: "Autoreparatie Op Locatie",
         legalName: "Autoreparatie Op Locatie B.V.",
         tagline: "Flexibele Monteurs voor Garages",
-        kvk: "12345678", // TODO: Update
+        kvk: "97965952",
         established: "2008"
     },
 
     // Contact informatie
     contact: {
         phone: {
-            primary: "+31 (0)512 123 456",
-            mobile: "+31 6 12 345 678",
-            whatsapp: "31512123456"
+            primary: "+31850601132",
+            mobile: "+31850601132",
+            whatsapp: "todo" // TODO: Krijg nog een whatsapp nummer van Job
         },
         email: {
             main: "info@autoreparatieoplocatie.nl", // TODO: Check spelling
@@ -43,15 +43,15 @@ const SiteConfig = {
 
     // Openingstijden (standaard Ma-Vr 08:00-17:30, Za 09:00-16:00)
     hours: {
-        weekdays: "08:00-17:30",
+        weekdays: "08:00-18:00",
         saturday: "Op afspraak", 
         sunday: "Gesloten",
-        emergency: true
+        emergency: false
     },
 
     // Service gebied
     service: {
-        radius: "25km",
+        radius: "45km", // TODO: update juiste cities, die voldoen aan de km radius
         baseCity: "Drachten",
         cities: ["Drachten", "Heerenveen", "Gorredijk", "Leeuwarden", "Ureterp", "Beetsterzwaag"]
     },
@@ -71,8 +71,8 @@ const SiteConfig = {
 
     // Cal.com booking
     booking: {
-        calLink: "fsdf233/ochtend", // TODO: Update
-        namespace: "ochtend"
+        calLink: "autoreparatieoplocatie/monteur", // TODO: Update
+        namespace: "monteur"
     },
 
     // Bedrijfscertificeringen
