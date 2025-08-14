@@ -12,23 +12,22 @@ const SiteConfig = {
     // Bedrijfsinformatie
     company: {
         name: "Autoreparatie Op Locatie",
-        legalName: "Autoreparatie Op Locatie B.V.",
+        legalName: "Autoreparatie Op Locatie V.O.F.",
         tagline: "Flexibele Monteurs voor Garages",
         kvk: "97965952",
-        established: "2008"
+        established: "2024"
     },
 
     // Contact informatie
     contact: {
         phone: {
-            primary: "+31850601132",
-            mobile: "+31850601132",
+            primary: {
+                text: "085 060 1132",
+                href: "+31850601132"
+            },
             whatsapp: "todo" // TODO: Krijg nog een whatsapp nummer van Job
         },
-        email: {
-            main: "info@autoreparatieoplocatie.nl", // TODO: Check spelling
-            support: "info@autoreparatieoplocatie.nl"
-        },
+        email: "info@autoreparatieoplocatie.nl",
         address: {
             street: "Noorderbuurt 45",
             postalCode: "9203 AB",
@@ -43,7 +42,7 @@ const SiteConfig = {
 
     // Openingstijden (standaard Ma-Vr 08:00-17:30, Za 09:00-16:00)
     hours: {
-        weekdays: "08:00-18:00",
+        weekdays: "08:00 - 18:00",
         saturday: "Op afspraak", 
         sunday: "Gesloten",
         emergency: false
@@ -58,20 +57,20 @@ const SiteConfig = {
 
     // Social media
     social: {
-        facebook: "https://www.facebook.com/AutoreparatieOpLocatieNL", // TODO: Update
-        instagram: "https://www.instagram.com/autoreparatieoplocatie_nl", // TODO: Update  
-        google: "https://g.page/autoreparatieoplocatie" // TODO: Update
+        facebook: "https://www.facebook.com/AutoreparatieOpLocatieNL", // TODO: 
+        instagram: "https://www.instagram.com/autoreparatieoplocatie_nl", // TODO:   
+        google: "https://g.page/autoreparatieoplocatie" // TODO: 
     },
 
     // Website & SEO
     site: {
-        domain: "autoreparatieoplocatie.nl", // TODO: Confirm
+        domain: "autoreparatieoplocatie.nl",
         url: "https://autoreparatieoplocatie.nl"
     },
 
     // Cal.com booking
     booking: {
-        calLink: "autoreparatieoplocatie/monteur", // TODO: Update
+        calLink: "autoreparatieoplocatie/monteur",
         namespace: "monteur"
     },
 

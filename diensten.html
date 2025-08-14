@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monteur Inhuur Garage | Tijdelijke Monteurs Friesland | Autoreparatie Op Locatie</title>
     <meta name="description" content="Monteur inhuur voor garages in Friesland: ziekte vervanging, vakantie ondersteuning, APK seizoen versterking. 3 ervaren monteurs binnen 24 uur beschikbaar. Geen overhead kosten.">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://autoreparatieoplocatie.nl/diensten.html">
+    <link rel="alternate" hreflang="nl" href="https://autoreparatieoplocatie.nl/diensten.html">
     
     <!-- Bulma CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
@@ -292,9 +295,9 @@
                                 Van spoedvervanging bij ziekte tot structurele ondersteuning tijdens groei. Flexibel, betrouwbaar en zonder overhead.
                             </p>
                             <div class="buttons">
-                                <a href="tel:+31512123456" class="button btn-primary btn-lg">
+                                <a :href="'tel:' + config.contact.phone.primary.href" class="button btn-primary btn-lg">
                                     <i class="fas fa-phone"></i>
-                                    <span class="ml-sm">Direct Contact: 0512-123456</span>
+                                    <span class="ml-sm">Direct Contact: {{ config.contact.phone.primary.text }}</span>
                                 </a>
                                 <button class="button btn-accent btn-lg" data-cal-trigger data-cal-link="autoreparatieoplocatie/monteur" data-cal-namespace="monteur" data-cal-config='{"layout":"month_view"}'>
                                     <i class="fas fa-calendar-plus"></i>
@@ -438,9 +441,9 @@
                             Wij staan klaar om uw garage te ondersteunen wanneer u ons nodig heeft.
                         </p>
                         <div class="buttons is-centered">
-                            <a href="tel:+31512123456" class="button btn-lg bg-white text-primary font-semibold">
+                            <a :href="'tel:' + config.contact.phone.primary.href" class="button btn-lg bg-white text-primary font-semibold">
                                 <i class="fas fa-phone"></i>
-                                <span class="ml-sm mobile-hide">Monteur Nodig? Bel: 0512-123456</span>
+                                <span class="ml-sm mobile-hide">Monteur Nodig? Bel: {{ config.contact.phone.primary.text }}</span>
                                 <span class="ml-sm mobile-show">Bel Nu</span>
                             </a>
                             <a href="mailto:info@autoreparatieoplocatie.nl" class="button btn-primary btn-lg">
@@ -469,11 +472,11 @@
                             </p>
                             <div class="contact-info">
                                 <i class="fas fa-phone"></i>
-                                <span>0512-123456</span>
+                                <a :href="'tel:' + config.contact.phone.primary.href" class="footer-link">{{ config.contact.phone.primary.text }}</a>
                             </div>
                             <div class="contact-info">
                                 <i class="fas fa-envelope"></i>
-                                <span>info@autoreparatieoplocatie.nl</span>
+                                <a :href="'mailto:' + config.contact.email" class="footer-link">{{ config.contact.email }}</a>
                             </div>
                         </div>
                     </div>
@@ -534,6 +537,187 @@
     
     <!-- Site Configuration -->
     <script src="js/site-config.js"></script>
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["Service", "ItemList"],
+        "name": "Monteur Inhuur Services voor Garages",
+        "description": "Uitgebreide monteur inhuur services voor garages in Friesland. Van spoedvervanging bij ziekte tot structurele ondersteuning bij groei. Ervaren monteurs binnen 24 uur beschikbaar.",
+        "provider": {
+            "@type": "LocalBusiness",
+            "name": "Autoreparatie Op Locatie",
+            "legalName": "Autoreparatie Op Locatie V.O.F.",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Noorderbuurt 45",
+                "addressLocality": "Drachten",
+                "postalCode": "9203 AB",
+                "addressRegion": "Friesland",
+                "addressCountry": "NL"
+            },
+            "telephone": "+31850601132",
+            "email": "info@autoreparatieoplocatie.nl",
+            "url": "https://autoreparatieoplocatie.nl"
+        },
+        "serviceType": "Automotive Technician Staffing",
+        "category": "Professional Services",
+        "areaServed": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": 53.1133,
+                "longitude": 6.0980
+            },
+            "geoRadius": "45000"
+        },
+        "itemListElement": [
+            {
+                "@type": "Service",
+                "position": 1,
+                "name": "Ziekte Vervanging",
+                "description": "Direct beschikbare monteur bij ziekte van uw personeel. Ervaren monteur zonder inwerktijd, flexibele periode van dag tot weken.",
+                "provider": {
+                    "@type": "Organization",
+                    "name": "Autoreparatie Op Locatie"
+                },
+                "serviceOutput": "Qualified replacement automotive technician",
+                "additionalType": "https://schema.org/ProfessionalService"
+            },
+            {
+                "@type": "Service",
+                "position": 2,
+                "name": "Vakantie Vervanging",
+                "description": "Geplande monteur ondersteuning tijdens vakantieperiodes van uw team. Behoud van productiviteit en continuïteit van service.",
+                "provider": {
+                    "@type": "Organization",
+                    "name": "Autoreparatie Op Locatie"
+                },
+                "serviceOutput": "Planned vacation coverage technician",
+                "additionalType": "https://schema.org/ProfessionalService"
+            },
+            {
+                "@type": "Service",
+                "position": 3,
+                "name": "Piekperiode Ondersteuning",
+                "description": "Extra monteur capaciteit bij drukte zoals APK seizoen of speciale acties. Helpt wachttijden verkorten zonder lange termijn verplichtingen.",
+                "provider": {
+                    "@type": "Organization",
+                    "name": "Autoreparatie Op Locatie"
+                },
+                "serviceOutput": "Peak period automotive technician support",
+                "additionalType": "https://schema.org/ProfessionalService"
+            },
+            {
+                "@type": "Service",
+                "position": 4,
+                "name": "Specialistische Ondersteuning",
+                "description": "Expert monteur voor complexe diagnoses of specialistische merken. On-demand expertise met moderne diagnose apparatuur.",
+                "provider": {
+                    "@type": "Organization",
+                    "name": "Autoreparatie Op Locatie"
+                },
+                "serviceOutput": "Specialist automotive diagnostics and repair",
+                "additionalType": "https://schema.org/ProfessionalService"
+            },
+            {
+                "@type": "Service", 
+                "position": 5,
+                "name": "Lange Termijn Inhuur",
+                "description": "Monteur voor langere periode bij structurele groei of tijdelijke projecten. Stabiele langetermijn samenwerking met flexibele contractduur.",
+                "provider": {
+                    "@type": "Organization",
+                    "name": "Autoreparatie Op Locatie"
+                },
+                "serviceOutput": "Long-term automotive technician staffing",
+                "additionalType": "https://schema.org/ProfessionalService"
+            },
+            {
+                "@type": "Service",
+                "position": 6,
+                "name": "Spoed Ondersteuning",
+                "description": "Acute monteur inhuur bij onverwachte uitval of spoedklussen binnen 24 uur. Ervaren in crisis situaties met flexibele inzet.",
+                "provider": {
+                    "@type": "Organization",
+                    "name": "Autoreparatie Op Locatie"
+                },
+                "serviceOutput": "Emergency automotive technician support",
+                "additionalType": "https://schema.org/ProfessionalService"
+            },
+            {
+                "@type": "Service",
+                "position": 7,
+                "name": "APK Seizoen Versterking",
+                "description": "Extra APK keurmeester tijdens drukke APK periodes. Gecertificeerde keurmeester met ervaring in alle voertuigtypen.",
+                "provider": {
+                    "@type": "Organization",
+                    "name": "Autoreparatie Op Locatie"
+                },
+                "serviceOutput": "Certified APK inspection technician",
+                "additionalType": "https://schema.org/ProfessionalService"
+            },
+            {
+                "@type": "Service",
+                "position": 8,
+                "name": "Weekend & Avond Ondersteuning",
+                "description": "Monteur voor weekends of avonden wanneer uw reguliere team niet beschikbaar is. Service continuïteit voor spoedreparaties.",
+                "provider": {
+                    "@type": "Organization",
+                    "name": "Autoreparatie Op Locatie"
+                },
+                "serviceOutput": "After-hours automotive technician support",
+                "additionalType": "https://schema.org/ProfessionalService"
+            },
+            {
+                "@type": "Service",
+                "position": 9,
+                "name": "Opleidingsondersteuning",
+                "description": "Ervaren monteur die uw junior medewerkers kan begeleiden en opleiden. Praktijkgerichte begeleiding en kennisoverdracht.",
+                "provider": {
+                    "@type": "Organization",
+                    "name": "Autoreparatie Op Locatie"
+                },
+                "serviceOutput": "Automotive technician training and mentorship",
+                "additionalType": "https://schema.org/ProfessionalService"
+            }
+        ],
+        "audience": {
+            "@type": "BusinessAudience",
+            "audienceType": "Automotive Garages and Repair Shops"
+        },
+        "availableChannel": {
+            "@type": "ServiceChannel",
+            "serviceUrl": "https://autoreparatieoplocatie.nl/diensten.html",
+            "serviceName": "Monteur Inhuur Services Overview",
+            "availableLanguage": "nl"
+        },
+        "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+            ],
+            "opens": "08:00",
+            "closes": "18:00"
+        },
+        "offers": {
+            "@type": "AggregateOffer",
+            "offerCount": "9",
+            "lowPrice": "40",
+            "highPrice": "58",
+            "priceCurrency": "EUR",
+            "priceSpecification": {
+                "@type": "PriceSpecification",
+                "unitCode": "HUR",
+                "unitText": "per hour"
+            }
+        }
+    }
+    </script>
     
     <!-- Cal.com Integration -->
     <script src="js/cal-integration.js"></script>

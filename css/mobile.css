@@ -136,9 +136,9 @@
    Make phone numbers easily clickable on mobile
    ======================================================================== */
 
-/* Phone number styling */
+/* Enhanced Phone number styling with Racing Geel */
 a[href^="tel:"] {
-    color: var(--accent-color);
+    color: var(--accent-darker); /* Better contrast for accessibility */
     text-decoration: none;
     font-weight: 600;
     display: inline-flex;
@@ -147,15 +147,24 @@ a[href^="tel:"] {
     padding: 8px 12px;
     border-radius: var(--radius-md);
     transition: var(--transition-normal);
+    border: 2px solid transparent;
+    background-color: rgba(234, 179, 8, 0.1);
 }
 
 a[href^="tel:"]:hover {
-    background-color: rgba(249, 115, 22, 0.1);
-    color: var(--accent-dark);
+    background-color: var(--accent-lighter);
+    color: var(--accent-darker);
     transform: translateY(-1px);
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 12px var(--accent-shadow);
 }
 
-/* Mobile phone link optimization */
+a[href^="tel:"]:focus {
+    outline: 3px solid var(--accent-darker);
+    outline-offset: 2px;
+}
+
+/* Enhanced Mobile phone link optimization */
 @media screen and (max-width: 768px) {
     a[href^="tel:"] {
         min-height: 48px;
@@ -164,16 +173,26 @@ a[href^="tel:"]:hover {
         border: 2px solid var(--accent-color);
         border-radius: var(--radius-md);
         background-color: var(--accent-color);
-        color: white !important;
+        color: var(--text-on-yellow) !important; /* High contrast text */
         justify-content: center;
         width: 100%;
         margin: 8px 0;
+        box-shadow: 0 4px 12px var(--accent-shadow);
+        font-weight: 600;
+        letter-spacing: 0.25px;
     }
     
     a[href^="tel:"]:hover {
-        background-color: var(--accent-dark);
-        border-color: var(--accent-dark);
+        background-color: var(--accent-light);
+        border-color: var(--accent-light);
         transform: none;
+        box-shadow: 0 6px 16px var(--accent-hover-shadow);
+        color: var(--text-on-yellow) !important;
+    }
+    
+    a[href^="tel:"]:active {
+        transform: scale(0.98);
+        box-shadow: 0 2px 8px var(--accent-shadow);
     }
     
     /* Hero phone button */

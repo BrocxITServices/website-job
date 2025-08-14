@@ -17,6 +17,8 @@
     <meta name="revisit-after" content="7 days">
     <meta name="format-detection" content="telephone=yes">
     <link rel="canonical" href="https://autoreparatieoplocatie.nl/">
+    <link rel="alternate" hreflang="nl" href="https://autoreparatieoplocatie.nl/">
+    <link rel="alternate" hreflang="x-default" href="https://autoreparatieoplocatie.nl/">
     
     <!-- Voice Search Optimization -->
     <meta name="speakable" content="true">
@@ -40,8 +42,8 @@
     <meta name="coverage" content="Drachten, Heerenveen, Gorredijk, Leeuwarden, Ureterp, Beetsterzwaag">
     <meta name="service-area" content="25km radius van Drachten">
     <meta name="business-hours" content="Ma-Vr 08:00-17:30, Za 09:00-16:00">
-    <meta name="business-phone" content="+31512123456">
-    <meta name="emergency-phone" content="+31612345678">
+    <meta name="business-phone" content="+31850601132">
+    <meta name="emergency-phone" content="+31850601132">
     
     <!-- Enhanced Geo Tags -->
     <meta name="geo.region" content="NL-FR">
@@ -75,7 +77,7 @@
     <meta property="business:contact_data:region" content="Friesland">
     <meta property="business:contact_data:postal_code" content="9203 AB">
     <meta property="business:contact_data:country_name" content="Nederland">
-    <meta property="business:contact_data:phone_number" content="+31512123456">
+    <meta property="business:contact_data:phone_number" content="+31850601132">
     <meta property="business:contact_data:website" content="https://autoreparatieoplocatie.nl">
     
     <!-- Twitter Cards -->
@@ -145,7 +147,7 @@
       ],
       "foundingDate": "2008",
       "slogan": "Direct oplossing voor personeelstekorten in garages",
-      "telephone": "+31512123456",
+      "telephone": "+31850601132",
       "email": "info@arol-mobiel.nl",
       "priceRange": "€€",
       "paymentAccepted": ["Cash", "Credit Card", "Debit Card", "Bank Transfer"],
@@ -390,7 +392,7 @@
       "contactPoint": [
         {
           "@type": "ContactPoint",
-          "telephone": "+31512123456",
+          "telephone": "+31850601132",
           "contactType": "customer service",
           "availableLanguage": ["Dutch"],
           "areaServed": "NL-FR",
@@ -403,7 +405,7 @@
         },
         {
           "@type": "ContactPoint",
-          "telephone": "+31612345678",
+          "telephone": "+31850601132",
           "contactType": "emergency",
           "availableLanguage": ["Dutch"],
           "areaServed": "NL-FR",
@@ -648,9 +650,9 @@
                                 3 gecertificeerde monteurs met 15+ jaar ervaring en eigen gereedschap.
                             </p>
                             <div class="buttons">
-                                <a :href="'tel:' + config.contact.phone.primary.replace(/\D/g, '')" class="button btn-primary is-large">
+                                <a :href="'tel:' + config.contact.phone.primary.href" class="button btn-primary is-large">
                                     <i class="fas fa-phone"></i>
-                                    <span class="ml-sm">Bel Ons: {{ config.contact.phone.primary.replace('+31 (0)', '0') }}</span>
+                                    <span class="ml-sm">Bel Ons: {{ config.contact.phone.primary.text }}</span>
                                 </a>
                                 <button class="button btn-accent is-large" data-cal-trigger :data-cal-link="config.booking.calLink" :data-cal-namespace="config.booking.namespace" data-cal-config='{"layout":"month_view"}'>
                                     <i class="fas fa-calendar-plus"></i>
@@ -915,8 +917,8 @@
                         <div class="bg-accent p-lg border-radius text-center mt-lg">
                             <h4 class="text-white font-bold mb-sm">Service Binnen 25km</h4>
                             <p class="text-white mb-md">Geen extra kosten voor aanrijden - Binnen 30 minuten ter plaatse</p>
-                            <a :href="'tel:' + config.contact.phone.primary.replace(/\D/g, '')" class="bg-white text-accent p-md border-radius font-semibold d-inline-block" style="text-decoration: none;">
-                                Bel Direct: {{ config.contact.phone.primary.replace('+31 (0)', '0') }}
+                            <a :href="'tel:' + config.contact.phone.primary.href" class="bg-white text-accent p-md border-radius font-semibold d-inline-block" style="text-decoration: none;">
+                                Bel Direct: {{ config.contact.phone.primary.text }}
                             </a>
                         </div>
                     </div>
@@ -944,11 +946,11 @@
                         </div>
                         <div class="contact-info">
                             <i class="fas fa-phone"></i>
-                            <span>{{ config.contact.phone.primary }}</span>
+                            <a :href="'tel:' + config.contact.phone.primary.href" class="footer-link">{{ config.contact.phone.primary.text }}</a>
                         </div>
                         <div class="contact-info">
                             <i class="fas fa-envelope"></i>
-                            <span>{{ config.contact.email.support }}</span>
+                            <a :href="'mailto:' + config.contact.email" class="footer-link">{{ config.contact.email }}</a>
                         </div>
                     </div>
                     <div class="column is-4">
@@ -1089,10 +1091,10 @@
                     "latitude": 53.1133,
                     "longitude": 6.0980
                 },
-                "telephone": "+31512123456",
+                "telephone": "+31850601132",
                 "url": "https://autoreparatieoplocatie.nl",
                 "priceRange": "€€",
-                "openingHours": "Mo-Fr 08:00-17:30, Sa 09:00-16:00"
+                "openingHours": "Mo-Fr 08:00-18:00, Sa appointment only"
             };
             
             const script = document.createElement('script');

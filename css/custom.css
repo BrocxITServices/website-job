@@ -174,17 +174,64 @@
   font-weight: 600;
 }
 
-/* Button Enhancements */
+/* Enhanced Button System with Racing Geel */
 .button {
   border-radius: var(--border-radius-md);
   font-weight: 500;
-  transition: var(--transition-fast);
-  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
 }
 
 .button:hover {
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
+}
+
+/* Racing Geel button variants */
+.button.is-accent {
+  background-color: var(--accent-color);
+  color: var(--text-on-yellow);
+  border-color: var(--accent-color);
+  box-shadow: 0 2px 8px var(--accent-shadow);
+}
+
+.button.is-accent:hover {
+  background-color: var(--accent-light);
+  border-color: var(--accent-light);
+  box-shadow: 0 8px 25px var(--accent-hover-shadow);
+  transform: translateY(-2px);
+}
+
+.button.is-accent:focus {
+  outline: 3px solid var(--accent-darker);
+  outline-offset: 2px;
+}
+
+/* Outlined Racing Geel button */
+.button.is-accent.is-outlined {
+  background-color: transparent;
+  color: var(--accent-darker);
+  border-color: var(--accent-color);
+}
+
+.button.is-accent.is-outlined:hover {
+  background-color: var(--accent-color);
+  color: var(--text-on-yellow);
+  border-color: var(--accent-color);
+}
+
+/* Ghost button variant */
+.button.is-accent.is-ghost {
+  background-color: rgba(234, 179, 8, 0.1);
+  color: var(--accent-darker);
+  border-color: transparent;
+}
+
+.button.is-accent.is-ghost:hover {
+  background-color: rgba(234, 179, 8, 0.2);
+  transform: translateY(-1px);
 }
 
 /* Removed duplicate .btn-primary - using base.css definition */
@@ -193,9 +240,43 @@
   border-radius: 50px;
 }
 
-/* Hero automotive color override */
+/* Enhanced Hero with Racing Geel accents */
 .hero.is-primary {
   background: linear-gradient(135deg, var(--primary-color), var(--primary-light)) !important;
+  position: relative;
+}
+
+/* Hero with Racing Geel accent */
+.hero.is-accent {
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-light)) !important;
+  color: var(--text-on-yellow) !important;
+}
+
+.hero.is-accent .hero-title {
+  color: var(--text-on-yellow) !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero.is-accent .hero-subtitle {
+  color: var(--text-on-yellow-muted) !important;
+  opacity: 0.9;
+}
+
+/* Hero accent stripe */
+.hero-accent-stripe::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-light), var(--accent-color));
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
 }
 
 /* Hero positioning */
@@ -232,14 +313,41 @@
 .rounded-xl { border-radius: var(--border-radius-xl) !important; }
 .rounded-full { border-radius: 50% !important; }
 
-/* Automotive-specific color utilities using base.css variables */
+/* Racing Geel Enhanced Color Utilities - Professional Grade */
+/* Text colors with proper contrast */
 .text-automotive-primary { color: var(--primary-color) !important; }
 .text-automotive-secondary { color: var(--error-color) !important; }
 .text-automotive-accent { color: var(--accent-color) !important; }
+.text-automotive-accent-dark { color: var(--accent-darker) !important; } /* For light backgrounds */
+.text-on-yellow { color: var(--text-on-yellow) !important; } /* High contrast on yellow */
+.text-on-yellow-muted { color: var(--text-on-yellow-muted) !important; }
 
-.bg-automotive-primary { background-color: var(--primary-color) !important; }
-.bg-automotive-secondary { background-color: var(--error-color) !important; }
-.bg-automotive-accent { background-color: var(--accent-color) !important; }
+/* Background utilities with enhanced accessibility */
+.bg-automotive-primary { background-color: var(--primary-color) !important; color: white !important; }
+.bg-automotive-secondary { background-color: var(--error-color) !important; color: white !important; }
+.bg-automotive-accent { 
+  background-color: var(--accent-color) !important; 
+  color: var(--text-on-yellow) !important;
+  text-shadow: none;
+}
+.bg-automotive-accent-light { 
+  background-color: var(--accent-lighter) !important;
+  color: var(--text-on-yellow) !important;
+  border: 1px solid var(--accent-color);
+}
+.bg-automotive-accent-gradient {
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-light)) !important;
+  color: var(--text-on-yellow) !important;
+}
+
+/* Warning and alert backgrounds using Racing Geel */
+.bg-warning-yellow {
+  background-color: var(--warning-bg) !important;
+  color: var(--warning-text) !important;
+  border: 1px solid var(--warning-border);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-md);
+}
 
 /* Custom Components */
 .service-card {
@@ -261,24 +369,58 @@
 .service-icon {
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  /*! color: white; */
-  /*! font-size: 1.5rem; */
-  margin-bottom: var(--space-lg);
+  color: var(--text-on-yellow);
+  font-size: 1.5rem;
+  margin: 0 auto var(--space-lg) auto;
+  transition: all var(--transition-normal);
+  box-shadow: 0 4px 12px var(--accent-shadow);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem;
 }
 
-/* Testimonial Cards */
+.service-icon:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 25px var(--accent-hover-shadow);
+  background: linear-gradient(135deg, var(--accent-light), var(--accent-color));
+}
+
+/* Enhanced Testimonial Cards with Racing Geel */
 .testimonial-card {
   background: white;
   border-radius: var(--border-radius-xl);
   padding: var(--space-2xl);
   box-shadow: var(--shadow-lg);
   position: relative;
-  border-left: 4px solid var(--accent-color);
+  border-left: 6px solid var(--accent-color);
+  transition: all var(--transition-normal);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl), 0 0 0 1px rgba(234, 179, 8, 0.1);
+  border-left-color: var(--accent-light);
+}
+
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -6px;
+  width: 6px;
+  height: calc(100% + 4px);
+  background: linear-gradient(180deg, var(--accent-color), var(--accent-light));
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.testimonial-card:hover::before {
+  opacity: 1;
 }
 
 .testimonial-card::before {
@@ -500,13 +642,147 @@ img {
 /* Font loading optimization - handled by Google Fonts in HTML head */
 
 /* ========================================================================
+   RACING GEEL PROFESSIONAL COMPONENTS
+   ======================================================================== */
+
+/* Call-to-Action Highlights */
+.cta-highlight {
+  background: linear-gradient(135deg, var(--accent-lighter), var(--accent-light));
+  border: 2px solid var(--accent-color);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-xl);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Racing Geel Badge System */
+.badge-accent {
+  background-color: var(--accent-color);
+  color: var(--text-on-yellow);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+.badge-accent-outline {
+  background-color: transparent;
+  color: var(--accent-darker);
+  border: 2px solid var(--accent-color);
+  padding: calc(var(--space-xs) - 2px) calc(var(--space-sm) - 2px);
+  border-radius: var(--border-radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+/* Racing Geel Alert/Notification System */
+.alert-accent {
+  background-color: var(--accent-lighter);
+  color: var(--accent-darker);
+  border: 1px solid var(--accent-color);
+  border-left-width: 4px;
+  border-radius: var(--border-radius-md);
+  padding: var(--space-md);
+  margin: var(--space-md) 0;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.alert-accent .alert-icon {
+  color: var(--accent-color);
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Racing Geel Form Enhancements */
+.input-accent:focus,
+.textarea-accent:focus,
+.select-accent select:focus {
+  border-color: var(--accent-color) !important;
+  box-shadow: 0 0 0 3px var(--accent-shadow) !important;
+}
+
+.checkbox-accent input[type="checkbox"]:checked {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.radio-accent input[type="radio"]:checked {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+/* Racing Geel Progress Indicators */
+.progress-accent {
+  background-color: var(--accent-lighter);
+  border-radius: var(--border-radius-sm);
+  height: 8px;
+  overflow: hidden;
+}
+
+.progress-accent-bar {
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-light));
+  height: 100%;
+  border-radius: var(--border-radius-sm);
+  transition: width var(--transition-slow);
+}
+
+/* Racing Geel Separator/Divider */
+.divider-accent {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+  border: none;
+  margin: var(--space-xl) 0;
+}
+
+.divider-accent-vertical {
+  width: 2px;
+  background: linear-gradient(180deg, transparent, var(--accent-color), transparent);
+  border: none;
+  margin: 0 var(--space-md);
+  min-height: 40px;
+}
+
+/* ========================================================================
    ACCESSIBILITY ENHANCEMENTS
    ======================================================================== */
 
-/* Focus indicators */
+/* Enhanced Focus indicators with Racing Geel */
 :focus {
-  outline: 2px solid var(--primary-color);
+  outline: 3px solid var(--accent-color);
   outline-offset: 2px;
+}
+
+/* High contrast focus for buttons */
+.button:focus {
+  outline: 3px solid var(--accent-darker);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 1px var(--accent-color);
 }
 
 /* Skip links */

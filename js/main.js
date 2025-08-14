@@ -144,7 +144,8 @@ const AutoServiceApp = createApp({
     },
 
     openWhatsApp() {
-      const phoneNumber = '31612345678'; // Dutch phone number
+      // Use primary phone from SiteConfig since WhatsApp number is still TODO
+      const phoneNumber = SiteConfig.contact.phone.primary.href.replace(/\D/g, '');
       const message = encodeURIComponent('Hallo! Ik heb een vraag over jullie autoservice diensten.');
       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
       window.open(whatsappUrl, '_blank');

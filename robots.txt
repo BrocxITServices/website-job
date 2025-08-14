@@ -1,44 +1,41 @@
-# WEBSITE NOT FOR PUBLIC INDEXING
-# Block all bots from indexing this website
+# Autoreparatie Op Locatie - Robots.txt
+# Professional automotive service website - Allow indexing
 
 User-agent: *
-Disallow: /
-Crawl-delay: 86400
+Disallow: /js/
+Disallow: /css/
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /kleur-voorbeelden.html
+Allow: /
 
-# Explicitly block major search engines
-User-agent: Googlebot
-Disallow: /
+# Allow important pages
+Allow: /index.html
+Allow: /diensten.html
+Allow: /over-ons.html
+Allow: /contact.html
+Allow: /boeken.html
 
-User-agent: Bingbot
-Disallow: /
+# Crawl rate optimization
+Crawl-delay: 1
 
-User-agent: Slurp
-Disallow: /
+# Sitemap location
+Sitemap: https://autoreparatieoplocatie.nl/sitemap.xml
 
-User-agent: DuckDuckBot
-Disallow: /
-
-User-agent: Baiduspider
-Disallow: /
-
-User-agent: YandexBot
-Disallow: /
-
+# Allow social media bots for better sharing
 User-agent: facebookexternalhit
-Disallow: /
+Allow: /
 
 User-agent: Twitterbot
-Disallow: /
+Allow: /
 
 User-agent: LinkedInBot
-Disallow: /
+Allow: /
 
 User-agent: WhatsApp
-Disallow: /
+Allow: /
 
-User-agent: applebot
-Disallow: /
-
+# Block SEO tools and scrapers
 User-agent: AhrefsBot
 Disallow: /
 
@@ -51,13 +48,5 @@ Disallow: /
 User-agent: DotBot
 Disallow: /
 
-# Block all paths explicitly
-Disallow: /index.html
-Disallow: /diensten.html
-Disallow: /over-ons.html
-Disallow: /contact.html
-Disallow: /boeken.html
-Disallow: /*
-
-# No sitemap provided - site not for indexing
-# Sitemap: (none)
+User-agent: SiteAuditBot
+Disallow: /
