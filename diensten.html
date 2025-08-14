@@ -482,14 +482,16 @@
                             <div class="footer-title">Contactgegevens</div>
                             <div class="contact-info">
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span>Hoofdstraat 123<br>9202 AA Drachten</span>
+                                <span>{{ config.contact.address.street }}<br>{{ config.contact.address.postalCode }} {{ config.contact.address.city }}</span>
                             </div>
                             <div class="mt-md">
-                                <p class="font-semibold text-white opacity-90 mb-sm">Openingstijden:</p>
-                                <p class="text-white opacity-80 text-sm" style="line-height: 1.4;">
-                                    Ma-Vr: 08:00-17:00<br>
-                                    Zaterdag: 09:00-15:00<br>
-                                    Zondag: Gesloten
+                                <p class="has-text-weight-semibold mb-sm" style="color: rgba(255,255,255,0.9);">
+                                    Openingstijden:
+                                </p>
+                                <p class="text-sm" style="color: rgba(255,255,255,0.8); line-height: 1.4;">
+                                    Ma-Vr: {{ config.hours.weekdays }}<br>
+                                    Zaterdag: {{ config.hours.saturday }}<br>
+                                    Zondag: {{ config.hours.sunday }}
                                 </p>
                             </div>
                         </div>
