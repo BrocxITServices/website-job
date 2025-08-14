@@ -44,10 +44,6 @@ const AutoServiceApp = createApp({
       document.body.classList.toggle('menu-open', this.mobileMenuOpen);
     },
 
-    closeMobileMenu() {
-      this.mobileMenuOpen = false;
-      document.body.classList.remove('menu-open');
-    },
 
     // Scroll event handlers
     setupScrollListeners() {

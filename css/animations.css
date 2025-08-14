@@ -181,34 +181,6 @@
   }
 }
 
-/* Glow Effect */
-@keyframes glow {
-  0%, 100% {
-    box-shadow: 0 0 5px var(--auto-primary);
-  }
-  50% {
-    box-shadow: 0 0 20px var(--auto-primary), 0 0 30px var(--auto-primary);
-  }
-}
-
-/* Typewriter Effect */
-@keyframes typewriter {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes blinkCaret {
-  from, to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: var(--auto-primary);
-  }
-}
 
 /* ========================================================================
    ANIMATION CLASSES
@@ -533,52 +505,6 @@
    AUTOMOTIVE THEMED ANIMATIONS
    ======================================================================== */
 
-/* Car driving animation */
-@keyframes drive {
-  0% {
-    transform: translateX(-100px);
-  }
-  100% {
-    transform: translateX(100vw);
-  }
-}
-
-.animate-drive {
-  animation: drive 10s linear infinite;
-}
-
-/* Gear rotation */
-@keyframes gear-rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-gear {
-  animation: gear-rotate 4s linear infinite;
-}
-
-/* Oil drop animation */
-@keyframes oil-drop {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-}
-
-.animate-oil-drop {
-  animation: oil-drop 2s ease-in-out infinite;
-}
 
 /* ========================================================================
    INTERSECTION OBSERVER READY CLASSES
@@ -673,50 +599,7 @@
    ANIMATION UTILITIES
    ======================================================================== */
 
-/* Animation Control Classes */
-.animation-paused {
-  animation-play-state: paused;
-}
 
-.animation-running {
-  animation-play-state: running;
-}
-
-/* Animation Fill Modes */
-.animation-fill-forwards {
-  animation-fill-mode: forwards;
-}
-
-.animation-fill-backwards {
-  animation-fill-mode: backwards;
-}
-
-.animation-fill-both {
-  animation-fill-mode: both;
-}
-
-/* Animation Iteration */
-.animation-infinite {
-  animation-iteration-count: infinite;
-}
-
-.animation-once {
-  animation-iteration-count: 1;
-}
-
-/* Hover State Animations */
-.hover-animation-pause:hover {
-  animation-play-state: paused;
-}
-
-.hover-animation-play:hover {
-  animation-play-state: running;
-}
-
-/* Focus States for Accessibility */
-.animate-on-focus:focus {
-  animation: pulse 0.5s ease-out;
-}
 
 /* ========================================================================
    COMPLEX AUTOMOTIVE ANIMATIONS
@@ -767,34 +650,6 @@
   transition: all 0.3s ease-out;
 }
 
-/* Maintenance status indicator */
-@keyframes maintenance-blink {
-  0%, 50% {
-    opacity: 1;
-  }
-  51%, 100% {
-    opacity: 0.3;
-  }
-}
-
-.maintenance-indicator {
-  animation: maintenance-blink 2s infinite;
-}
-
-.maintenance-indicator.is-complete {
-  animation: none;
-  opacity: 1;
-  color: var(--auto-success);
-}
-
-.maintenance-indicator.is-pending {
-  color: var(--auto-warning);
-}
-
-.maintenance-indicator.is-overdue {
-  color: var(--auto-danger);
-  animation: maintenance-blink 1s infinite;
-}
 
 /* ========================================================================
    JAVASCRIPT ANIMATION HELPERS
