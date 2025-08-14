@@ -1,6 +1,6 @@
-# AutoService Pro Website
+# Autoreparatie Op Locatie Website
 
-Een moderne, responsieve website voor AutoService Pro - uw betrouwbare partner voor professionele autoservice.
+Een moderne, responsieve website voor Autoreparatie Op Locatie - uw betrouwbare partner voor professionele autoservice.
 
 ## 📋 Overzicht
 
@@ -155,7 +155,7 @@ if ($_POST['submit']) {
     $message = sanitize($_POST['message']);
     
     // Send email
-    mail('info@autoservicepro.nl', 'Contact Form', $message);
+    mail('info@autoreparatieoplocatie.nl', 'Contact Form', $message);
     
     // Return JSON response
     echo json_encode(['success' => true]);
@@ -274,13 +274,13 @@ Gebruik deze tools voor testing:
 
 Voor technische ondersteuning of vragen over de website:
 
-- **Email**: info@autoservicepro.nl
+- **Email**: info@autoreparatieoplocatie.nl
 - **Telefoon**: +31 (0)20 123 4567
 - **Adres**: Hoofdstraat 123, 1234 AB Amsterdam
 
 ## 📄 Licentie
 
-© 2024 AutoService Pro. Alle rechten voorbehouden.
+© 2024 Autoreparatie Op Locatie. Alle rechten voorbehouden.
 
 ---
 

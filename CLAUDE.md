@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-AutoService Pro website - A responsive automotive service company website built with HTML, CSS (Bulma framework), and vanilla JavaScript.
+Autoreparatie Op Locatie website - A responsive automotive service company website built with HTML, CSS (Bulma framework), and vanilla JavaScript.
 
 ## Technology Stack
 

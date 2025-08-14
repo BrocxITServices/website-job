@@ -10,7 +10,7 @@
     <meta name="keywords" content="contact monteur inhuur Drachten, garage ondersteuning contact, tijdelijke monteur Friesland, personeelstekort oplossing Heerenveen, monteur detachering contact Gorredijk, flexibele monteurs Leeuwarden, garage personeel contact">
     <meta name="author" content="Autoreparatie Op Locatie - Contact">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://autoservicepro.nl/contact.html">
+    <link rel="canonical" href="https://autoreparatieoplocatie.nl/contact.html">
     
     <!-- Geo Tags -->
     <meta name="geo.region" content="NL-FR">
@@ -22,7 +22,7 @@
     <meta property="og:type" content="business.business">
     <meta property="og:title" content="Contact Autoreparatie Op Locatie - Monteur Inhuur voor Garages Friesland">
     <meta property="og:description" content="Neem contact op met Autoreparatie Op Locatie voor flexibele monteur inhuur in Drachten, Heerenveen en heel Friesland. Direct beschikbaar!">
-    <meta property="og:url" content="https://autoservicepro.nl/contact.html">
+    <meta property="og:url" content="https://autoreparatieoplocatie.nl/contact.html">
     
     <!-- Bulma CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
@@ -347,7 +347,7 @@
                     <a class="navbar-item" href="index.html">
                         <i class="fas fa-wrench"></i>
                         <div class="ml-sm">
-                            <div class="has-text-weight-bold">Autoreparatie Op Locatie</div>
+                            <div class="has-text-weight-bold">{{ config.company.name }}</div>
                         </div>
                     </a>
                     
@@ -383,11 +383,11 @@
                                 3 ervaren monteurs beschikbaar voor garages in heel Friesland. Geen wachttijd, geen gedoe - gewoon oplossingen.
                             </p>
                             <div class="buttons">
-                                <a href="tel:+31512123456" class="button btn-primary is-large">
+                                <a :href="'tel:' + config.contact.phone.primary.replace(/\D/g, '')" class="button btn-primary is-large">
                                     <i class="fas fa-phone"></i>
-                                    <span class="ml-sm">Direct Bellen: 0512-123-456</span>
+                                    <span class="ml-sm">Direct Bellen: {{ config.contact.phone.primary.replace('+31 (0)', '0') }}</span>
                                 </a>
-                                <a href="https://wa.me/31512123456?text=Hallo%20AutoService%20Pro,%20ik%20heb%20een%20monteur%20nodig%20voor%20mijn%20garage..." target="_blank" class="button whatsapp-btn is-large">
+                                <a :href="'https://wa.me/' + config.contact.phone.whatsapp" target="_blank" class="button whatsapp-btn is-large">
                                     <i class="fab fa-whatsapp"></i>
                                     <span class="ml-sm">WhatsApp Direct</span>
                                 </a>
@@ -422,7 +422,7 @@
                                 <i class="fas fa-exclamation-circle"></i>
                                 <div>
                                     <strong>Er is een fout opgetreden.</strong><br>
-                                    Probeer het opnieuw of bel ons direct: +31 (0)512 123 456
+                                    Probeer het opnieuw of bel ons direct: {{ config.contact.phone.primary.replace('+31 (0)', '0') }}
                                 </div>
                             </div>
                             
@@ -569,21 +569,21 @@
                             <h3 class="title is-4 text-primary text-center mb-lg">Bezoekadres</h3>
                             <div class="content">
                                 <p class="has-text-centered text-lg mb-lg">
-                                    <strong>Noorderbuurt 45</strong><br>
-                                    9203 AB Drachten
+                                    <strong>{{ config.contact.address.street }}</strong><br>
+                                    {{ config.contact.address.postalCode }} {{ config.contact.address.city }}
                                 </p>
-                                <div style="">
+                                <div>
                                     <div class="contact-info">
                                         <i class="fas fa-phone"></i>
-                                        <span>+31 (0)512 123 456</span>
+                                        <span>{{ config.contact.phone.primary.replace('+31 (0)', '0') }}</span>
                                     </div>
                                     <div class="contact-info">
                                         <i class="fas fa-envelope"></i>
-                                        <span>info@autoreparatieoploatie.nl</span>
+                                        <span>{{ config.contact.email.main }}</span>
                                     </div>
                                     <div class="contact-info">
                                         <i class="fas fa-globe"></i>
-                                        <span>www.autoservicepro.nl</span>
+                                        <span>{{ config.site.domain }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -601,27 +601,27 @@
                                 <tbody>
                                     <tr>
                                         <td class="day">Maandag</td>
-                                        <td>08:00 - 17:30</td>
+                                        <td>08:00 - 17:00</td>
                                     </tr>
                                     <tr>
                                         <td class="day">Dinsdag</td>
-                                        <td>08:00 - 17:30</td>
+                                        <td>08:00 - 17:00</td>
                                     </tr>
                                     <tr>
                                         <td class="day">Woensdag</td>
-                                        <td>08:00 - 17:30</td>
+                                        <td>08:00 - 17:00</td>
                                     </tr>
                                     <tr>
                                         <td class="day">Donderdag</td>
-                                        <td>08:00 - 17:30</td>
+                                        <td>08:00 - 17:00</td>
                                     </tr>
                                     <tr>
                                         <td class="day">Vrijdag</td>
-                                        <td>08:00 - 17:30</td>
+                                        <td>08:00 - 17:00</td>
                                     </tr>
                                     <tr>
                                         <td class="day">Zaterdag</td>
-                                        <td>Op afspraak</td>
+                                        <td>09:00 - 15:00</td>
                                     </tr>
                                     <tr>
                                         <td class="day">Zondag</td>
@@ -643,20 +643,20 @@
                                 <p class="mb-lg">
                                     Voor acute personeelstekorten kunt u ons direct een WhatsApp bericht sturen.
                                 </p>
-                                <a href="https://wa.me/31512123456" target="_blank" class="button whatsapp-btn is-medium is-fullwidth mb-lg">
+                                <a :href="'https://wa.me/' + config.contact.phone.whatsapp" target="_blank" class="button whatsapp-btn is-medium is-fullwidth mb-lg">
                                     <i class="fab fa-whatsapp"></i>
                                     <span class="ml-sm">WhatsApp Sturen</span>
                                 </a>
                                 
                                 <p class="has-text-weight-semibold mb-md">Volg ons ook op:</p>
                                 <div class="has-text-centered">
-                                    <a href="https://facebook.com/autoservicepro" target="_blank" rel="noopener noreferrer" class="contact-card-social facebook" aria-label="Facebook">
+                                    <a href="#" target="_blank" rel="noopener noreferrer" class="contact-card-social facebook" aria-label="Facebook">
                                         <i class="fab fa-facebook-f"></i>
                                     </a>
-                                    <a href="https://instagram.com/autoservicepro" target="_blank" rel="noopener noreferrer" class="contact-card-social instagram" aria-label="Instagram">
+                                    <a href="#" target="_blank" rel="noopener noreferrer" class="contact-card-social instagram" aria-label="Instagram">
                                         <i class="fab fa-instagram"></i>
                                     </a>
-                                    <a href="https://g.page/autoservicepro" target="_blank" rel="noopener noreferrer" class="contact-card-social google" aria-label="Google Business">
+                                    <a href="#" target="_blank" rel="noopener noreferrer" class="contact-card-social google" aria-label="Google Business">
                                         <i class="fab fa-google"></i>
                                     </a>
                                 </div>
@@ -677,12 +677,12 @@
                             <div>
                                 <i class="fas fa-map-marked-alt mb-md" style="font-size: 3rem; display: block;"></i>
                                 <strong>Google Maps wordt hier geïntegreerd</strong><br>
-                                <span style="font-size: 1rem;">Noorderbuurt 45, 9203 AB Drachten</span><br>
+                                <span style="font-size: 1rem;">{{ config.contact.address.street }}, {{ config.contact.address.postalCode }} {{ config.contact.address.city }}</span><br>
                                 <small>Klik hier om routebeschrijving te krijgen</small>
                             </div>
                         </div>
                         <div class="mt-lg">
-                            <p><strong>Ons werkgebied:</strong> Wij ondersteunen garages in Drachten en heel Friesland (tot 25km).</p>
+                            <p><strong>Ons werkgebied:</strong> Heel Friesland en omliggende provincies.</p>
                             <p><strong>Bezoek:</strong> Graag na afspraak voor persoonlijk contact over uw behoeften.</p>
                         </div>
                     </div>
@@ -736,7 +736,7 @@
                         <div class="footer-section">
                             <div class="footer-title">
                                 <i class="fas fa-wrench"></i>
-                                <span class="ml-sm">Autoreparatie Op Locatie</span>
+                                <span class="ml-sm">{{ config.company.name }}</span>
                             </div>
                             <p class="footer-description">
                                 Uw betrouwbare partner voor professionele autoservice. 
@@ -744,11 +744,11 @@
                             </p>
                             <div class="contact-info">
                                 <i class="fas fa-phone"></i>
-                                <span>+31 (0)512 123 456</span>
+                                <span>{{ config.contact.phone.primary.replace('+31 (0)', '0') }}</span>
                             </div>
                             <div class="contact-info">
                                 <i class="fas fa-envelope"></i>
-                                <span>info@autoreparatieoploatie.nl</span>
+                                <span>{{ config.contact.email.main }}</span>
                             </div>
                         </div>
                     </div>
@@ -757,16 +757,16 @@
                             <div class="footer-title">Contactgegevens</div>
                             <div class="contact-info">
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span>Noorderbuurt 45<br>9203 AB Drachten</span>
+                                <span>{{ config.contact.address.street }}<br>{{ config.contact.address.postalCode }} {{ config.contact.address.city }}</span>
                             </div>
                             <div class="mt-md">
                                 <p class="has-text-weight-semibold mb-sm" style="color: rgba(255,255,255,0.9);">
                                     Openingstijden:
                                 </p>
                                 <p class="text-sm" style="color: rgba(255,255,255,0.8); line-height: 1.4;">
-                                    Maandag - Vrijdag: 08:00 - 17:30<br>
-                                    Zaterdag: 09:00 - 16:00<br>
-                                    Zondag: Gesloten
+                                    Ma-Vr: {{ config.hours.weekdays }}<br>
+                                    Zaterdag: {{ config.hours.saturday }}<br>
+                                    Zondag: {{ config.hours.sunday }}
                                 </p>
                             </div>
                         </div>
@@ -797,7 +797,7 @@
                 <hr style="background-color: rgba(255,255,255,0.1); margin: var(--space-xl) 0 var(--space-md) 0;">
                 <div class="has-text-centered">
                     <p class="text-sm" style="color: rgba(255,255,255,0.7);">
-                        © 2024 Autoreparatie Op Locatie. Alle rechten voorbehouden.
+                        © 2024 {{ config.company.name }}. Alle rechten voorbehouden.
                     </p>
                 </div>
             </div>
@@ -807,6 +807,10 @@
     <!-- Vue.js 3 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     
+    <!-- Site Configuration -->
+    <script src="js/site-config.js"></script>
+    
+    
     <script>
         const { createApp } = Vue;
         
@@ -814,6 +818,7 @@
             data() {
                 return {
                     mobileMenuOpen: false,
+                    config: SiteConfig,
                     isSubmitting: false,
                     formSubmitted: false,
                     formError: false,

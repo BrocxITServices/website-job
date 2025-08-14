@@ -1,5 +1,5 @@
 /**
- * AutoService Pro - Cal.com Integration Module
+ * Autoreparatie Op Locatie - Cal.com Integration Module
  * Professional implementation following Cal.com official documentation
  * https://cal.com/docs/developing/guides/embeds/embed-events
  */

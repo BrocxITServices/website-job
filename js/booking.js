@@ -1,5 +1,5 @@
 /**
- * AutoService Pro - Booking System
+ * Autoreparatie Op Locatie - Booking System
  * Afspraak systeem logica en form wizard
  */
 

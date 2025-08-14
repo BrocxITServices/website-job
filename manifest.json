@@ -1,6 +1,6 @@
 {
-  "name": "AutoService Pro - Mobiele Automonteur Drachten & Friesland",
-  "short_name": "AutoService Pro",
+  "name": "Autoreparatie Op Locatie - Mobiele Automonteur Drachten & Friesland",
+  "short_name": "Autoreparatie Op Locatie",
   "description": "★ BESTE Mobiele Automonteur Drachten & Friesland ★ APK keuring bij u thuis ★ Service in Heerenveen, Gorredijk, Leeuwarden ★ BOVAG & RDW erkend ★ Binnen 30 min ter plaatse",
   "start_url": "/",
   "display": "standalone",
@@ -68,7 +68,7 @@
     {
       "name": "Contact Drachten",
       "short_name": "Contact",
-      "description": "Contact AutoService Pro Drachten voor mobiele autoservice",
+      "description": "Contact Autoreparatie Op Locatie Drachten voor mobiele autoservice",
       "url": "/contact.html",
       "icons": [
         {
@@ -80,7 +80,7 @@
     {
       "name": "Direct Bellen",
       "short_name": "Bellen",
-      "description": "Bel direct naar AutoService Pro: 0512-123-456",
+      "description": "Bel direct naar Autoreparatie Op Locatie: 0512-123-456",
       "url": "tel:+31512123456",
       "icons": [
         {

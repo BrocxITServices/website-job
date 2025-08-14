@@ -20,6 +20,9 @@
     <!-- Vue.js 3 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     
+    <!-- Site Configuration -->
+    <script src="js/site-config.js"></script>
+    
     <!-- Date Picker CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     
@@ -150,7 +153,7 @@
                 <a class="navbar-item" href="#home">
                     <i class="fas fa-wrench"></i>
                     <div class="ml-sm">
-                        <div class="has-text-weight-bold">Autoreparatie Op Locatie</div>
+                        <div class="has-text-weight-bold">{{ config.company.name }}</div>
                     </div>
                 </a>
                 
@@ -729,6 +732,7 @@
         createApp({
             data() {
                 return {
+                    config: SiteConfig,
                     currentStep: 1,
                     submitting: false,
                     bookingConfirmed: false,
@@ -1185,7 +1189,7 @@
     
     Heeft u vragen? Neem gerust contact met ons op:
     Telefoon: 0512-123456
-    Email: info@autoreparatieoploatie.nl
+    Email: info@autoreparatieoplocatie.nl
     
     Met vriendelijke groet,
     Het team van Autoreparatie Op Locatie

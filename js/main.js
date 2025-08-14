@@ -1,5 +1,5 @@
 /**
- * AutoService Pro - Main JavaScript
+ * Autoreparatie Op Locatie - Main JavaScript
  * Vue.js app initialisatie en algemene functionaliteiten
  */
 
