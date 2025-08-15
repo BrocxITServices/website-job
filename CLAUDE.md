@@ -17,16 +17,19 @@ Autoreparatie Op Locatie website - A responsive automotive service company websi
 
 ```
 /
-├── *.html              # Page files (index, diensten, over-ons, contact, boeken)
+├── *.html              # Page files (index, diensten, over-ons, contact)
 ├── css/                # Styling files
-│   ├── custom.css      # Custom styles and overrides
+│   ├── base.css        # Foundation styles and CSS variables
+│   ├── custom.css      # Project-specific styles
+│   ├── mobile.css      # Mobile-specific styles
 │   └── animations.css  # Animation definitions
 ├── js/                 # JavaScript functionality
-│   ├── main.js         # Core site functionality
-│   ├── booking.js      # Booking system logic
-│   ├── form-handler.js # Form validation and submission
-│   └── utils.js        # Utility functions
-└── images/            # Image assets
+│   ├── site-config.js  # Centralized business configuration
+│   ├── structured-data.js # Dynamic JSON-LD injection
+│   ├── cal-integration.js # Cal.com booking integration
+│   ├── main.js         # Legacy - cleaned up
+│   └── utils.js        # Shared utility functions
+└── images/            # Image assets and favicons
 ```
 
 ## Common Development Tasks
@@ -62,11 +65,13 @@ php -S localhost:8000
 - animations.css handles all animation definitions
 - Mobile-first responsive design approach
 
-### JavaScript Organization
-- main.js: Handles navigation menu toggle, smooth scrolling, and common interactions
-- booking.js: Manages the booking form logic and calendar functionality
-- form-handler.js: Validates and processes form submissions
-- utils.js: Shared utility functions used across the site
+### JavaScript Organization & Data Flow
+- **site-config.js**: Single source of truth for all business data (contact, hours, cities, etc.)
+- **structured-data.js**: Dynamically injects JSON-LD using SiteConfig data, replaces hardcoded schemas
+- **cal-integration.js**: Cal.com booking widget integration using config data
+- **main.js**: Legacy file, mostly cleaned up - handles basic interactions
+- **utils.js**: Shared utility functions
+- **Vue.js 3**: Used for reactive template binding ({{ config.company.name }}) and mobile menu state
 
 ### Performance Considerations
 - Static HTML files with minimal JavaScript for fast loading
@@ -74,36 +79,58 @@ php -S localhost:8000
 - Images should be optimized and use appropriate formats (WebP where supported)
 - Consider implementing lazy loading for images below the fold
 
-### SEO and Accessibility
-- Each page has unique meta descriptions and titles
-- Semantic HTML structure for better SEO and screen reader compatibility
-- Alt text required for all images
-- ARIA labels used where appropriate
+### SEO Architecture & Local Business Focus
+- **Business Model**: B2B monteur inhuur (mechanic staffing) for garages, NOT mobile repair
+- **Service Area**: 45km radius from Drachten covering Friesland & Groningen provinces
+- **Target Cities**: Drachten, Heerenveen, Gorredijk, Leeuwarden, Ureterp, Beetsterzwaag, Groningen, Leek
+- **Structured Data**: Dynamic JSON-LD injection via structured-data.js using Schema.org LocalBusiness/EmploymentAgency
+- **Geo Targeting**: Meta tags target both NL-FR (Friesland) and NL-GR (Groningen) regions
+- **Consistent Phone**: 085 060 1132 across all pages and schemas
 
-## Important Configuration Files
+## Critical Configuration Files
 
-- `manifest.json` & `site.webmanifest`: PWA configuration
-- `robots.txt`: Search engine crawling rules
-- `sitemap.xml`: Site structure for search engines
-- `browserconfig.xml`: Windows tile configuration for pinned sites
+- **js/site-config.js**: Central business configuration - UPDATE THIS FIRST for any business changes
+- **js/structured-data.js**: SEO schema manager - automatically uses SiteConfig data
+- **manifest.json**: PWA configuration with B2B focus and geographic targeting
+- **robots.txt** & **sitemap.xml**: Search engine optimization files
+- **browserconfig.xml**: Windows tile configuration
 
 ## Design System
 
 ### Colors
-- Primary: `#1e3a8a` (Dark Blue)
-- Accent: `#f97316` (Orange)
-- Text: `#374151` (Dark Gray)
+- Primary: `#1e3a8a` (Dark Blue) with light `#3b82f6` and dark `#1e40af` variants
+- Accent: `#eab308` (Racing Yellow) with comprehensive palette including hover states
+- Text: `#374151` (Dark Gray), `#6b7280` (Light), `#1f2937` (Dark)
 - Background: `#f8fafc` (Light Gray)
+- Semantic: Success `#10b981`, Error `#ef4444`, Warning `#f59e0b`, Info `#3b82f6`
 
 ### Typography
 - Headings: Bold, larger sizes
 - Body text: Regular weight, optimized for readability
 - Font stack includes system fonts for performance
 
+## Key Development Guidelines
+
+### Configuration Management
+- **ALWAYS update js/site-config.js first** for business changes (phone, cities, hours, etc.)
+- **NEVER hardcode business data** in HTML - use SiteConfig and Vue.js template binding
+- **Maintain 45km service radius** consistency across all content and meta tags
+
+### SEO Best Practices  
+- **Business focus**: B2B monteur inhuur for garages, avoid mobile repair messaging
+- **Geographic consistency**: Include both Friesland & Groningen in titles, descriptions, meta tags
+- **Phone number**: Always use 085 060 1132 - never use old numbers
+- **Service area**: Include all 8 cities from SiteConfig.service.cities
+
+### Code Quality
+- **Avoid code-rot**: Remove unused functions, CSS classes, and JavaScript files
+- **Component reuse**: Use Vue.js template binding for dynamic content
+- **Structured data**: Let structured-data.js handle JSON-LD injection automatically
+
 ## Deployment Notes
 
 - Ensure SSL certificate is configured
-- Set appropriate cache headers for static assets
+- Set appropriate cache headers for static assets  
 - Enable GZIP compression on the web server
-- Test contact forms with actual email configuration
+- Test Cal.com booking integration with real calendar
 - Submit sitemap.xml to search engines after deployment
