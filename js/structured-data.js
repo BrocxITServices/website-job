@@ -199,6 +199,7 @@ class StructuredDataManager {
             ],
             "knowsAbout": [
                 "Monteur inhuur Friesland",
+                "Monteur inhuur Groningen",
                 "Garage ondersteuning",
                 "Tijdelijke monteurs",
                 "Personeel tekort garage",
@@ -207,7 +208,10 @@ class StructuredDataManager {
                 "Flexibele arbeidskrachten",
                 "Garage personeel",
                 "Monteur detachering",
-                "Automotive recruitment"
+                "Automotive recruitment",
+                "B2B staffing solutions",
+                "Employment agency automotive",
+                "Garage workforce solutions"
             ],
             "serviceArea": {
                 "@type": "GeoCircle",
@@ -284,7 +288,7 @@ class StructuredDataManager {
                             }
                         },
                         "qualifications": "15+ jaar ervaring, RDW certificering, eigen gereedschap",
-                        "skills": ["Diagnose", "Reparatie", "Onderhoud", "APK keuring", "Elektronica"]
+                        "skills": ["Diagnose", "Reparatie", "Onderhoud", "Garage ondersteuning", "Elektronica", "Monteur detachering"]
                     }
                 ]
             }

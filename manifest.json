@@ -1,7 +1,7 @@
 {
-  "name": "Autoreparatie Op Locatie - Mobiele Automonteur Drachten & Friesland",
+  "name": "Autoreparatie Op Locatie - Monteur Inhuur Garages Friesland & Groningen",
   "short_name": "Autoreparatie Op Locatie",
-  "description": "★ BESTE Mobiele Automonteur Drachten & Friesland ★ APK keuring bij u thuis ★ Service in Heerenveen, Gorredijk, Leeuwarden ★ BOVAG & RDW erkend ★ Binnen 30 min ter plaatse",
+  "description": "★ Monteur Inhuur voor Garages ★ Tijdelijke monteurs Friesland & Groningen ★ Ziekte vervanging, vakantie ondersteuning ★ Direct inzetbaar ★ Ervaren monteurs",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
@@ -42,9 +42,9 @@
   ],
   "shortcuts": [
     {
-      "name": "APK Keuring Afspraak",
-      "short_name": "APK Boeken",
-      "description": "Maak snel een afspraak voor APK keuring in Drachten & Friesland",
+      "name": "Monteur Aanvragen",
+      "short_name": "Monteur",
+      "description": "Vraag snel een monteur aan voor uw garage in Friesland & Groningen",
       "url": "/boeken.html",
       "icons": [
         {
@@ -68,7 +68,7 @@
     {
       "name": "Contact Drachten",
       "short_name": "Contact",
-      "description": "Contact Autoreparatie Op Locatie Drachten voor mobiele autoservice",
+      "description": "Contact Autoreparatie Op Locatie Drachten voor monteur inhuur",
       "url": "/contact.html",
       "icons": [
         {
@@ -80,8 +80,8 @@
     {
       "name": "Direct Bellen",
       "short_name": "Bellen",
-      "description": "Bel direct naar Autoreparatie Op Locatie: 0512-123-456",
-      "url": "tel:+31512123456",
+      "description": "Bel direct naar Autoreparatie Op Locatie: 085 060 1132",
+      "url": "tel:+31850601132",
       "icons": [
         {
           "src": "/favicon-32x32.png",

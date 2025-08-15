@@ -12,8 +12,8 @@
 - Logo aanpassen
 - Contactformulier aanpassen/ook die voor het invullen bij het boeken, laten uitkomen in de info email box
 - ~~Kleuren aanpassen naar keuze 5 blauw geel~~
-- Oppoetsen
-- SEO aanpassingen met bereik vergroten en ook Grunn meenemen
+- ~~Oppoetsen~~
+- ~~SEO aanpassingen met bereik vergroten en ook Grunn meenemen~~
 - Outlook koppelen in Cal.com => Jeff contacteert Job over koppelen
 - Adres krijg ik nog van Job, of iig wat hij ermee wilt
 - Cloudflare fixen voor bot blocking sheit
