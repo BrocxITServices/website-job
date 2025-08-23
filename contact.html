@@ -22,6 +22,12 @@
     <meta name="service-area" content="45km radius van Drachten">
     <meta name="coverage" content="Drachten, Heerenveen, Gorredijk, Leeuwarden, Ureterp, Beetsterzwaag, Groningen, Leek">
     
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://app.cal.com">
+    <link rel="dns-prefetch" href="https://app.cal.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
     <!-- Open Graph -->
     <meta property="og:type" content="business.business">
     <meta property="og:title" content="Contact Autoreparatie Op Locatie - Monteur Inhuur voor Garages Friesland">
@@ -38,10 +44,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Base CSS -->
-    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/base.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/custom.min.css">
     
     <!-- Structured Data -->
     <script src="js/structured-data.js"></script>
@@ -402,6 +408,11 @@
                         </div>
                         <div class="column is-4 has-text-centered">
                             <i class="fas fa-headset opacity-20" style="font-size: 8rem;"></i>
+                            <!-- <img src="images/contact-monteur-inhuur-drachten-garage-ondersteuning.jpg" 
+                                 alt="Contact Autoreparatie Op Locatie monteur inhuur Drachten garage ondersteuning Friesland Groningen" 
+                                 class="image is-fullwidth" 
+                                 style="border-radius: var(--radius-lg); max-height: 300px; object-fit: cover;" 
+                                 loading="eager"> -->
                         </div>
                     </div>
                 </div>
@@ -1009,6 +1020,6 @@
     </script>
     
     <!-- Cal.com Integration -->
-    <script src="js/cal-integration.js"></script>
+    <script defer src="js/cal-integration.js"></script>
 </body>
 </html>

@@ -16,6 +16,12 @@
     <meta name="geo.placename" content="Drachten, Friesland & Groningen">
     <meta name="coverage" content="Drachten, Heerenveen, Gorredijk, Leeuwarden, Ureterp, Beetsterzwaag, Groningen, Leek">
     
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://app.cal.com">
+    <link rel="dns-prefetch" href="https://app.cal.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
     <!-- Bulma CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     
@@ -26,10 +32,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Base CSS -->
-    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/base.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/custom.min.css">
     
     <!-- Structured Data -->
     <script src="js/structured-data.js"></script>
@@ -266,6 +272,11 @@
                         <div class="bg-primary border-radius-lg flex-center" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); height: 400px;">
                             <i class="fas fa-history" style="font-size: 8rem; color: rgba(255,255,255,0.2);"></i>
                         </div>
+                        <!-- <img src="images/autoreparatie-op-locatie-bedrijfsverhaal-garage-specialist.jpg" 
+                             alt="Autoreparatie Op Locatie bedrijfsverhaal monteur inhuur specialist garage ondersteuning Drachten" 
+                             class="image is-fullwidth" 
+                             style="border-radius: var(--radius-lg); height: 400px; object-fit: cover;" 
+                             loading="lazy"> -->
                     </div>
                 </div>
             </div>
@@ -495,6 +506,11 @@
                         <div class="bg-primary border-radius-lg flex-center" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); height: 400px;">
                             <i class="fas fa-map-marked-alt" style="font-size: 8rem; color: rgba(255,255,255,0.2);"></i>
                         </div>
+                        <!-- <img src="images/werkgebied-friesland-groningen-monteur-ondersteuning.jpg" 
+                             alt="Werkgebied Friesland en Groningen flexibele monteurs voor garages Drachten Heerenveen Leek" 
+                             class="image is-fullwidth" 
+                             style="border-radius: var(--radius-lg); height: 400px; object-fit: cover;" 
+                             loading="lazy"> -->
                     </div>
                 </div>
             </div>
@@ -603,6 +619,6 @@
         }).mount('#app');
     </script>
     <!-- Cal.com Integration -->
-    <script src="js/cal-integration.js"></script>
+    <script defer src="js/cal-integration.js"></script>
 </body>
 </html>

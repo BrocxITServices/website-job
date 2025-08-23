@@ -17,6 +17,12 @@
     <meta name="geo.placename" content="Drachten, Friesland & Groningen">
     <meta name="coverage" content="Drachten, Heerenveen, Gorredijk, Leeuwarden, Ureterp, Beetsterzwaag, Groningen, Leek">
     
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://app.cal.com">
+    <link rel="dns-prefetch" href="https://app.cal.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
     <!-- Bulma CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     
@@ -27,10 +33,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Base CSS -->
-    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/base.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/custom.min.css">
     
     <!-- Structured Data -->
     <script src="js/structured-data.js"></script>
@@ -318,6 +324,11 @@
                         </div>
                         <div class="column is-4 has-text-centered">
                             <i class="fas fa-tools text-white opacity-20" style="font-size: 8rem;"></i>
+                            <!-- <img src="images/monteur-inhuur-diensten-garage-friesland.jpg" 
+                                 alt="Monteur inhuur diensten voor garages tijdelijke ondersteuning Friesland Groningen" 
+                                 class="image is-fullwidth" 
+                                 style="border-radius: var(--radius-lg); max-height: 300px; object-fit: cover;" 
+                                 loading="eager"> -->
                         </div>
                     </div>
                 </div>
@@ -552,7 +563,7 @@
     <!-- Structured data now handled by js/structured-data.js -->
     
     <!-- Cal.com Integration -->
-    <script src="js/cal-integration.js"></script>
+    <script defer src="js/cal-integration.js"></script>
     
     <script>
         const { createApp } = Vue;

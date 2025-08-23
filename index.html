@@ -103,10 +103,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     
     <!-- Base CSS -->
-    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/base.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/custom.min.css">
     
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -116,7 +116,10 @@
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
     
     <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://app.cal.com">
+    <link rel="dns-prefetch" href="https://app.cal.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
@@ -234,6 +237,11 @@
                         </div>
                         <div class="column is-6 has-text-centered">
                             <i class="fas fa-car text-white opacity-10" style="font-size: 12rem;"></i>
+                            <!-- <img src="images/monteur-inhuur-garage-friesland-groningen.jpg" 
+                                 alt="Ervaren monteur voor garage inhuur Friesland en Groningen flexibele personeel ondersteuning" 
+                                 class="image is-fullwidth" 
+                                 style="border-radius: var(--radius-lg); max-height: 400px; object-fit: cover;" 
+                                 loading="eager"> -->
                         </div>
                     </div>
                 </div>
@@ -350,6 +358,11 @@
                         <div class="bg-primary border-radius-lg flex-center" style="height: 400px;">
                             <i class="fas fa-users text-white opacity-20" style="font-size: 8rem;"></i>
                         </div>
+                        <!-- <img src="images/garage-ondersteuning-drachten-monteur-team.jpg" 
+                             alt="Flexibele monteur inhuurservice voor garages Drachten Heerenveen Groningen" 
+                             class="image is-fullwidth" 
+                             style="border-radius: var(--radius-lg); height: 400px; object-fit: cover;" 
+                             loading="lazy"> -->
                     </div>
                 </div>
             </div>
@@ -583,7 +596,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     
     <!-- Cal.com Integration -->
-    <script src="js/cal-integration.js"></script>
+    <script defer src="js/cal-integration.js"></script>
     
     <script>
         const { createApp } = Vue;
@@ -648,5 +661,6 @@
             initGoogleMyBusiness();
         });
     </script>
+    <script defer src="js/web-vitals-monitor.js"></script>
 </body>
 </html>
