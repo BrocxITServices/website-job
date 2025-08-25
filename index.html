@@ -169,19 +169,9 @@
     <!-- Site Configuration -->
     <script src="js/site-config.js"></script>
     
-    <!-- Structured Data -->
-    <script src="js/structured-data.js"></script>
+    <!-- Structured Data - Defer for better performance -->
+    <script defer src="js/structured-data.js"></script>
     
-    <script>
-      // Registreer Service Worker
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then(reg => console.log('ServiceWorker registered'))
-            .catch(err => console.error('ServiceWorker registration failed:', err));
-        });
-      }
-    </script>
 </head>
 <body>
     <div id="app">
@@ -596,14 +586,15 @@
         </footer>
     </div>
 
-    <!-- Vue.js 3 -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Vue.js 3 - Async loading for better TTI -->
+    <script async src="https://unpkg.com/vue@3/dist/vue.global.js" onload="initVueApp()"></script>
     
     <!-- Cal.com Integration -->
     <script defer src="js/cal-integration.js"></script>
     
     <script>
-        const { createApp } = Vue;
+        function initVueApp() {
+            const { createApp } = Vue;
         
         createApp({
             data() {
@@ -636,6 +627,12 @@
                 });
             }
         }).mount('#app');
+        }
+        
+        // Fallback for browsers that don't support async/onload
+        if (window.Vue) {
+            initVueApp();
+        }
     </script>
     
     <!-- Service Worker for Performance & Local SEO -->

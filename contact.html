@@ -26,7 +26,11 @@
     <link rel="preconnect" href="https://app.cal.com">
     <link rel="dns-prefetch" href="https://app.cal.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     
     <!-- Open Graph -->
     <meta property="og:type" content="business.business">
@@ -37,28 +41,29 @@
     <!-- Bulma CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Leaflet CSS for OpenStreetMap -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-          crossorigin=""/>
-    
     <!-- Base CSS -->
     <link rel="stylesheet" href="css/base.min.css">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.min.css">
     
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts with Fallback -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Leaflet CSS for OpenStreetMap -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    
     <!-- Load site config first (required by structured-data.js) -->
     <script src="js/site-config.js"></script>
     
-    <!-- Structured Data (depends on site-config.js) -->
-    <script src="js/structured-data.js"></script>
+    <!-- Structured Data (depends on site-config.js) - Defer for better performance -->
+    <script defer src="js/structured-data.js"></script>
     
     <style>
         /* ========================================================================
@@ -202,6 +207,20 @@
             border-radius: var(--radius-lg);
             border: 2px solid var(--border-color);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .map-loading {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+        
+        .map-loading i {
+            margin-right: 0.5rem;
+            animation: spin 1s linear infinite;
         }
         
         .leaflet-popup-content {
@@ -807,7 +826,12 @@
                 <div class="columns">
                     <div class="column is-12">
                         <h2 class="title is-3 text-primary mb-2xl">Locatie & Route</h2>
-                        <div id="contact-map"></div>
+                        <div id="contact-map">
+                            <div class="map-loading">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Kaart laden...
+                            </div>
+                        </div>
                         <div class="mt-lg">
                             <p><strong>Ons werkgebied:</strong> Friesland en Groningen (Drachten, Heerenveen, Gorredijk, Leeuwarden, Ureterp, Beetsterzwaag, Groningen, Leek).</p>
                             <p><strong>Bezoek:</strong> Graag na afspraak voor persoonlijk contact over uw behoeften.</p>
@@ -931,14 +955,14 @@
         </footer>
     </div>
 
-    <!-- Vue.js 3 -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Vue.js 3 - Async loading for better TTI -->
+    <script async src="https://unpkg.com/vue@3/dist/vue.global.js" onload="initVueApp()"></script>
     
     <!-- Site Configuration already loaded in head -->
     <!-- Structured data already handled by js/structured-data.js in head -->
     
-    
     <script>
+    function initVueApp() {
         const { createApp } = Vue;
         
         createApp({
@@ -1124,25 +1148,40 @@
                 });
             }
         }).mount('#app');
+    }
+    
+    // Fallback for browsers that don't support async/onload
+    if (window.Vue) {
+        initVueApp();
+    }
     </script>
     
-    <!-- Leaflet JS for OpenStreetMap -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    <!-- Leaflet JS for OpenStreetMap - Async loading for better performance -->
+    <script async src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin=""></script>
+            crossorigin="" onload="initLeafletMap()"></script>
     
     <!-- OpenStreetMap Integration -->
     <script>
-        // Initialize map after Vue app is mounted and DOM is ready
-        document.addEventListener('DOMContentLoaded', function() {
-            // Wait for Vue to mount and render
-            setTimeout(() => {
+        function initLeafletMap() {
+            // Initialize map immediately when Leaflet is loaded and DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', createMap);
+            } else {
+                createMap();
+            }
+        }
+        
+        function createMap() {
                 // Check if map container exists
                 const mapContainer = document.getElementById('contact-map');
                 if (!mapContainer) {
                     console.error('Map container not found');
                     return;
                 }
+                
+                // Clear loading state
+                mapContainer.innerHTML = '';
                 
                 // Get coordinates from config
                 const lat = SiteConfig.contact.coordinates.lat;
@@ -1202,9 +1241,12 @@
                 weight: 1,
                 dashArray: '5, 10'
             }).addTo(map).bindPopup('<strong>Werkgebied:</strong> 45km radius<br>Friesland & Groningen');
-            
-            }, 500); // Increased delay to ensure Vue has rendered
-        });
+        }
+        
+        // Fallback initialization if Leaflet is already loaded
+        if (window.L) {
+            initLeafletMap();
+        }
     </script>
     
     <!-- Cal.com Integration -->

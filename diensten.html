@@ -21,16 +21,14 @@
     <link rel="preconnect" href="https://app.cal.com">
     <link rel="dns-prefetch" href="https://app.cal.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//unpkg.com">
     
     <!-- Bulma CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Base CSS -->
     <link rel="stylesheet" href="css/base.min.css">
@@ -38,11 +36,18 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.min.css">
     
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts with Fallback -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    
     <!-- Load site config first (required by structured-data.js) -->
     <script src="js/site-config.js"></script>
     
-    <!-- Structured Data (depends on site-config.js) -->
-    <script src="js/structured-data.js"></script>
+    <!-- Structured Data (depends on site-config.js) - Defer for better performance -->
+    <script defer src="js/structured-data.js"></script>
     
     <style>
         /* Page-specific styles only - base styles are in base.css */
@@ -55,6 +60,21 @@
         
         #app {
             overflow-x: hidden;
+        }
+        
+        /* Skeleton loading optimization to prevent layout shifts */
+        .filter-controls, .service-detail-card {
+            min-height: fit-content;
+        }
+        
+        /* Prevent Vue.js template flash */
+        [v-cloak] {
+            display: none !important;
+        }
+        
+        /* Ensure content loads smoothly */
+        #services-grid {
+            min-height: 600px; /* Reserve space to prevent layout shift */
         }
         
         .filter-controls {
@@ -354,13 +374,13 @@
             <div class="container">
                 <h2 class="section-title">Monteur Inhuur Oplossingen voor Garages</h2>
                 
-                <!-- Loading State -->
-                <div id="services-loader" class="has-text-centered m-2xl">
+                <!-- Loading State - Skeleton Loader with proper dimensions -->
+                <div id="services-loader" class="has-text-centered m-2xl" style="display: none;">
                     <div class="loading-spinner"></div>
                     <p class="mt-md text-primary">Diensten laden...</p>
                 </div>
                 
-                <div class="filter-controls" style="display: none;">
+                <div class="filter-controls" v-cloak>
                     <div class="has-text-centered">
                         <h3 class="title is-5 mb-lg">Kies uw situatie:</h3>
                         <div class="buttons is-centered">
@@ -409,7 +429,7 @@
                 </div>
 
                 <!-- Services Grid -->
-                <div id="services-grid" class="columns is-multiline" style="display: none;">
+                <div id="services-grid" class="columns is-multiline" v-cloak>
                     <div 
                         v-for="service in filteredServices" 
                         :key="service.id"
@@ -568,8 +588,8 @@
         </footer>
     </div>
 
-    <!-- Vue.js 3 -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Vue.js 3 - Async loading for better TTI -->
+    <script async src="https://unpkg.com/vue@3/dist/vue.global.js" onload="initVueApp()"></script>
     
     <!-- Site Configuration already loaded in head -->
     <!-- Structured data already handled by js/structured-data.js in head -->
@@ -578,7 +598,8 @@
     <script defer src="js/cal-integration.js"></script>
     
     <script>
-        const { createApp } = Vue;
+        function initVueApp() {
+            const { createApp } = Vue;
         
         createApp({
             data() {
@@ -807,12 +828,7 @@
                 }
             },
             mounted() {
-                // Simulate loading delay and show services
-                setTimeout(() => {
-                    document.getElementById('services-loader').style.display = 'none';
-                    document.querySelector('.filter-controls').style.display = 'block';
-                    document.getElementById('services-grid').style.display = 'flex';
-                }, 1500);
+                // No artificial delay - immediate content display to prevent CLS
                 
                 // Smooth scrolling for anchor links
                 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -832,6 +848,12 @@
                 });
             }
         }).mount('#app');
+        }
+        
+        // Fallback for browsers that don't support async/onload
+        if (window.Vue) {
+            initVueApp();
+        }
     </script>
 </body>
 </html>
