@@ -31,7 +31,7 @@ const SiteConfig = {
         address: {
             street: "Weinterp 18",
             postalCode: "9241 HD",
-            city: "Wijnjewoude",
+            city: "Wijnjewoude (geen bezoekadres)",
             region: "Friesland"
         },
         coordinates: {
