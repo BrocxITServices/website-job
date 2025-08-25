@@ -178,6 +178,17 @@
     
     <!-- Structured Data -->
     <script src="js/structured-data.js"></script>
+    
+    <script>
+      // Registreer Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('ServiceWorker registered'))
+            .catch(err => console.error('ServiceWorker registration failed:', err));
+        });
+      }
+    </script>
 </head>
 <body>
     <div id="app">
@@ -661,6 +672,5 @@
             initGoogleMyBusiness();
         });
     </script>
-    <script defer src="js/web-vitals-monitor.js"></script>
 </body>
 </html>

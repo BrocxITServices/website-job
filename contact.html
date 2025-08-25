@@ -350,6 +350,17 @@
             }
         }
     </style>
+    
+    <script>
+      // Registreer Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('ServiceWorker registered'))
+            .catch(err => console.error('ServiceWorker registration failed:', err));
+        });
+      }
+    </script>
 </head>
 <body>
     <div id="app">
@@ -584,11 +595,12 @@
                             <div class="has-text-centered mb-lg">
                                 <i class="fas fa-map-marker-alt contact-icon"></i>
                             </div>
-                            <h3 class="title is-4 text-primary text-center mb-lg">Bezoekadres</h3>
+                            <h3 class="title is-4 text-primary text-center mb-lg">Adres</h3>
                             <div class="content">
                                 <p class="has-text-centered text-lg mb-lg">
                                     <strong>{{ config.contact.address.street }}</strong><br>
-                                    {{ config.contact.address.postalCode }} {{ config.contact.address.city }}
+                                    {{ config.contact.address.postalCode }} {{ config.contact.address.city }} <br>
+                                    <i>(Geen bezoekadres)</i>
                                 </p>
                                 <div>
                                     <div class="contact-info">
@@ -1021,5 +1033,6 @@
     
     <!-- Cal.com Integration -->
     <script defer src="js/cal-integration.js"></script>
+    
 </body>
 </html>

@@ -29,14 +29,14 @@ const SiteConfig = {
         },
         email: "info@autoreparatieoplocatie.nl",
         address: {
-            street: "Noorderbuurt 45",
-            postalCode: "9203 AB",
-            city: "Drachten",
+            street: "Weinterp 18",
+            postalCode: "9241 HD",
+            city: "Wijnjewoude",
             region: "Friesland"
         },
         coordinates: {
-            lat: 53.1133,
-            lng: 6.0980
+            lat: 53.0497,
+            lng: 6.1893
         }
     },
 
