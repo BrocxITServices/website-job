@@ -37,7 +37,10 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.min.css">
     
-    <!-- Structured Data -->
+    <!-- Load site config first (required by structured-data.js) -->
+    <script src="js/site-config.js"></script>
+    
+    <!-- Structured Data (depends on site-config.js) -->
     <script src="js/structured-data.js"></script>
     
     <style>
@@ -217,7 +220,7 @@
                     <a class="navbar-item" href="index.html">
                         <i class="fas fa-wrench"></i>
                         <div class="ml-sm">
-                            <div class="has-text-weight-bold">{{ config.company.name }}</div>
+                            <div class="has-text-weight-bold">Autoreparatie Op Locatie</div>
                         </div>
                     </a>
                     
@@ -606,10 +609,8 @@
     <!-- Vue.js 3 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     
-    <!-- Site Configuration -->
-    <script src="js/site-config.js"></script>
-    
-    <!-- Structured data now handled by js/structured-data.js -->
+    <!-- Site Configuration already loaded in head -->
+    <!-- Structured data already handled by js/structured-data.js in head -->
     
     
     <script>

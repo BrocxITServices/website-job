@@ -16,8 +16,8 @@
     <!-- Geo Tags -->
     <meta name="geo.region" content="NL-FR,NL-GR">
     <meta name="geo.placename" content="Drachten, Friesland & Groningen">
-    <meta name="geo.position" content="53.1133;6.0980">
-    <meta name="ICBM" content="53.1133, 6.0980">
+    <meta name="geo.position" content="53.0497;6.1893">
+    <meta name="ICBM" content="53.0497, 6.1893">
     <meta name="business-phone" content="+31850601132">
     <meta name="service-area" content="45km radius van Drachten">
     <meta name="coverage" content="Drachten, Heerenveen, Gorredijk, Leeuwarden, Ureterp, Beetsterzwaag, Groningen, Leek">
@@ -54,7 +54,10 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.min.css">
     
-    <!-- Structured Data -->
+    <!-- Load site config first (required by structured-data.js) -->
+    <script src="js/site-config.js"></script>
+    
+    <!-- Structured Data (depends on site-config.js) -->
     <script src="js/structured-data.js"></script>
     
     <style>
@@ -232,6 +235,65 @@
             background: var(--primary-dark);
         }
         
+        /* TEMPORARY - Remove these styles to activate the form */
+        .form-disabled-wrapper {
+            position: relative;
+        }
+        
+        .form-disabled-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(248, 250, 252, 0.95);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-lg);
+        }
+        
+        .form-disabled-message {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            max-width: 400px;
+        }
+        
+        .form-disabled-message i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .form-disabled-message h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-disabled-message p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        
+        .form-disabled-message .button {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .form-disabled-content {
+            filter: blur(3px);
+            opacity: 0.5;
+            pointer-events: none;
+            user-select: none;
+        }
+        /* END TEMPORARY STYLES */
+        
         .success-message {
             background-color: var(--success-color);
             color: white;
@@ -395,7 +457,7 @@
                     <a class="navbar-item" href="index.html">
                         <i class="fas fa-wrench"></i>
                         <div class="ml-sm">
-                            <div class="has-text-weight-bold">{{ config.company.name }}</div>
+                            <div class="has-text-weight-bold">Autoreparatie Op Locatie</div>
                         </div>
                     </a>
                     
@@ -460,7 +522,23 @@
                 <h2 class="section-title">Monteur Aanvragen - Snelle Reactie</h2>
                 <div class="columns">
                     <div class="column is-8 is-offset-2">
-                        <div class="form-card">
+                        <!-- TEMPORARY: Remove form-disabled-wrapper class and its contents to activate form -->
+                        <div class="form-card form-disabled-wrapper">
+                            <!-- TEMPORARY OVERLAY - Remove this entire div to activate form -->
+                            <div class="form-disabled-overlay">
+                                <div class="form-disabled-message">
+                                    <i class="fas fa-tools"></i>
+                                    <h3>Contactformulier in onderhoud</h3>
+                                    <p>Het contactformulier wordt later geactiveerd</p>
+                                    <a :href="'tel:' + config.contact.phone.primary.href" class="button is-primary">
+                                        <i class="fas fa-phone"></i>&nbsp;&nbsp;Bel direct: {{ config.contact.phone.primary.text }}
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- END TEMPORARY OVERLAY -->
+                            
+                            <!-- Add form-disabled-content class to disable form - remove class to activate -->
+                            <div class="form-disabled-content">
                             <!-- Success Message -->
                             <div v-if="formSubmitted && !formError" class="success-message fade-in">
                                 <i class="fas fa-check-circle"></i>
@@ -479,7 +557,8 @@
                                 </div>
                             </div>
                             
-                            <form @submit.prevent="submitForm" v-if="!formSubmitted || formError">
+                            <!-- Form is disabled - remove @submit.prevent and add back @submit.prevent="submitForm" to activate -->
+                            <form @submit.prevent v-if="!formSubmitted || formError">
                                 <div class="columns">
                                     <div class="column is-6">
                                         <div class="field">
@@ -586,10 +665,11 @@
                                 
                                 <div class="field">
                                     <div class="control">
+                                        <!-- Button is disabled - remove disabled="true" to activate -->
                                         <button 
                                             type="submit" 
                                             class="button btn-primary is-large is-fullwidth"
-                                            :disabled="isSubmitting || !isFormValid"
+                                            disabled="true"
                                             :class="{'is-loading': isSubmitting}"
                                         >
                                             <i class="fas fa-paper-plane" v-if="!isSubmitting"></i>
@@ -602,6 +682,7 @@
                                     Velden met een * zijn verplicht. Wij nemen spoedig contact met u op.
                                 </p>
                             </form>
+                            </div> <!-- End form-disabled-content -->
                         </div>
                     </div>
                 </div>
@@ -853,10 +934,8 @@
     <!-- Vue.js 3 -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     
-    <!-- Site Configuration -->
-    <script src="js/site-config.js"></script>
-    
-    <!-- Structured data now handled by js/structured-data.js -->
+    <!-- Site Configuration already loaded in head -->
+    <!-- Structured data already handled by js/structured-data.js in head -->
     
     
     <script>
@@ -1054,16 +1133,25 @@
     
     <!-- OpenStreetMap Integration -->
     <script>
-        // Initialize map after Vue app is mounted
-        setTimeout(() => {
-            // Get coordinates from config
-            const lat = SiteConfig.contact.coordinates.lat;
-            const lng = SiteConfig.contact.coordinates.lng;
-            const address = SiteConfig.contact.address;
-            const phone = SiteConfig.contact.phone.primary;
-            
-            // Initialize the map
-            const map = L.map('contact-map').setView([lat, lng], 14);
+        // Initialize map after Vue app is mounted and DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for Vue to mount and render
+            setTimeout(() => {
+                // Check if map container exists
+                const mapContainer = document.getElementById('contact-map');
+                if (!mapContainer) {
+                    console.error('Map container not found');
+                    return;
+                }
+                
+                // Get coordinates from config
+                const lat = SiteConfig.contact.coordinates.lat;
+                const lng = SiteConfig.contact.coordinates.lng;
+                const address = SiteConfig.contact.address;
+                const phone = SiteConfig.contact.phone.primary;
+                
+                // Initialize the map
+                const map = L.map('contact-map').setView([lat, lng], 14);
             
             // Add OpenStreetMap tile layer
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -1115,7 +1203,8 @@
                 dashArray: '5, 10'
             }).addTo(map).bindPopup('<strong>Werkgebied:</strong> 45km radius<br>Friesland & Groningen');
             
-        }, 100);
+            }, 500); // Increased delay to ensure Vue has rendered
+        });
     </script>
     
     <!-- Cal.com Integration -->
